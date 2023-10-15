@@ -7,8 +7,9 @@
 </head>
 <body>
     <?php
+
     $paises = array("España", "Francia", "Alemania", "Inglaterra", "EEUU", "Italia");
-    ?>
+     ?>
     <form id="paquete" action="comprobar.php" method="POST">
         <label>Usuario *</label>
         <input type="text" name="usuario" id="usuario" placeholder="usuario" value="<?php if (isset($_POST["usuario"])) { echo $_POST["usuario"]; } ?>">
