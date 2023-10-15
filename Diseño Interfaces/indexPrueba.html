@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página con Desplazamiento Automático</title>
-    
+    <title>Página de Prueba</title>
     <style>
         body {
             margin: 0;
@@ -15,41 +14,22 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
-            background-image: url("https://images5.alphacoders.com/985/985798.png");
         }
         #container {
             text-align: center;
-            background-color: #f0f0f0b7;
+            background-color: #f0f0f08f;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-        }
-        #containerGrande{
-            
         }
     </style>
 </head>
 <body>
-
-    <!-- <div id="containerGrande1"></div> -->
     <div id="container">
         <h1>Mi Página Web</h1>
         <p>Texto sobre la imagen.</p>
-        <br>
-        <img src="https://media.tenor.com/sZCWPQe5i-8AAAAd/mochi-cat.gif" style="width: 10%; height: 10%;  display: center;" alt="Imagen">
-        <br>
+        <img src="tu_imagen.jpg" alt="Imagen">
         <button id="scrollButton">Desplazarse hacia abajo</button>
     </div>
-
-    <div id="containerGrande1">
-        <h1> Welcome!! </h1>
-        <br>
-        <div id="containerPrincipal">
-            <a href="pagina_externa_1.html" class="image-link"><img src="imagen1.jpg" alt="Imagen 1"></a>
-            <a href="pagina_externa_2.html" class="image-link"><img src="imagen2.jpg" alt="Imagen 2"></a>
-            <a href="pagina_externa_3.html" class="image-link"><img src="imagen3.jpg" alt="Imagen 3"></a>
-        </div>
-    </div>
-
     <script>
         document.getElementById('scrollButton').addEventListener('click', function() {
             window.scrollTo({
