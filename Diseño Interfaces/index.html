@@ -13,42 +13,71 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-image: url("https://images5.alphacoders.com/985/985798.png");
             height: 100vh;
             overflow: hidden;
-            background-image: url("https://images5.alphacoders.com/985/985798.png");
+            overflow-y: scroll;
         }
+
         #container {
             text-align: center;
             background-color: #f0f0f0b7;
             padding: 20px;
+            align-items: center;
+            border-radius: 10%;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom:100px;
+            margin-top: 45%;
+            margin-left: 35%;
+            margin-right: 35%;
         }
-        #containerGrande{
-            
+
+        #containerGlobal{
+
         }
+
+        #containerGrande1{
+            display: block;
+            align-items:flex-end;
+            justify-content: space-between;
+            text-align: center;
+            background-color: #f0f0f0b7;
+            padding: 20px;
+            border-radius: 10%;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 25%;
+            margin-left: 8%;
+            margin-right: 8%;
+        }
+
+
     </style>
 </head>
 <body>
 
-    <!-- <div id="containerGrande1"></div> -->
+<div id="containerGlobal">
+
     <div id="container">
         <h1>Mi Página Web</h1>
-        <p>Texto sobre la imagen.</p>
+        <p>Hola wenas este es un ejemplo.</p>
         <br>
-        <img src="https://media.tenor.com/sZCWPQe5i-8AAAAd/mochi-cat.gif" style="width: 10%; height: 10%;  display: center;" alt="Imagen">
+        <img src="https://media.tenor.com/sZCWPQe5i-8AAAAd/mochi-cat.gif" style="width: 45%; height: 45%;  display: center;" alt="Imagen">
         <br>
         <button id="scrollButton">Desplazarse hacia abajo</button>
     </div>
 
-    <div id="containerGrande1">
+    <div  id="containerGrande1" class="w3-padding w3-display-bottommiddle">
         <h1> Welcome!! </h1>
         <br>
-        <div id="containerPrincipal">
-            <a href="pagina_externa_1.html" class="image-link"><img src="imagen1.jpg" alt="Imagen 1"></a>
-            <a href="pagina_externa_2.html" class="image-link"><img src="imagen2.jpg" alt="Imagen 2"></a>
-            <a href="pagina_externa_3.html" class="image-link"><img src="imagen3.jpg" alt="Imagen 3"></a>
+        <br>
+        <div>
+            <a href="tipo1.html" class="image-link"><img src="cat1.jpg" style="width: 10%; height: 10%;  display: center;" alt="Imagen 1"></a>
+            <a href="tipo2.html" class="image-link"><img src="cat2.jpg" style="width: 10%; height: 10%;  display: center;" alt="Imagen 2"></a>
+            <a href="tipo3.html" class="image-link"><img src="cat3.jpg" style="width: 10%; height: 10%;  display: center;" alt="Imagen 3"></a>
+            <a href="tipo4.html" class="image-link"><img src="meme1.jpg"  style="width: 10%; height: 10%;  display: center;" alt="Imagen 4"></a>
         </div>
     </div>
+</div>
 
     <script>
         document.getElementById('scrollButton').addEventListener('click', function() {
