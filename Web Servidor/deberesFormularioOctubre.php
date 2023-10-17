@@ -11,7 +11,7 @@
     $hobbies = array("Cantar", "Bailar", "Dibujar", "Netflix", "Hacer Deporte", "Jugar videojuegos","Nada");
     ?>
 
-    <h1> ¡Bienvenido a tu Formulario </h1>
+    <h1> ¡Bienvenido a tu Formulario! </h1>
     <br>
     <form id="paquete" action="comprobar.php" method="POST">
             <label>Nombre</label>
@@ -40,14 +40,14 @@
                 <?php } ?>
             </select>
             <?php
-            foreach ($titulos as $titulo) {
+        /*    foreach ($titulos as $titulo) {
                 echo "<input type='radio' name='titulo' value='$titulo'>$titulo";
             }
 
             foreach ($hobbies as $hobbie) {
                 echo "<input type='radio' name='hobbie' value='$hobbie'>$hobbie";
             }
-            
+            */
             ?>
             <br>
             <input type="submit" value="Enviar">
