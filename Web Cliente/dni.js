@@ -5,7 +5,7 @@
 let formulario=document.getElementById("formulario");
 
 formulario.addEventListener("submit", function(event){
-    event.preventDefault();
+    event.preventDefault(); // quita la funcion predeterminada del submit para que tu le digas que ahcer despues
 
     var nombre=document.getElementById("nombre").value;
     var apellidos=document.getElementById("apellidos").value;
@@ -18,14 +18,14 @@ formulario.addEventListener("submit", function(event){
     
     var dniSinLetra= dni.slice(0,(dni.length-1));
     console.log(dniSinLetra);
+
+    function calcularLetra(dniSinLetra) {
+        let resto = dniSinLetra%23;
+        return letras[resto];
+    }
+    
 });
 
-function calcularLetra(dniSinLetra) {
-    var letras = ['T','R','W','A','G','M','Y','F','P','D','X','B','N','J','Z','S','Q','V','H','L','C','K','E','T'];
-   
-    let resto = dniSinLetra%23;
-    return letras[resto];
-}
 
 
 
