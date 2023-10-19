@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body style="background-color: rgb(223, 194, 250);">
+
+    <h6 style="display:flex; justify-content: center;"> No me furula</h6>
+
+    <div style="display:flex; justify-content: center;">
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        
+        <button type="button" class="btn btn-link">Link</button>
+    </div>
+    &nbsp;
+    &nbsp;
+
+    <div style="display:flex; align-content: center; justify-content: center; background-color: rgba(240, 248, 255, 0.678); width: 50%; ">
+        
+<!-- La casilla donde escribir y el boton en un formulario
+     El formulario tiene que tener un id="tareaForm" 
+     input text id="nuevaTarea"
+     button submit -->
+     
+    <form id="tareaForm" class='fw-bolder'>
+        <h1>Lista de Tareas</h1>
+    <div style="display: inline-flex;">
+    
+        <input id="nuevaTarea" type="text" class="form-control">
+        <button type="submit" value="agregar" class="btn btn-dark" >Agregar</button>
+        
+
+    </div>
+    </form>
+
+    <ul id="listaTareas" >
+        
+    </ul>
+ </div>
+   
+
+
+
+
+
+
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
