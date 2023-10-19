@@ -12,7 +12,12 @@ tareaForm.addEventListener("submit",function(event){
     event.preventDefault(); // antes de enviar los datos, esta funcion los analiza
 
     var tareaTexto=nuevaTarea.value.trim();
-    agregarTarea(tareaTexto);
+    
+
+    if(tareaTexto!=""){
+        agregarTarea(tareaTexto);
+    }
+
 });
 
 function agregarTarea(texto){
@@ -23,4 +28,15 @@ function agregarTarea(texto){
     <button class="btn btn-success btn-sm float-rigth" onclick="modificarTarea(this)">Modificar</button></bn>`;
 
     listaTareas.appendChild(tareaItem); // sirve para añadir todo el texto que se ha hecho
+}
+
+function eliminarTarea(boton){
+    var tareaItem = boton.parentElement;
+    tareaItem.remove();
+}
+
+function modificarTarea(boton){
+    var tareaItem = boton.parentElement;
+    var tareaModificada=prompt("modifica la tarea:",tareaItem);
+    tareaModificada.add();
 }
