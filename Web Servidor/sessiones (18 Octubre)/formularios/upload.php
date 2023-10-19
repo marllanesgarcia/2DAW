@@ -31,7 +31,7 @@ if(in_array($fileExtension, $allowedFileExtensions )&& $fileSize < $max_file_siz
     $uploadFileDir = "./upload_files/";  // carpeta donde se van a guardar los archivos
     $destino_path = $uploadFileDir . $newFileName; // carpeta màs el nombre del archivo
 
-    if(move_uploaded_file($fileTemPath, $destino_path)){
+    if(move_uploaded_file($fileTemPath, $destino_path)){  // mueve el archivo desde su carpeta temporal a otra del pc
         header ( "location: inicio_formulario.php");
     }
 
