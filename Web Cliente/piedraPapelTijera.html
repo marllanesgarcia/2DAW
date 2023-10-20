@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Juego de Piedra, Papel o Tijeras con Bootstrap</title>
+    
+    <!--enlaza el css de bootstrap-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+</head>
+<body >
+    <div class="container text-center mt-5">
+        <h1>Juego de Piedra, Papel o Tijeras</h1>
+    <table class="table">
+        <tr>
+        <td class="text-center">
+        <!--carga la imagen correspondiente-->
+        <img src="piedra.png" width="90px">
+        </td>
+        <td class="text-center">
+        <!--carga la imagen correspondiente-->
+        <img src="papel.png" width="90px">
+        </td>
+        <td class="text-center">
+        <!--carga la imagen correspondiente-->
+        <img src="tijeras.png"  width="90px">
+        </td>
+        </tr>
+    
+        <tr>
+        <td class="text-center" >
+        <button class="btn btn-primary" onclick="jugar('piedra')">Piedra</button>
+        <!--Completa los botones con lo necesario para que sea interactivos-->
+        </td>
+        <td class="text-center">
+        <button class="btn btn-primary" onclick="jugar('papel')">Papel</button>
+        <!--Completa los botones con lo necesario para que sea interactivos-->
+        </td>
+        <td class="text-center">
+        <button class="btn btn-primary" onclick="jugar('tijeras')">Tijeras</button>
+        <!--Completa los botones con lo necesario para que sea interactivos-->
+        </td>    
+    </tr>
+    </table>
+        <!--Aqui debemos insertar las imagenes del resultado de la elección de la máquina y el jugador-->
+        <div id="ganador">
+        <!--Aqui ponemos si se gana, o si se pierde-->
+        </div>
+        </div>
+
+<!--enlaza tu script y el de bootstrap-->
+<script type="text/javascript" src="PPT.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

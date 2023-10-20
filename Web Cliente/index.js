@@ -36,7 +36,16 @@ function eliminarTarea(boton){
 }
 
 function modificarTarea(boton){
-    var tareaItem = boton.parentElement;
-    var tareaModificada=prompt("modifica la tarea:",tareaItem);
-    tareaModificada.add();
+   var tareaItem = boton.parentElement;
+    /*  var tareaModificada=prompt("modifica la tarea:",tareaItem);
+    var nuevaTarea=tareaModificada;
+    nuevaTarea.innerHTML;
+ */
+
+    var tareaTexto = tareaItem.querySelector("span").textContent;
+    var nuevoTexto= prompt("modifica la tarea:", tareaTexto);
+
+    if(nuevoTexto !==null && nuevoTexto !== ""){   // se pone por si acaso
+        tareaItem.querySelector("span").textContent = nuevoTexto;
+    }
 }
