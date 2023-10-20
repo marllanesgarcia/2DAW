@@ -14,4 +14,6 @@ if($conexion -> connect_errno){  // registra el codigo de error que hubo
 
 $conexion -> close();
 
+// jason es como se comunican el php y el javascript
+
 ?>
