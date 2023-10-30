@@ -1,0 +1,78 @@
+h1{
+    display: flex;
+    justify-content: center ;
+}
+
+body{
+    background-color: rgb(248, 196, 255);
+}
+
+.grande{
+    display:flex;
+    justify-content: flex-start;
+}
+
+
+@media screen and(max-width: 480px){
+
+    div{
+              
+    
+    }
+}
+
+/* 
+primer ejercicio
+p{
+    color:black;
+    size: 30%;
+    display: flex;
+    justify-content: center ;
+}
+
+@media screen and (max-width: 900px) {
+    p {
+        font-size: 20px;
+        color: rgb(91, 29, 207);
+    }
+} */
+
+/* 
+Segundo ejercicio
+
+.primera{
+    
+    background-color: blueviolet;
+    color: white;
+}
+.segunda{
+
+    background-color: blue;
+    color: white;
+}
+.grande{
+    display: flex;
+    justify-content:space-around;
+}
+
+@media screen and(max-width: 480px){
+    .grande{
+        display: flex;
+        flex-direction: column;
+    }
+
+} 
+
+.grande{
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(44, 247, 247, 0.486);
+}
+
+@media screen and(min-width:768px){
+    .grande{
+        display: flex;
+        flex-direction: column;
+    }
+}*/
+
