@@ -7,31 +7,47 @@ var correo=document.getElementById("correo");
 var formulario=document.getElementById("Formulario");
 
 document.addEventListener("DOMContentLoaded",function(event){
-    /* event.preventDefault();
-    console.log(nombre+""+apellido1+""+apellido2+" con edad de "+edad+" y tiene de correo "+correo);
-    nombre.focus();
-    nombre.addEventListener("blur",function(){validarNombre(nombre,"errorNombre")});
-    console.log(nombre);
-    apellido1.addEventListener("blur",function(){validarNombre(apellido1,"errorApellido1")} );
-    console.log(apellido1);
-    apellido2.addEventListener("blur",function(){validarNombre(apellido2,"errorApellido2")} ); 
-    console.log(apellido2); */
+    /* 
+    nombre.addEventListener("blur", function() {
+    validarNombre(nombre, "errorNombre");
+    });
+    apellido1.addEventListener("blur", function() {
+        validarNombre(apellido1, "errorApellido1");
+    });
+    apellido2.addEventListener("blur", function() {
+        validarNombre(apellido2, "errorApellido2");
+    });
+    correo.addEventListener("blur", function() {
+        validarCorreo(correo, "errorCorreo");
+    });
+    */
     correo.addEventListener("blur",function(){validarCorreo()}); 
     console.log(correo);
 })
 
 function validarCorreo(){
     let error = document.getElementById("errorCorreo");
-
-    var patron=/a-zA-Z0-9{3,20}$/+"@"+/a-zA-Z0-9{3,20}$/+"."+/a-zA-Z{3}$/
+    
+    var patron = /^[a-zA-Z0-9]{3,20}@[a-zA-Z0-9]{3,20}\.[a-zA-Z]{2}$/;
+    
+    // var patron=/a-zA-Z0-9{3,20}$/+"@"+/a-zA-Z0-9{3,20}$/+"."+/a-zA-Z{3}$/;
     console.log(correo.value);
     if (!patron.test(correo.value)){
-        error.innerHTML("Esta mal, tienes que poner un valor que sea valido");
+        error.innerHTML= "Esta mal, tienes que poner un valor que sea valido";
     }else{
-        error.innerHTML("Es correcto");
+        error.innerHTML= "Es correcto";
     }
+}
+
+function validarEdad(){
+    let error = document.getElementById("errorEdad");
+    
+    var patron = /^([1-9][]){2}.[1-12]{2}\.[]{4}$/
+    
+
 
 }
+
 
 function validarNombre(){
     let error = document.getElementById("errorNombre");
