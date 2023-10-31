@@ -10,7 +10,7 @@
    
     <body>
         <div class="container mt-5">
-            <form>
+            <form id="Formulario">
                 <div class="form-group">
                     <label for="nombre">Nombre:</label>
                     <input type="text" class="form-control" id="nombre">
@@ -35,10 +35,18 @@
                     <span id="errorEdad"></span>
                 </div>
                 <br/>
+                <div class="form-group">
+                    <label for="correo">Correo:</label>
+                    <input type="text" class="form-control" id="correo">
+                    <span id="errorCorreo"></span>
+                </div>
+                <br/>
             </form>
+
+            <!-- <button type="submit" value="guardar" class="btn btn-dark" >Guardar</button> -->
         </div>
 
-
+        <script type="text/javascript" src="datos.js"></script>
 
     </body>
 
