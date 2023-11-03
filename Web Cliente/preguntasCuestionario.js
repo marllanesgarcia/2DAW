@@ -7,6 +7,8 @@ var preguntaActual = 0;
 var texto=document.getElementById("texto");
 var tiempoRestante = 0;
 var intervalID = null;
+let contador= 30;
+
 
 var preguntas = [
     { //1
@@ -51,29 +53,6 @@ var respuestas = [{respuesta: "tigre"},{respuesta:"15 años"},{respuesta: "gato 
             [respuestas[x], respuestas[i]] = [respuestas[i], respuestas[x]];
         }
     }
-    
-    // esto pa los segundos
-
-function iniciarContador(segundos) {
-  tiempoRestante = segundos;
-  actualizarContador();
-  intervalID = setInterval(function() {
-      tiempoRestante--;
-      if (tiempoRestante <= 0) {
-          clearInterval(intervalID);
-          alert("Se acabó el tiempo. Continúa con la siguiente pregunta.");
-          preguntaActual++;
-          mostrarPregunta();
-      } else {
-          actualizarContador();
-      }
-  }, 1000);
-}
-
-function actualizarContador() {
-  var contadorElement = document.getElementById("contador");
-  contadorElement.textContent = "Tiempo que te queda: " + tiempoRestante + " segundos";
-}
 
 
 function mostrarPregunta() {
@@ -89,8 +68,9 @@ function mostrarPregunta() {
         }
     }
 }
-    
-function verificarRespuesta() {
+
+
+ function verificarRespuesta() {
     var respuestaUsuario = respuesta.value;
     if (respuestaUsuario.toLowerCase() === respuestas[preguntaActual].respuesta.toLowerCase()) {
         contador++;
