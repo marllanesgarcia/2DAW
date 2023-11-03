@@ -52,20 +52,43 @@ var respuestas = [{respuesta: "tigre"},{respuesta:"15 años"},{respuesta: "gato 
         }
     }
     
-    function mostrarPregunta() {
-      if (preguntaActual < preguntas.length) {
-         //   iniciarContador(30);
-            p.textContent = preguntas[preguntaActual].p;
-            texto.value = "";
+    // esto pa los segundos
+
+function iniciarContador(segundos) {
+  tiempoRestante = segundos;
+  actualizarContador();
+  intervalID = setInterval(function() {
+      tiempoRestante--;
+      if (tiempoRestante <= 0) {
+          clearInterval(intervalID);
+          alert("Se acabó el tiempo. Continúa con la siguiente pregunta.");
+          preguntaActual++;
+          mostrarPregunta();
+      } else {
+          actualizarContador();
+      }
+  }, 1000);
+}
+
+function actualizarContador() {
+  var contadorElement = document.getElementById("contador");
+  contadorElement.textContent = "Tiempo que te queda: " + tiempoRestante + " segundos";
+}
+
+
+function mostrarPregunta() {
+  if (preguntaActual < preguntas.length) {
+        p.textContent = preguntas[preguntaActual].p;
+        texto.value = "";
+    } else {
+        if (contador >= 5) {
+            alert( "¡GANASTE SUUUUUUUUUUUU!");
         } else {
-            if (contador >= 5) {
-                alert( "¡GANASTE SUUUUUUUUUUUU!");
-            } else {
-                alert("Nah, perdiste");
-                location.reload();
-            }
+            alert("Nah, perdiste");
+            location.reload();
         }
     }
+}
     
 function verificarRespuesta() {
     var respuestaUsuario = respuesta.value;
@@ -86,25 +109,4 @@ function verificarRespuesta() {
         respuesta.value="";
     });
 
-// esto pa los segundos
 
-/* function iniciarContador(segundos) {
-    tiempoRestante = segundos;
-    actualizarContador();
-    intervalID = setInterval(function() {
-        tiempoRestante--;
-        if (tiempoRestante <= 0) {
-            clearInterval(intervalID);
-            alert("Se acabó el tiempo. Continúa con la siguiente pregunta.");
-            preguntaActual++;
-            mostrarPregunta();
-        } else {
-            actualizarContador();
-        }
-    }, 1000)
-}
-
-function actualizarContador() {
-    var contadorElement = document.getElementById("contador");
-    contadorElement.textContent = "Tiempo que te queda: " + tiempoRestante + " segundos";
-} */
