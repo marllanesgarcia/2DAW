@@ -54,7 +54,6 @@ var respuestas = [{respuesta: "tigre"},{respuesta:"15 años"},{respuesta: "gato 
         }
     }
 
-
 function mostrarPregunta() {
   if (preguntaActual < preguntas.length) {
         p.textContent = preguntas[preguntaActual].p;
@@ -69,8 +68,7 @@ function mostrarPregunta() {
     }
 }
 
-
- function verificarRespuesta() {
+function verificarRespuesta() {
     var respuestaUsuario = respuesta.value;
     if (respuestaUsuario.toLowerCase() === respuestas[preguntaActual].respuesta.toLowerCase()) {
         contador++;
