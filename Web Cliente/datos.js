@@ -6,6 +6,7 @@ var edad=document.getElementById("edad");
 var correo=document.getElementById("correo");
 var formulario=document.getElementById("Formulario");
 
+
 document.addEventListener("DOMContentLoaded",function(event){
     /* 
     nombre.addEventListener("blur", function() {

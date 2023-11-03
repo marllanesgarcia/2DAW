@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" 
+    crossorigin="anonymous">
+    <title>Reserva tu cita</title>
+</head>
+<body style="display: flex; justify-content: center; background-image: url(https://static.vecteezy.com/system/resources/previews/010/619/471/non_2x/abstract-blurred-background-soft-cloud-or-rainbow-background-in-colorful-pastel-gradient-colors-for-wallpaper-banners-cover-poster-and-other-design-vector.jpg);">
+
+<!-- 
+    Crea un formulario que permita los usuario realizar una reserva para una cita.
+    El formulario debe contener campos para ingresar el nombre, la fecha de la cita y
+    la hora de la cita.
+    Valida que el nombre solo contenga caracteres alfabéticos y que la fecha y la hora
+    cumplan con un formato especifico (dd/mm/yyyy) para la fecha y (hh:mm) para la
+    hora. Para la fecha no se debe permitir ingresar una fecha anterior al día que se
+    está programando la cita, y para la hora no pueden introducirse valores superiores
+    a 23:59.
+    Cuando se envía el formulario se muestra un mensaje de confirmación en la
+    página con los detalles de la reserva. 
+-->
+
+    <form id="formulario">
+        <h1 style="color: rgb(70, 5, 70);">Reserva tu Mesa</h1>
+        <div class="form-group">
+            <label for="nombre" style="color: rgb(70, 5, 70);">Nombre:</label>
+            <input type="text" class="form-control" id="nombre" placeholder="ejemplo : Manolo">
+            <span id="errorNombre"></span>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="fecha" style="color: rgb(70, 5, 70);">Fecha de la Cita:</label>
+            <input type="date" class="form-control" id="fecha" placeholder="dd/mm/yyyy">
+            <span id="errorFecha"></span>
+        </div>
+        <br/>
+        <div class="form-group">
+            <label for="hora" style="color: rgb(70, 5, 70);">Hora de la Cita:</label>
+            <input type="time" class="form-control" id="hora" placeholder="hh:mm">
+            <span id="errorHora"></span>
+        </div>
+        <br/>
+        <button id="confirmar">Guardar</button>
+
+    </form>
+
+
+    <script type="text/javascript" src="fecha.js"></script>
+    
+</body>
+</html>
