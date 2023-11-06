@@ -31,9 +31,33 @@ a::first-letter{
     text-transform: uppercase;
 }
 
-ul:last-child li hover{
+/* 
+ul:last-child:hover{
+    color:blue;
+} 
+
+ul:nth-child(2){
     color:blue;
 }
+
+body ul:last-child :hover{
+    color:blue;
+}
+
+body:hover ul:last-child {
+    color: blue;
+}
+
+body:hover > ul:last-of-type {
+    color: blue;
+}*/
+
+ul:last-of-type > li:hover {
+    color: rgb(0, 153, 255);
+}
+
+
+
 
 li{
 
