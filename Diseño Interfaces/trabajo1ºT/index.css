@@ -1,0 +1,146 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-image: url("fondoweb.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+
+/* #container {
+    text-align: center;
+    background-color: #f0f0f0b7;
+    padding: 20px;
+    align-items: center;
+    border-radius: 10%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom:100px;
+    margin-top: 45%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+#containerGrande1{
+    display: block;
+    align-items:flex-end;
+    justify-content: space-between;
+    text-align: center;
+    background-color: #f0f0f0b7;
+    padding: 20px;
+    border-radius: 10%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 25%;
+    margin-left: 8%;
+    margin-right: 8%;
+}
+
+#cabecera{
+    background-color: rgba(255, 255, 255, 0.425);
+}
+
+#cabecera:first-child img{
+    size: 80%;
+
+} 
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}*/
+
+
+#containerP1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgba(209, 209, 209, 0.616);
+    padding: 30px;
+    /* height: 100%; */
+}
+
+#header {
+    background-color: #8d8d8d50;
+    padding: 10px 30px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font: bold 120px/4 arial;
+    text-transform: uppercase;
+    color: #8f4ecc;
+    text-shadow: 0  2px  0   #401166,
+                0  4px  0   #4d137c,
+                0  6px  0   #5e116e, 
+                0  8px  0   #4c0e5f, 
+                0 10px  0   #450c50,
+                0 12px  0   #340a41,
+                3px 8px 15px rgba(0,0,0,0.1),
+                3px 8px  5px rgba(0, 0, 0, 0.3);
+}
+
+#logoPrincipal {
+    float: left;
+    height: 50px; /* Ajusta el tamaño según tus necesidades */
+    width: auto; /* Ajusta el tamaño según tus necesidades */
+}
+
+#search {
+    margin-left: 40px;
+    margin-right: 20px;
+    display: inline-block;
+}
+
+#menu {
+    margin-left: 10px;
+    float: right;
+}
+
+#title {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-purple {
+    background-color: purple;
+    color: white;
+}
+
+
+#toggleButton {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+/*     background-color: #ffffff; */
+    cursor: pointer;
+}
+
+#part2 {
+    display: none;
+    padding: 20px;
+}
+
+#imageContainer {
+    text-align: center;
+}
+
+#footer {
+    background-color: #8d8d8d50;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: auto;
+}
