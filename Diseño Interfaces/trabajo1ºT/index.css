@@ -60,14 +60,19 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    background-color: rgba(209, 209, 209, 0.616);
     padding: 30px;
     /* height: 100%; */
 }
 
+h5{
+    color:white;
+    font-family: "serif";
+    justify-content: space-around;
+}
+
 #header {
-    background-color: #8d8d8d50;
-    padding: 10px 30px;
+
+    padding: 30px 0px;
     text-align: center;
     justify-content: center;
     display: flex;
@@ -75,11 +80,12 @@ body {
 }
 
 h1 {
-    font: bold 120px/4 arial;
+    font: 900;
+    font-size: 150px;
     text-transform: uppercase;
-    color: #8f4ecc;
-    text-shadow: 0  2px  0   #401166,
-                0  4px  0   #4d137c,
+    color: #b092cc;
+    text-shadow: 0  2px  0   #613486,
+                0  4px  0   #5c218b,
                 0  6px  0   #5e116e, 
                 0  8px  0   #4c0e5f, 
                 0 10px  0   #450c50,
@@ -90,8 +96,8 @@ h1 {
 
 #logoPrincipal {
     float: left;
-    height: 50px; /* Ajusta el tamaño según tus necesidades */
-    width: auto; /* Ajusta el tamaño según tus necesidades */
+    height: 150px; 
+    width: auto; 
 }
 
 #search {
@@ -111,9 +117,18 @@ h1 {
     text-align: center;
 }
 
-.btn-purple {
-    background-color: purple;
-    color: white;
+#buscador{
+    width: 900px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.589);
+}
+
+#buscador::placeholder {
+    font-family: "Comic Sans MS", cursive;
+    font-weight: bold;
+    font-size: 15x; 
+    text-transform: uppercase; 
+    color: #00000096;
 }
 
 
@@ -121,8 +136,10 @@ h1 {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-/*     background-color: #ffffff; */
+    border-radius: 20%;
     cursor: pointer;
+    width: 600px;
+    height: 80px;
 }
 
 #part2 {
