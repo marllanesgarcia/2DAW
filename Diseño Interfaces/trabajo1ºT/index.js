@@ -24,3 +24,11 @@ function togglePart2() {
         toggleButton.textContent = "Mostrar Parte 2";
     }
 }
+
+function openModal() {
+    document.getElementById("menu").style.display = "block";
+  }
+  
+  function closeModal() {
+    document.getElementById("menu").style.display = "none";
+  }
