@@ -1,17 +1,27 @@
 "use strict";
+
 var nombre = document.getElementById("nombre");
 var fecha = document.getElementById("fecha");
 var hora = document.getElementById("hora");
 var selectTipoCita = document.createElement("select");
+var labelContador = document.createElement("div");
 var duracion = document.getElementById("duracion");
 var formulario = document.getElementById("formulario");
-var boton = document.getElementById("confirmar");
+var boton = document.getElementsByClassName("btn btn-outline-dark")[0]; // devuele un array
 
 nombre.addEventListener("blur", validarNombre);
 fecha.addEventListener("blur", validarFecha);
 hora.addEventListener("blur", validarHora);
 duracion.addEventListener("blur", validarDuracion);
-formulario.appendChild(selectTipoCita);
+// tipo cita
+cargarTipoCita();
+formulario.getElementsByClassName("button");
+formulario.insertBefore(selectTipoCita, boton);
+console.log(selectTipoCita);
+// contador
+formulario.insertBefore(labelContador, boton);
+labelContador.addEventListener("blur",contador);
+contador();
 
 function validarNombre() {
     var patron = /^[a-zA-Z]+$/;
@@ -38,7 +48,7 @@ function validarFecha() {
         var mes = parseInt(fechaPartes[1], 10) - 1;
         var año = parseInt(fechaPartes[2], 10);
         var fechaIngresada = new Date(año, mes, dia);
-        var fechaActual = new Date("November 07, 2023");
+        var fechaActual = new Date();
 
         if (fechaIngresada < fechaActual) {
             error.innerHTML = "Introduzca un valor correcto";
@@ -72,44 +82,81 @@ function validarHora() {
 }
 
 // el tipo de cita
+function cargarTipoCita() {
+    var opciones = ["----","Médica","Legal","Reunión"];
+    let error = document.createElement("span");
+    let label = document.createElement("label");
+    selectTipoCita.className = "form-control";
+    formulario.insertBefore(selectTipoCita, boton);
+    formulario.insertBefore(label, selectTipoCita);
+    formulario.insertBefore(error, boton);
+    
+    label.textContent = "Seleccione el tipo de cita";
+    error.style.color = "red";
+    error.style.fontSize = "14px";
+    error.id= "errorCita";
+    selectTipoCita.id = "tipoCita";
+    selectTipoCita.className = "form-control";
+    selectTipoCita.style.marginBottom = "2px";
 
-selectTipoCita.id = "tipoCita";
-selectTipoCita.className = "form-control";
-
-var opciones = ["Médica", "Legal", "Reunión"];
-for (var i = 0; i < opciones.length; i++) {
-
-    var option = document.createElement("option");
-    option.value = opciones[i].toLowerCase();
-    option.text = opciones[i];
-    selectTipoCita.appendChild(option);
+    for (let i = 0; i < opciones.length; i++){
+        var option = document.createElement("option");
+        option.value = opciones[i].toLocaleLowerCase();
+        option.textContent = opciones[i];
+        selectTipoCita.appendChild(option);
+    }
 }
 
-// Agregar al formulario
-var selectContainer = document.getElementById("selectContainer");
-selectContainer.appendChild(selectTipoCita);
+// temporizador
+/* function contador () {
+    var label = document.createElement("label");
+    label.textContent= "Faltan "+ (fecha - (new Date));
+} */
+
+function contador() {
+    var fechaSeleccionada = new Date(fecha.value);
+    var fechaActual = new Date();
+    var hora = fechaSeleccionada - fechaActual;
+    var label = document.createElement("label");
+
+    var diasFaltantes = Math.ceil(hora / (1000 * 60 * 60 * 24));
+    label.textContent = 'Faltan ' + diasFaltantes + ' días.';
+}
+
 
 function validarDuracion() {
     var duracionInput = parseInt(duracion.value, 10);
     var error = document.getElementById("errorDuracion");
-
-    if (isNaN(duracionInput) || duracionInput < 5 || duracionInput > 60) {
-        // error.innerHTML = "Introduzca una duración estimada válida entre 5 y 60 minutos.";
-        duracion.focus();
-    } else {
-       // error.innerHTML = "";
-    }
 }
 
 boton.addEventListener("click", function () {
-    var errorNombre = document.getElementById("errorNombre").innerHTML;
-    var errorFecha = document.getElementById("errorFecha").innerHTML;
-    var errorHora = document.getElementById("errorHora").innerHTML;
- //   var errorTipoCita = document.getElementById("errorTipoCita").innerHTML;
-   // var errorDuracion = document.getElementById("errorDuracion").innerHTML;
-//  && errorTipoCita === "" && errorDuracion === ""
-    if (errorNombre === "" && errorFecha === "" && errorHora === "") {
+
+    if (nombre.value === "" && fecha.value === "" && hora.value === "" && selectTipoCita.value === "" && duracion.value === "") {
+        event.preventDefault();
+        alert("Porfavor complete el formulario correctamente >:(");
+    }else if (selectTipoCita.value == "----") {
+        event.preventDefault();
+        errorCita.textContent = "Por favor complete correctamente el campo Tipo de Cita";
+    }else{
+        event.preventDefault();
+        errorCita.textContent = "";
         Swal.fire({
+            title: "La información es correcta.",
+            text: "Nombre: " + nombre.value + "\n" +
+                "Fecha: " + fecha.value + "\n" +
+                "Hora: " + hora.value + "\n" +
+                "Tipo de Cita: " + selectTipoCita.value + "\n" +
+                "Duración estimada (minutos): " + duracion.value + "\n" +
+                "¡Continuar!",
+            imageUrl: "https://i.pinimg.com/originals/cc/4e/13/cc4e13c7aa8896b068576783e9c379dd.gif",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "imagen del gato"
+    });
+ }
+  });
+
+        /* Swal.fire({
             title: "La información es correcta.",
             text: "Nombre: " + nombre.value + "\n" +
                 "Fecha: " + fecha.value + "\n" +
@@ -143,6 +190,4 @@ boton.addEventListener("click", function () {
             icon: "error",
             title: "Corrija los siguientes errores:",
             html: errorMessage,
-        });
-    }
-});
+        }); */

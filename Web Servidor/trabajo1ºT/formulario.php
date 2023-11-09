@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Formulario de Registro</title>
@@ -32,7 +32,12 @@
     ?>
     
     <h2>Formulario de Registro</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="
+
+    <?php 
+    echo htmlspecialchars($_SERVER["PHP_SELF"]); 
+    ?> 
+
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario"><br><br>
         
@@ -42,21 +47,22 @@
         <input type="submit" value="Registrarse">
     </form>
 </body>
-</html> -->
+</html> 
 
 
 
 
 <!-- 
-con base de datos:  -->
+con base de datos: 
 <!DOCTYPE html>
 <html>
 <head>
     <title>Formulario de Registro</title>
 </head>
 <body>
-    <?php
+   <?php
     // Conexión a la base de datos (modifica estas variables según tu configuración)
+    /*
     $servername = "localhost";
     $username = "tu_usuario";
     $password = "tu_contraseña";
@@ -105,11 +111,11 @@ con base de datos:  -->
     }
 
     // Cerrar la conexión a la base de datos
-    $conn->close();
+    $conn->close();*/
     ?>
 
     <h2>Formulario de Registro</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="post" action="<?php // echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario"><br><br>
         
@@ -122,3 +128,4 @@ con base de datos:  -->
 </html>
 
 
+ -->
