@@ -5,26 +5,20 @@
 </head>
 <body>
     <?php
-    // Valores predeterminados para usuario y contraseña (puedes cambiarlos según tus necesidades)
     $usuario_predeterminado = "usuario";
     $contrasena_predeterminada = "contrasena";
 
-    // Verificar si se ha enviado el formulario
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Recuperar los datos del formulario
         $usuario = $_POST["usuario"];
         $contrasena = $_POST["contrasena"];
 
-        // Validar los datos
         if (empty($usuario) || empty($contrasena)) {
             echo "Por favor, completa todos los campos.";
         } else {
-            // Verificar la contraseña
             if ($usuario === $usuario_predeterminado && $contrasena === $contrasena_predeterminada) {
-                // Mostrar el mensaje de bienvenida
+     
                 echo "¡Bienvenido, " . $usuario . "!";
             } else {
-                // Mostrar un mensaje de error si la contraseña es incorrecta
                 echo "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
             }
         }
@@ -37,6 +31,7 @@
     <?php 
     echo htmlspecialchars($_SERVER["PHP_SELF"]); 
     ?> 
+    ">
 
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario"><br><br>
