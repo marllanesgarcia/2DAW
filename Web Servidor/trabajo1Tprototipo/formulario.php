@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="index.css">
     <title>Formulario de Registro</title>
 </head>
 <body>
+
+<div style="text-align: center;">
+        <h1 id="titulo">Bloggeo.GRR 🐛</h1>
+        <form method="get" action="buscar.php">
+            <input type="text" name="q" placeholder="Buscar">
+            <input type="submit" value="Buscar">
+        </form>
+        <a href="login.php">Iniciar sesion</a>
+    </div>
+
+    <div style="display: flex; justify-content:center ;">
+        <a href="gestorTareas.php">Crear Tarea</a>
+    </div>
+    <hr>
+
+
     <?php
     $usuario_predeterminado = "usuario";
     $contrasena_predeterminada = "contrasena";
+
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $usuario = $_POST["usuario"];
         $contrasena = $_POST["contrasena"];
 
+        // Validar los datos
         if (empty($usuario) || empty($contrasena)) {
             echo "Por favor, completa todos los campos.";
         } else {
             if ($usuario === $usuario_predeterminado && $contrasena === $contrasena_predeterminada) {
-     
+            
                 echo "¡Bienvenido, " . $usuario . "!";
             } else {
                 echo "Usuario o contraseña incorrectos. Por favor, inténtalo de nuevo.";
@@ -26,12 +45,7 @@
     ?>
     
     <h2>Formulario de Registro</h2>
-    <form method="post" action="
-
-    <?php 
-    echo htmlspecialchars($_SERVER["PHP_SELF"]); 
-    ?> 
-    ">
+    <form method="post" action="funcionesLogin.php">
 
         <label for="usuario">Usuario:</label>
         <input type="text" name="usuario" id="usuario"><br><br>
