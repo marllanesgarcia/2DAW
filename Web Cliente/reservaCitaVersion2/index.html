@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Cuestionario de Muestra</h1>
+        <form id="reservas">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input type="text" class="form-control" id="nombre" placeholder="Nombre">
+                <span id="errorNombre"></span>
+            </div>
+            <div class="mb-3">
+                <label for="fecha" class="form-label">Fecha</label>
+                <input type="text" class="form-control" id="fecha" placeholder="Fecha en formato yyyy/mm/dd">
+                <span id="errorFecha"></span>
+            </div>
+            
+            <div class="mb-3">
+                <label for="hora" class="form-label">Hora de la Cita</label>
+                <input type="text" class="form-control" id="hora" placeholder="Hora en formato hh:mm">
+                <span id="errorHora"></span>
+            </div>
+            </br>
+         <button type="submit" class="btn btn-primary mb-3">Reservar</button>
+        </form>
+        <script src="sweetAlert/sweetalert2.all.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="script1.js"></script>
+</body>
+
+</html>

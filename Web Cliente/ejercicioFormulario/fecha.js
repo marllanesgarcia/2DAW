@@ -4,24 +4,35 @@ var nombre = document.getElementById("nombre");
 var fecha = document.getElementById("fecha");
 var hora = document.getElementById("hora");
 var selectTipoCita = document.createElement("select");
-var labelContador = document.createElement("div");
+var tiempo = document.createElement("input");
+var errorTiempo = document.createElement("span");
+
+var labelContador = document.createElement("div"); // contador
+
 var duracion = document.getElementById("duracion");
 var formulario = document.getElementById("formulario");
 var boton = document.getElementsByClassName("btn btn-outline-dark")[0]; // devuele un array
 
-nombre.addEventListener("blur", validarNombre);
-fecha.addEventListener("blur", validarFecha);
-hora.addEventListener("blur", validarHora);
-duracion.addEventListener("blur", validarDuracion);
-// tipo cita
-cargarTipoCita();
-formulario.getElementsByClassName("button");
-formulario.insertBefore(selectTipoCita, boton);
-console.log(selectTipoCita);
-// contador
-formulario.insertBefore(labelContador, boton);
-labelContador.addEventListener("blur",contador);
-contador();
+var fechaPartes;
+var dia;
+var mes;
+var año;
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        nombre.addEventListener("blur", validarNombre);
+        fecha.addEventListener("input", validarFecha);  
+        hora.addEventListener("input", validarHora);    
+        cargartiempo();
+        tiempo.addEventListener("keypress", validarNumeros);
+        tiempo.addEventListener("blur", validarTiempo);
+        cargarTipoCita();
+        formulario.getElementsByClassName("button");
+        console.log(selectTipoCita);
+
+        formulario.insertBefore(labelContador, boton);
+    });
+
 
 function validarNombre() {
     var patron = /^[a-zA-Z]+$/;
@@ -35,7 +46,7 @@ function validarNombre() {
 }
 
 function validarFecha() {
-    var patron = /^(0[1-9]|[12]\d|3[01])\/(0[1-9]|1[0-2])\/202[3-9]$/; 
+    var patron =/^202[0-9]-(0[13578]|1[02])-(0[1-9]|[12]\d|3[01])$|^202[3-9]-(0[469]|11)-(0[1-9]|[12]\d|30)$|^202[0-9]-(02)-(0[1-9]|[1]\d|[2][0-8])-(02)$/; 
     var error = document.getElementById("errorFecha");
     var fechaInput = fecha.value;
 
@@ -43,10 +54,10 @@ function validarFecha() {
         error.innerHTML = "Introduzca un valor correcto";
         fecha.focus();
     } else {
-        var fechaPartes = fechaInput.split('/');
-        var dia = parseInt(fechaPartes[0], 10);
-        var mes = parseInt(fechaPartes[1], 10) - 1;
-        var año = parseInt(fechaPartes[2], 10);
+        fechaPartes = fechaInput.split('/');
+        dia = parseInt(fechaPartes[0], 10);
+        mes = parseInt(fechaPartes[1], 10) - 1;
+        año = parseInt(fechaPartes[2], 10);
         var fechaIngresada = new Date(año, mes, dia);
         var fechaActual = new Date();
 
@@ -58,6 +69,7 @@ function validarFecha() {
         }
     }
 }
+
 
 function validarHora() {
     var horaU = hora.value;
@@ -77,56 +89,138 @@ function validarHora() {
             hora.focus();
         } else {
             error.innerHTML = "";
+            console.log("aqui estoy, aqui me meti");
+            contador();
         }
     }
 }
 
 // el tipo de cita
 function cargarTipoCita() {
-    var opciones = ["----","Médica","Legal","Reunión"];
+    var opciones = ["---", "Médica", "Legal", "Reunión"];
+    var errorCita = document.getElementById("errorCita");  
+
     let error = document.createElement("span");
     let label = document.createElement("label");
-    selectTipoCita.className = "form-control";
     formulario.insertBefore(selectTipoCita, boton);
     formulario.insertBefore(label, selectTipoCita);
     formulario.insertBefore(error, boton);
-    
-    label.textContent = "Seleccione el tipo de cita";
+    label.textContent = "Seleccione el tipo de cita"
     error.style.color = "red";
     error.style.fontSize = "14px";
-    error.id= "errorCita";
+    error.id = "errorCita";
     selectTipoCita.id = "tipoCita";
     selectTipoCita.className = "form-control";
-    selectTipoCita.style.marginBottom = "2px";
+    selectTipoCita.style.marginBottom = "10px";
 
-    for (let i = 0; i < opciones.length; i++){
+    for (let i = 0; i < opciones.length; i++) {
         var option = document.createElement("option");
-        option.value = opciones[i].toLocaleLowerCase();
+        option.value = opciones[i].toLowerCase();
         option.textContent = opciones[i];
         selectTipoCita.appendChild(option);
     }
 }
 
 // temporizador
-/* function contador () {
-    var label = document.createElement("label");
-    label.textContent= "Faltan "+ (fecha - (new Date));
-} */
 
 function contador() {
-    var fechaSeleccionada = new Date(fecha.value);
-    var fechaActual = new Date();
-    var hora = fechaSeleccionada - fechaActual;
-    var label = document.createElement("label");
+    console.log("me meti otra vez");
 
-    var diasFaltantes = Math.ceil(hora / (1000 * 60 * 60 * 24));
-    label.textContent = 'Faltan ' + diasFaltantes + ' días.';
+    var temporizador = setInterval(function () {
+        var fechaSeleccionada = new Date(fecha.value);
+        var fechaActual = new Date();
+        var tiempoRestante = fechaSeleccionada - fechaActual;
+    if (tiempoRestante > 0) {
+        console.log("me meti otra vez mas");
+        var dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+        var horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+        var segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+        labelContador.innerHTML ="Faltan: "+ `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+        labelContador.style="color: rgb(70, 5, 70); font-size: 30px; background-color: rgba(70, 5, 70, 0.363);"
+    }
+    }, 1000)
+    var stop = setTimeout(function(){
+        Swal.fire({
+            title: "Te vas ya o????????",
+            imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUEku4Nl773f3Id6MfdlH2IIoybCosxmWy_mMtnqbTft4BJ6eWUpQ5EwE3Lfs3icgsNfo&usqp=CAU",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "imagen del meme"
+    });
+    }, 6000);
+
+/*     var diferencia = hora - 
+    var stop2 = setTimeout(function(){
+        
+        if(){
+        Swal.fire({
+            title: "¡faltan 10 minutos para la cita!",
+            imageUrl: "https://images.vexels.com/media/users/3/315895/isolated/preview/a87fceb2bf2e90a64e6c11c5b3ffbb06-retrato-de-dibujos-animados-asustado.png",
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: "imagen del meme"
+    });
+        }
+    }, diferencia); */
+}
+ /*
+var minutosAntes = 10;
+var horaSeleccionada = new Date(hora.value);
+hora.addEventListener("change", configurarAlerta);
+var ahora = new Date();
+var minutosDiferencia = Math.floor((horaSeleccionada - ahora) / (1000 * 60));
+
+function configurarAlerta(){
+if (minutosDiferencia > 0 && minutosDiferencia <= minutosAntes) {
+    setTimeout(mostrarAlerta, minutosDiferencia * 60 * 1000);
+} else {
+    Swal.fire({
+        title: "¡faltan 10 minutos para la cita!",
+        imageUrl: "https://images.vexels.com/media/users/3/315895/isolated/preview/a87fceb2bf2e90a64e6c11c5b3ffbb06-retrato-de-dibujos-animados-asustado.png",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "imagen del meme"
+    });
+}
+}*/
+
+function cargartiempo() {
+    let label = document.createElement("label");
+    label.textContent = "Introduzca el tiempo estimado";
+    errorTiempo.id = "errorTiempo";
+    errorTiempo.style.color = "red";
+    errorTiempo.style.fontSize = "14px";
+    let salto = document.createElement("br");
+    tiempo.className = "form-control";
+
+    let tiempoContainer = document.createElement("div");
+    tiempoContainer.appendChild(label);
+    tiempoContainer.appendChild(tiempo);
+    tiempoContainer.appendChild(errorTiempo);
+    tiempoContainer.appendChild(salto);
+
+    formulario.insertBefore(tiempoContainer, boton);
 }
 
 
-function validarDuracion() {
-    var duracionInput = parseInt(duracion.value, 10);
-    var error = document.getElementById("errorDuracion");
+function validarNumeros(e) {
+    let evento = e || event;
+    if (evento.which < 48 || evento.which > 57) {
+        e.preventDefault();
+    }
+}
+function validarTiempo() {
+    console.log(parseInt(tiempo.value))
+    if (parseInt(tiempo.value) < 5 || parseInt(tiempo.value) > 60) {
+        console.log("if");
+        errorTiempo.textContent = "Introduzca un tiempo entre 5 y 60 (minutos)";
+        tiempo.focus();
+    } else {
+        errorTiempo.textContent = ""
+    }
+
 }
 
 boton.addEventListener("click", function () {
@@ -142,11 +236,10 @@ boton.addEventListener("click", function () {
         errorCita.textContent = "";
         Swal.fire({
             title: "La información es correcta.",
-            text: "Nombre: " + nombre.value + "\n" +
-                "Fecha: " + fecha.value + "\n" +
-                "Hora: " + hora.value + "\n" +
-                "Tipo de Cita: " + selectTipoCita.value + "\n" +
-                "Duración estimada (minutos): " + duracion.value + "\n" +
+            text: "Nombre de la reserva:" + nombre.value+
+            "Fecha de la reserva: " + fecha.value+
+            "Hora de la reserva:  " + hora.value +
+            "Tipo de cita: " + selectTipoCita.value+
                 "¡Continuar!",
             imageUrl: "https://i.pinimg.com/originals/cc/4e/13/cc4e13c7aa8896b068576783e9c379dd.gif",
             imageWidth: 400,
@@ -155,39 +248,3 @@ boton.addEventListener("click", function () {
     });
  }
   });
-
-        /* Swal.fire({
-            title: "La información es correcta.",
-            text: "Nombre: " + nombre.value + "\n" +
-                "Fecha: " + fecha.value + "\n" +
-                "Hora: " + hora.value + "\n" +
-                "Tipo de Cita: " + tipoCita.value + "\n" +
-                "Duración estimada (minutos): " + duracion.value + "\n" +
-                "¡Continuar!",
-            imageUrl: "https://i.pinimg.com/originals/cc/4e/13/cc4e13c7aa8896b068576783e9c379dd.gif",
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: "imagen del gato"
-        });
-    } else {
-        var errorMessage = "Hay errores, debes corregir lo siguiente:\n";
-        if (errorNombre !== "") {
-            errorMessage += "* " + errorNombre + "\n";
-        }
-        if (errorFecha !== "") {
-            errorMessage += "* " + errorFecha + "\n";
-        }
-        if (errorHora !== "") {
-            errorMessage += "* " + errorHora + "\n";
-        }
-        if (errorTipoCita !== "") {
-            errorMessage += "* " + errorTipoCita + "\n";
-        }
-        if (errorDuracion !== "") {
-            errorMessage += "* " + errorDuracion + "\n";
-        }
-        Swal.fire({
-            icon: "error",
-            title: "Corrija los siguientes errores:",
-            html: errorMessage,
-        }); */
