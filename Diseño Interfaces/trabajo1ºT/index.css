@@ -45,10 +45,9 @@ h5{
     src: url('Aclonica-Regular.ttf') format('truetype');
 }
 h1 {
-    font-size: 80%; 
-    background-color: aqua;
- /*    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black; */
+    font-size: 36px;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
     font-family: 'Aclonica', sans-serif;
     color: white;
 }
