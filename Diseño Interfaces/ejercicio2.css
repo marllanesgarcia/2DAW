@@ -1,0 +1,95 @@
+body{
+    background-color: rgb(158, 177, 158);
+}
+
+/*  estilos para los links del menú de arriba */
+nav{
+    background-image: linear-gradient(to right, red, yellow, green);
+    opacity: 60%;
+    width: 260px;
+}
+
+a{
+    color: white;
+    margin: 10px;
+}
+
+a:link, a:visited, a:active {
+    text-decoration:none;
+}
+a:hover{
+    color:gray;
+ }
+
+/*  estilo del titulo principal de la pagina y modificadores de estilo  */
+
+header :first-child{
+    color:rgb(42, 63, 42);
+    background-image: linear-gradient(to right, white, rgb(133, 17, 85), blue,rgb(133, 17, 85),white);
+    opacity: 60%;
+}
+
+header :first-child:hover{
+    font-size: 400%;
+}
+
+/*  modificadores de estilo para el div central y contenidos */
+div{
+    display: block;
+    background-image: linear-gradient(to right, red, yellow, green);
+    height: 30%;
+    width: 30%;
+    border-radius: 20%;
+    padding: 5%;
+    margin: auto;
+}
+
+p{
+    border-style: solid;
+    padding: 10px;
+}
+
+img{
+    width: 400px;
+    height: 600px;
+    justify-self: center;
+}
+
+/*  estilo personalizado para la lista de elementos dentro del div principal   */
+ul{
+    display: flex;
+    justify-content: flex-start;
+    border-style:solid;
+    align-items: center;
+    padding: 10px;
+    padding: 0;
+    align-items: center;
+    padding-left: 2%;
+}
+
+li{
+    list-style-type: none;
+    border-style: solid;
+    padding: 10px;
+    border-color: green;
+    width: 50px;
+    height: 20px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.block{
+    border-style: solid;
+    border-color: green;
+    display: block;
+    padding: 2%;
+}
+
+/* estilos para el footer que se encuentra al final de la página*/
+
+footer :first-child{
+    border-style: solid;
+    background-color: white;
+    opacity: 40%;
+}
