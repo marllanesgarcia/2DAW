@@ -1,16 +1,35 @@
 <?php
-include ("./funciones.php");
-$nombre = $_POST["nombre"];
-$contrasena = $_POST["contrasena"];
+include("./codigobbdd.php");
 
-conectar();
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nombre = $_POST["usuario"];
+    $contrasena = $_POST["password"];
 
-$sql = "INSERT INTO alumnos (nombre, contrasena) 
-        VALUES ('$nombre', '$contrasena')";
+    conectar();
 
-$resultado = $conexion->query($sql);
+    $stmt = $conexion->prepare("SELECT id, usuario, password FROM alumnos WHERE usuario = ?");
+    $stmt->bind_param("s", $usuario);
+    $stmt->execute();
+    $stmt->store_result();
 
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $usuario, $password);
+        $stmt->fetch();
 
-volver();
+        if (password_verify($password, $hashedPassword)) {
+            session_start();
+            $_SESSION['usuario_id'] = $id;
+            $_SESSION['usuario'] = $nombreUsuario;
 
+            echo 'Inicio de sesión exitoso. ¡Bienvenido, ' . $usuario . '!';
+        } else {
+            echo 'Error: Contraseña incorrecta.';
+        }
+    } else {
+        echo 'Error: Usuario no encontrado.';
+    }
+
+    $stmt->close();
+    cerrar();
+}
 ?>

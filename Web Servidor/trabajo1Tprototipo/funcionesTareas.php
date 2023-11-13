@@ -1,25 +1,20 @@
 <?php
 $tareas = [];
 
-// agregar una tarea
+// Agregar una tarea
 function agregarTarea($titulo, $descripcion) {
     global $tareas;
     $tareas[] = ['titulo' => $titulo, 'descripcion' => $descripcion];
-    // guardar
-    $contador_tarea;
-    foreach ($tareas as $tarea){
-        $contador_tarea[$tarea];
-    }
 }
 
-//borrar una tarea
+// Borrar una tarea
 function borrarTarea($indice) {
     global $tareas;
     unset($tareas[$indice]);
     $tareas = array_values($tareas);
 }
 
-//editar una tarea
+// Editar una tarea
 function editarTarea($indice, $titulo, $descripcion) {
     global $tareas;
     $tareas[$indice] = ['titulo' => $titulo, 'descripcion' => $descripcion];

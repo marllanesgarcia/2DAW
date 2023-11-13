@@ -1,0 +1,10 @@
+-- Crear la base de datos
+CREATE DATABASE IF NOT EXISTS alumnos;
+
+-- Crear la tabla de usuarios
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+)ENGINE INNODB;
+

@@ -8,7 +8,7 @@
 
 <div style="text-align: center;">
         <h1 id="titulo">Bloggeo.GRR 🐛</h1>
-        <form method="get" action="buscar.php">
+        <form method="get" action="www.google.com">
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
@@ -21,9 +21,9 @@
     </div>
     <hr>
 
-   <h2>Login </h2><br>
+   <h2>Registrarse </h2><br>
 
-   <form method="post" action="funcionesLogin.php" id="blogActual">
+   <form method="post" action="codigobbdd.php" id="blogActual">
     <label for="usuario">Usuario:</label>
     <input type="text" id="nombre" name="usuario" required>
     <br>

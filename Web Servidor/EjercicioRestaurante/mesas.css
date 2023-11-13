@@ -1,0 +1,27 @@
+body {
+    background-color: rgb(110, 40, 40);
+    color:rgba(255, 255, 255, 0.705);
+}
+
+#div1{
+    display: block;
+    justify-content: space-between;
+    margin: auto;
+    height: 700px;
+    width: 600px;
+    padding: 5%;
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.233);
+}
+
+label{
+    font-size: larger;
+    display: flex;
+    justify-content: flex-start;
+}
+
+button{
+    font-style: italic;
+    background-color: rgb(7, 2, 2);
+    color: white;
+}

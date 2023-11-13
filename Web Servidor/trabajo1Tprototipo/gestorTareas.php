@@ -9,7 +9,7 @@
 <body action="funcionesTareas.php">
 <div style="text-align: center;">
         <h1 id="titulo">Bloggeo.GRR 🐛</h1>
-        <form method="get" action="buscar.php">
+        <form method="get" action="www.google.com">
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
@@ -20,6 +20,7 @@
         <a href="gestorTareas.php">Crear Tarea</a>
     </div>
     <hr>
+
 <h1>Gestor de Tareas</h1>
 
     <!-- Formulario -->

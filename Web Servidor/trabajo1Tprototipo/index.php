@@ -8,11 +8,12 @@
 
     <div style="text-align: center;">
         <h1 id="titulo">Bloggeo.GRR 🐛</h1>
-        <form method="get" action="buscar.php">
+        <form method="get" action="www.google.com">
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
-        <a href="login.php">Iniciar sesion</a>
+        <a href="registrarse.html">Registrarse</a>
+        <a href="login.html">Iniciar sesion</a>
     </div>
 
     <div style="display: flex; justify-content:center ;">
@@ -21,7 +22,7 @@
     <hr>
 
     <div style="display: flex;">
-        <div id="blogActual" >
+        <div id="blogActual">
                 <!-- Sección central para mostrar blogs -->
              <h2>Ultimos Blogs</h2>
                 <div id="contenidoBlog">
