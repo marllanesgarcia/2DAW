@@ -29,7 +29,6 @@ var año;
         cargarTipoCita();
         formulario.getElementsByClassName("button");
         console.log(selectTipoCita);
-
         formulario.insertBefore(labelContador, boton);
     });
 
@@ -51,7 +50,7 @@ function validarFecha() {
     var fechaInput = fecha.value;
 
     if (!patron.test(fechaInput)) {
-        error.innerHTML = "Introduzca un valor correcto";
+       error.innerHTML = "Introduzca un valor correcto";
         fecha.focus();
     } else {
         fechaPartes = fechaInput.split('/');
@@ -70,7 +69,6 @@ function validarFecha() {
     }
 }
 
-
 function validarHora() {
     var horaU = hora.value;
     var error = document.getElementById("errorHora");
@@ -84,16 +82,28 @@ function validarHora() {
         var horas = parseInt(horaPartes[0], 10);
         var minutos = parseInt(horaPartes[1], 10);
 
-        if (horas < 0 || horas > 23 || minutos < 0 || minutos > 59) {
-            error.innerHTML = "La hora debe estar en el rango de 00:00 a 23:59.";
-            hora.focus();
-        } else {
+        
+        var horaMananaInicio = 10;
+        var horaMananaFin = 14;
+        var horaTardeInicio = 18.5; 
+        var horaTardeFin = 20;
+
+        var horaDecimal = horas + minutos / 60; 
+
+        if (
+            (horaDecimal >= horaMananaInicio && horaDecimal < horaMananaFin) ||
+            (horaDecimal >= horaTardeInicio && horaDecimal <= horaTardeFin)
+        ) {
             error.innerHTML = "";
-            console.log("aqui estoy, aqui me meti");
             contador();
+        } else {
+            error.innerHTML = "Las citas solo pueden realizarse de 10:00 a 14:00 y de 18:30 a 20:00.";
+            hora.focus();
         }
     }
 }
+
+
 
 // el tipo de cita
 function cargarTipoCita() {
@@ -124,67 +134,41 @@ function cargarTipoCita() {
 // temporizador
 
 function contador() {
-    console.log("me meti otra vez");
 
     var temporizador = setInterval(function () {
         var fechaSeleccionada = new Date(fecha.value);
         var fechaActual = new Date();
         var tiempoRestante = fechaSeleccionada - fechaActual;
-    if (tiempoRestante > 0) {
-        console.log("me meti otra vez mas");
-        var dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
-        var horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
-        var segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
 
-        labelContador.innerHTML ="Faltan: "+ `${dias}d ${horas}h ${minutos}m ${segundos}s`;
-        labelContador.style="color: rgb(70, 5, 70); font-size: 30px; background-color: rgba(70, 5, 70, 0.363);"
-    }
-    }, 1000)
-    var stop = setTimeout(function(){
+        if (tiempoRestante > 0) {
+            var dias = Math.floor(tiempoRestante / (1000 * 60 * 60 * 24));
+            var horas = Math.floor((tiempoRestante % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutos = Math.floor((tiempoRestante % (1000 * 60 * 60)) / (1000 * 60));
+            var segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
+
+            labelContador.innerHTML ="Faltan: "+ `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+            labelContador.style="color: rgb(70, 5, 70); font-size: 30px; background-color: rgba(70, 5, 70, 0.363);";
+
+            
+        } else {
+            if (minutos <= 10) {
+                alert("¡FALTAN 10 MINUTOS PARA LA CITA, CORRE!");
+            }else{
+            clearInterval(temporizador);
+            labelContador.innerHTML = "F, te quedaste sin cita je";
+        }}
+    }, 1000);
+
+    var stop = setTimeout(function () {
         Swal.fire({
             title: "Te vas ya o????????",
             imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUEku4Nl773f3Id6MfdlH2IIoybCosxmWy_mMtnqbTft4BJ6eWUpQ5EwE3Lfs3icgsNfo&usqp=CAU",
             imageWidth: 400,
             imageHeight: 200,
             imageAlt: "imagen del meme"
-    });
-    }, 6000);
-
-/*     var diferencia = hora - 
-    var stop2 = setTimeout(function(){
-        
-        if(){
-        Swal.fire({
-            title: "¡faltan 10 minutos para la cita!",
-            imageUrl: "https://images.vexels.com/media/users/3/315895/isolated/preview/a87fceb2bf2e90a64e6c11c5b3ffbb06-retrato-de-dibujos-animados-asustado.png",
-            imageWidth: 400,
-            imageHeight: 200,
-            imageAlt: "imagen del meme"
-    });
-        }
-    }, diferencia); */
+        });
+    }, 4000);
 }
- /*
-var minutosAntes = 10;
-var horaSeleccionada = new Date(hora.value);
-hora.addEventListener("change", configurarAlerta);
-var ahora = new Date();
-var minutosDiferencia = Math.floor((horaSeleccionada - ahora) / (1000 * 60));
-
-function configurarAlerta(){
-if (minutosDiferencia > 0 && minutosDiferencia <= minutosAntes) {
-    setTimeout(mostrarAlerta, minutosDiferencia * 60 * 1000);
-} else {
-    Swal.fire({
-        title: "¡faltan 10 minutos para la cita!",
-        imageUrl: "https://images.vexels.com/media/users/3/315895/isolated/preview/a87fceb2bf2e90a64e6c11c5b3ffbb06-retrato-de-dibujos-animados-asustado.png",
-        imageWidth: 400,
-        imageHeight: 200,
-        imageAlt: "imagen del meme"
-    });
-}
-}*/
 
 function cargartiempo() {
     let label = document.createElement("label");
@@ -212,19 +196,18 @@ function validarNumeros(e) {
     }
 }
 function validarTiempo() {
-    console.log(parseInt(tiempo.value))
-    if (parseInt(tiempo.value) < 5 || parseInt(tiempo.value) > 60) {
-        console.log("if");
-        errorTiempo.textContent = "Introduzca un tiempo entre 5 y 60 (minutos)";
+    var duracionCita = parseInt(tiempo.value, 10);
+    if (duracionCita < 5 || duracionCita > 60 || duracionCita % 15 !== 0) {
+        errorTiempo.textContent = "La duración de la cita debe ser un múltiplo de 15 minutos y estar entre 5 y 60 minutos.";
         tiempo.focus();
     } else {
-        errorTiempo.textContent = ""
+        errorTiempo.textContent = "";
     }
-
 }
 
-boton.addEventListener("click", function () {
 
+boton.addEventListener("click", function () {
+    
     if (nombre.value === "" && fecha.value === "" && hora.value === "" && selectTipoCita.value === "" && duracion.value === "") {
         event.preventDefault();
         alert("Porfavor complete el formulario correctamente >:(");
