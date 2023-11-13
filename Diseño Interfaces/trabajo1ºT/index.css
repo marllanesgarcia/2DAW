@@ -20,14 +20,18 @@ body {
     padding: 30px;
 }
 
+@font-face {
+    font-family: 'AdventPro';
+    src: url('trabajo1ºT/AdventPro-VariableFont_wdth,wght.ttf') format('truetype');
+}
 h5{
     color:white;
-    font-family: "serif";
+    font-family: 'AdventPro', sans-serif;
     justify-content: space-around;
 }
 
-#header {
 
+#header {
     padding: 30px 0px;
     text-align: center;
     justify-content: center;
@@ -35,19 +39,18 @@ h5{
     align-items: center;
 }
 
+
+@font-face {
+    font-family: 'Aclonica';
+    src: url('Aclonica-Regular.ttf') format('truetype');
+}
 h1 {
-    font: 900;
-    font-size: 150px;
-    text-transform: uppercase;
-    color: #b092cc;
-    text-shadow: 0  2px  0   #613486,
-                0  4px  0   #5c218b,
-                0  6px  0   #5e116e, 
-                0  8px  0   #4c0e5f, 
-                0 10px  0   #450c50,
-                0 12px  0   #340a41,
-                3px 8px 15px rgba(0,0,0,0.1),
-                3px 8px  5px rgba(0, 0, 0, 0.3);
+    font-size: 80%; 
+    background-color: aqua;
+ /*    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black; */
+    font-family: 'Aclonica', sans-serif;
+    color: white;
 }
 
 #logoPrincipal {
@@ -96,7 +99,7 @@ h1 {
     cursor: pointer;
     width: 400px;
     height: 80px;
-    background-image: linear-gradient(rgb(109, 2, 109), rgb(105, 105, 240),rgb(145, 30, 145));
+    background-image: linear-gradient(rgb(109, 2, 109), rgb(134, 105, 240),rgb(143, 74, 143));
 }
 
 #part2 {
