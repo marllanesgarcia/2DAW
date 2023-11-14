@@ -12,8 +12,20 @@ body {
     height: 100vh;
 }
 
-#menu{
-    
+#menu {
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.788);
+    border-radius: 20%;
+    padding: 10px;
+}
+
+#menu p {
+    margin: 0; 
+    font-size: x-small;
+}
+
+#menu strong {
+    font-weight: bold;
 }
 
 #containerP1 {
@@ -48,8 +60,9 @@ h5{
     font-family: 'Aclonica';
     src: url('Aclonica-Regular.ttf') format('truetype');
 }
+
 h1 {
-    font-size: 36px;
+    font-size: 80px;
     -webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: black;
     font-family: 'Aclonica', sans-serif;

@@ -234,7 +234,8 @@ function validarTiempo() {
 function comprobarDisponibilidad() {
     var fechaSeleccionada = fecha.value;
     var horaSeleccionada = hora.value;
-
+     
+    /* Dejo estos console log para que quede constancia de la fecha que se selecciono y la hora */
     console.log("Fecha seleccionada:", fechaSeleccionada);
     console.log("Hora seleccionada:", horaSeleccionada);
 
