@@ -12,6 +12,10 @@ body {
     height: 100vh;
 }
 
+#menu{
+    
+}
+
 #containerP1 {
     display: flex;
     flex-direction: column;
@@ -113,10 +117,14 @@ h1 {
 #footer {
     background-color: #8d8d8d50;
     color: #fff;
-    padding: 10px 0;
+    margin:0;
     text-align: center;
-    display: flex;
+    display: block;
     justify-content: center;
-    align-items: flex-end;
     height: auto;
+    font-size: xx-small;
+}
+
+p{
+    margin:0;
 }
