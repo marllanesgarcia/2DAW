@@ -17,13 +17,13 @@
         <a href="formulario.php" type="submit">Iniciar Sesion</a>
        
     </div>
-   <!--  <div style="display:flex; justify-content: center;">
+<!--     <div style="display:flex; justify-content: center;">
         <a href="crearBlog.php">~ Crear Blog ~</a>
     </div>  -->
     <hr>
 
     <div style="display: flex;">
-        <div id="blogActual">
+        <div id="blogActual" >
                 <!-- Sección central para mostrar blogs -->
              <h2>Últimos Blogs</h2>
                 <div id="contenidoBlog">

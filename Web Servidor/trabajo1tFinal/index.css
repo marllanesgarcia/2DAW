@@ -47,6 +47,17 @@ form {
         justify-content: center;
 }
 
+#loggeo{
+        display: flex;
+        padding: 20px;
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 30%; 
+        height: 30%;
+        justify-content: center;
+}
+
 #contenidoBlog {
     border: 1px solid #ddd;
     padding: 30px;
