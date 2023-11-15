@@ -1,0 +1,45 @@
+body{
+    background-color: rgba(68, 165, 165, 0.596)
+}
+
+.grande{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+#login{
+    display:block;
+    justify-content: center;
+    margin: 20px;
+    padding: 60px 60px 60px 60px;
+    border-style: solid;
+    border-radius: 10%;
+    border-color: blue;
+    width: 200px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#inicio{
+    background-color: blue;
+    color: white;
+    font-style: italic;
+}
+
+#cartas{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    padding: 60px 60px 60px 60px;
+    border-style: solid;
+    border-radius: 10%;
+    border-color: blue;
+    width: 200px;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
