@@ -25,10 +25,10 @@
 
    <form method="post" action="codigobbdd.php" id="blogActual">
     <label for="usuario">Usuario:</label>
-    <input type="text" id="nombre" name="usuario" required>
+    <input type="text" id="usuario" name="usuario" required>
     <br>
     <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="text" id="password" name="password" required>
     <br>
 
     <button type="submit">Registrarse</button>

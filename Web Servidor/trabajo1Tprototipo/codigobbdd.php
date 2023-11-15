@@ -1,23 +1,26 @@
 <?php
 // Conexión a la base de datos
-$conexion = new msqli("localhost","root","","alumnos");
+$conexion = new mysqli('localhost', 'root', '', 'alumnos');
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
 $nombre = $_POST['usuario'];
-$email = $_POST['password'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+$password = $_POST['password'];
 
 // Insertar datos en la tabla de usuarios
-$query = "INSERT INTO usuarios (nombre, password) VALUES ('$nombre', '$password')";
+$query = "INSERT INTO usuarios (usuario, password) VALUES ('$nombre', '$password')";
 
 if ($conexion->query($query) === TRUE) {
     echo "Usuario registrado con éxito";
+     echo '¡Bienvenido, ' . $nombre . '! El registro fue exitoso.';
+
 } else {
     echo "Error al registrar el usuario: " . $conexion->error;
 }
 
 $conexion->close();
 ?>
+
+

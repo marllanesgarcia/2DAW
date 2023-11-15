@@ -8,7 +8,7 @@
 
 <div style="text-align: center;">
         <h1 id="titulo">Bloggeo.GRR 🐛</h1>
-        <form method="get" action="buscar.php">
+        <form method="get" action="www.google.com">
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
@@ -25,13 +25,13 @@
 
    <form method="post" action="funcionesLogin.php" id="blogActual">
     <label for="usuario">Usuario:</label>
-    <input type="text" id="nombre" name="usuario" required>
+    <input type="text" id="usuario" name="usuario" required>
     <br>
     <label for="password">Contraseña:</label>
-    <input type="password" id="password" name="password" required>
+    <input type="text" id="password" name="password" required>
     <br>
 
-    <button type="submit">Registrarse</button>
+    <button type="submit">Logearse</button>
 </form>
 
 
