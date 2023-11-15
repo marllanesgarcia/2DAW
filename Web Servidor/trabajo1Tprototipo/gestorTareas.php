@@ -13,6 +13,7 @@
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
+        <a href="registrarse.php">Registrarse</a>
         <a href="login.php">Iniciar sesion</a>
     </div>
 

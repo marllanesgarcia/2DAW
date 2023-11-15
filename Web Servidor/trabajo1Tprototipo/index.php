@@ -12,8 +12,8 @@
             <input type="text" name="q" placeholder="Buscar">
             <input type="submit" value="Buscar">
         </form>
-        <a href="registrarse.html">Registrarse</a>
-        <a href="login.html">Iniciar sesion</a>
+        <a href="registrarse.php">Registrarse</a>
+        <a href="login.php">Iniciar sesion</a>
     </div>
 
     <div style="display: flex; justify-content:center ;">

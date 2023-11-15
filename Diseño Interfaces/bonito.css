@@ -9,8 +9,10 @@ body{
 
 .grande{
     display:flex;
-    justify-content: flex-start;
+    justify-content: center;
+    height: 30%;
 }
+
 
 
 @media screen and(max-width: 480px){
@@ -21,7 +23,7 @@ body{
     }
 }
 
-/* 
+
 primer ejercicio
 p{
     color:black;
@@ -37,8 +39,8 @@ p{
     }
 } */
 
-/* 
-Segundo ejercicio
+
+/* Segundo ejercicio */
 
 .primera{
     
@@ -74,5 +76,5 @@ Segundo ejercicio
         display: flex;
         flex-direction: column;
     }
-}*/
+}
 

@@ -1,5 +1,16 @@
 body{
     display: flex;
     justify-content: center;
+    background-color: rgb(159, 245, 245);
+}
+
+#gameDiv{
+    display: block;
     
+}
+
+#inputDiv{
+    display: flex;
+    justify-content: center;
+    margin-top: 20%;
 }
