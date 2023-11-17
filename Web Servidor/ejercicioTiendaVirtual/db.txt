@@ -1,0 +1,4 @@
+crear tabla productos
+crear tabla compras
+crear tabla usuarios
+crear tabla categorias
