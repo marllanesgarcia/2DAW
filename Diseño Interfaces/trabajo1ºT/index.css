@@ -49,20 +49,40 @@ body {
     padding-bottom: 20%;
 }
 
+  
 #containerP2 {
-    background-image: url("fondoweb.jpg");
+    background-image: url("fondoweb2.jpg");
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-position: reverse;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding: 30px;
+    padding-top: 250px;
+ /*   padding-bottom: 400px;*/
     height: 100%;
     width: 100%;
     color: white;
+    justify-content: space-between;
 }
+
+section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    
+}
+
+.music{
+    background-color: pink;
+    padding: 60px;
+    border-style: solid;
+    border-color: black;
+}
+
 
 #containerP1 h1 {
     font-size: 3em;
@@ -72,7 +92,7 @@ body {
     font-family: 'AdventPro';
     src: url('trabajo1ºT/AdventPro-VariableFont_wdth,wght.ttf') format('truetype');
 }
-h5{
+h5, h2{
     color:white;
     font-family: 'AdventPro', sans-serif;
     justify-content: space-around;
@@ -159,6 +179,7 @@ h1 {
     display: block;
     height: auto;
     font-size: xx-small;
+    margin-bottom: 0px;
 }
 
 p{
