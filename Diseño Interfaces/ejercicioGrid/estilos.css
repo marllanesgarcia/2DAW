@@ -1,0 +1,47 @@
+/* Este estilo sirve para que el header, que es lo que se encuentra arriba del todo,
+tenga un color azul con letras blancas   */
+header{
+    background-color: rgb(75, 102, 143);
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 20px 20px;
+    
+    
+}
+
+/*  Estos estilos son para la primera section a la cual se le ha dado el id "#primero" 
+usando el atributo flex  */
+#primero{
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    gap: 80px;
+    flex-wrap: wrap;
+}
+
+/*  Estos estilos son para la segunda section a la cual se le ha dado el id "#segundo" usando
+el atributo grid  */
+#segundo {
+    display: grid;
+    justify-content: center;
+    margin: 100px 600px 60px 600px;
+    gap: 30px;
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+/*  Estos estilos son para los muchos divs que tienen ambas sections, sin recurrir
+a ningun id ni class, simplemente llamandolos en general*/
+div{
+    background-color: rgb(223, 223, 223);
+    padding: 60px;
+}
+
+/*  Sirve para darle color y forma al footer que es el "div" que se encuentra siempre al final
+de la pagina web  */
+footer{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+}

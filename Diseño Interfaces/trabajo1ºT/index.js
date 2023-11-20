@@ -1,15 +1,18 @@
 "use strict";
 
-/* document.getElementById('scrollButton').addEventListener('click', function() {
-    window.scrollTo({
-        top: window.innerHeight, // Ajusta la posición hacia la que quieres desplazarte
-        behavior: 'smooth' // Hace que el desplazamiento sea suave
-    });
-}); 
+$toggleButton = document.getElementById("toggleButton");
 
- */
 
-function togglePart2() {
+$toggleButton.click(function( event ){
+    $heightDown = $(window).height() - $('#header').height();
+             
+    $('html, body').animate({
+        scrollTop: $heightDown
+    }, 1000);           
+});
+
+/*
+ function togglePart2() {
     var part1 = document.getElementById("containerP1");
     var part2 = document.getElementById("containerP2");
     var toggleButton = document.getElementById("toggleButton");
@@ -24,7 +27,7 @@ function togglePart2() {
         toggleButton.textContent = "Mostrar Parte 2";
     }
 }
-
+ */
 function openModal() {
     document.getElementById("menu").style.display = "block";
   }

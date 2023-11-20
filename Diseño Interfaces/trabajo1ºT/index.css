@@ -13,7 +13,7 @@ body {
 }
 
 #header {
-    position: absolute;
+    position: fixed;
     padding: 30px 0px;
     text-align: center;
     justify-content: center;
@@ -59,9 +59,9 @@ body {
     align-items: center;
     text-align: center;
     padding: 30px;
-    padding-top:50%;
     height: 100%;
     width: 100%;
+    color: white;
 }
 
 #containerP1 h1 {
@@ -157,7 +157,6 @@ h1 {
     margin:0;
     text-align: center;
     display: block;
-    justify-content: center;
     height: auto;
     font-size: xx-small;
 }
