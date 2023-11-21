@@ -1,0 +1,29 @@
+body{
+    background-color: rgb(114, 114, 230);
+}
+
+h1,h2{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+#objetos, #caras, #comidas{
+    display:block;
+    border-style: solid;
+    border-color:rgb(13, 13, 97);
+    justify-content: space-between;
+    margin: 50px;
+    padding: 40px;
+}
+
+img{
+    width: 70px;
+    height: 70px;
+}
+
+#emojis{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
