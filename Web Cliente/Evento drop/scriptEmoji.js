@@ -23,12 +23,14 @@ function mover(event) {
     zonaObjetos.style.background = "#A8BCE5";
 }
 
+
 function fondo(event){
     event.preventDefault();
     zonaEmoji.style.background = "initial";
     zonaComida.style.background = "initial";
     zonaObjetos.style.background = "initial";
 }
+
 
 function soltar(){
 
