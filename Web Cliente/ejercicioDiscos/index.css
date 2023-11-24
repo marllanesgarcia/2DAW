@@ -1,0 +1,10 @@
+body{
+    background-color: rgb(141, 236, 236);
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    border-style: solid;
+    margin: 30px;
+}
