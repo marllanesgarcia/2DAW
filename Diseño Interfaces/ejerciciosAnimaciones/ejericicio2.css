@@ -1,0 +1,57 @@
+body{
+    background-color: rgba(252, 188, 198, 0.63)
+    
+}
+
+img{
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+#div1, #div2, #div3, #div4{
+    margin-left: 10px;
+    white-space: nowrap;
+    animation:  slideInOut 10s linear infinite;
+}
+
+#grande{
+    display: flex;
+    justify-content:center;
+    overflow: hidden; 
+    width: 450px;
+    height: 450px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin: 20%;
+}
+
+
+/* @keyframes slideInOut {
+
+    0% {
+        transform: translateX(0px);
+        }
+    25% {
+        transform: translateX(-525px);
+    }
+    50% {
+        transform: translateX(0);
+    }
+    75% {
+        transform: translateX(525px);
+    }
+    100% {
+        transform: translateX(550px);
+    }
+} */
+
+@keyframes slideInOut {
+
+    0% {
+        transform: translateX(-550px);
+    }
+    100% {
+        transform: translateX(550px);
+    }
+}

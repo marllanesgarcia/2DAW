@@ -1,0 +1,31 @@
+body{
+    background-color: rgba(252, 188, 198, 0.63)
+    
+}
+
+img{
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+}
+
+#grande{
+    display: flex;
+    justify-content:center;
+    margin: 10%;
+    
+    animation: transform 2s ease-in-out, opacity 2s ease-in-out;
+}
+
+#div1, #div2, #div3, #div4{
+    margin-left: 30px;
+}
+
+@keyframes aclaramiento {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }

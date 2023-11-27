@@ -1,6 +1,6 @@
 "use strict";
 
-$toggleButton = document.getElementById("toggleButton");
+/* $toggleButton = document.getElementById("toggleButton");
 
 
 $toggleButton.click(function( event ){
@@ -10,28 +10,22 @@ $toggleButton.click(function( event ){
         scrollTop: $heightDown
     }, 1000);           
 });
+ */
 
-/*
- function togglePart2() {
-    var part1 = document.getElementById("containerP1");
-    var part2 = document.getElementById("containerP2");
-    var toggleButton = document.getElementById("toggleButton");
+var modal = document.getElementById("myModal");
+var openModalBtn = document.getElementById("openModalBtn");
+var closeModalBtn = document.getElementById("closeModalBtn");
 
-    if (part2.style.display === "none") {
-        part1.style.display = "none";
-        part2.style.display = "block";
-        toggleButton.textContent = "Ocultar Parte 2";
-    } else {
-        part1.style.display = "block";
-        part2.style.display = "none";
-        toggleButton.textContent = "Mostrar Parte 2";
+openModalBtn.onclick = function (){
+    modal.style.display="block";
+}
+
+closeModalBtn.onclick = function (){
+    modal.style.display = "none";
+}
+
+window.onclick = function (event){
+    if(event.get == modal){
+        modal.style.display="none";
     }
 }
- */
-function openModal() {
-    document.getElementById("menu").style.display = "block";
-  }
-  
-  function closeModal() {
-    document.getElementById("menu").style.display = "none";
-  }
