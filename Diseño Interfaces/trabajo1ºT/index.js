@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
   document.addEventListener("DOMContentLoaded", function() {
     var myAudio = document.getElementById("myAudio");
     var playPauseButton = document.getElementById("playPauseButton");
+    var volumeSlider = document.getElementById("volumeSlider");
   
     playPauseButton.addEventListener("click", function() {
       if (myAudio.paused) {
@@ -49,4 +50,9 @@ document.addEventListener("DOMContentLoaded", function() {
         myAudio.pause();
       }
     });
+  
+    volumeSlider.addEventListener("input", function() {
+      myAudio.volume = volumeSlider.value / 100;
+    });
   });
+  
