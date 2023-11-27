@@ -1,73 +1,42 @@
 body{
-    background-color: rgba(252, 188, 198, 0.63)
+    background-color: rgb(252, 188, 198)
     
 }
 
+/*  Se quita el div de cada imagen y se ponen las imagenes sueltas para que asi funcione el position absolute
+del div capa   */
 img{
     width: 200px;
     height: 200px;
     border-radius: 15px; 
+    margin-left: 30px;
 }
 
 #grande{
     display: flex;
     justify-content: center;
+    overflow: hidden;
     margin: 10%;
 }
 
-#div1, #div2, #div3, #div4{
-    margin-left: 30px;
-}
-
+/* Al div capa se le ha dado el mismo tamaño que el de las imagenes para que pase por encima de ellas  */
 #capa{
+    position: absolute;
     display: flex;
     justify-content:center;
-    position: absolute;
-    margin: 10%;
-    width: 200px;
-    height: 100px;
-    color: white;
-   
+    border-radius: 15px; 
+    width: 950px;
+    height: 200px;
+    background-color: rgba(252, 188, 198, 0.63);
+    animation: moverse 12s linear;
 } 
 
-#div1{
-    animation: fadeEffect 4s, moveRight 4s linear infinite;
-}
-
-#div2{
-    animation: fadeEffect 4s, moveRight 4s linear infinite;
-    animation-delay: 4s;
-}
-
-#div3{
-    animation: fadeEffect 4s, moveRight 4s linear infinite;
-    animation-delay: 8s;
-}
-
-#div4{
-    animation: fadeEffect 4s, moveRight 4s linear infinite;
-    animation-delay: 12s;
-}
-
-@keyframes fadeEffect{
-    0%{
-        opacity:0;
-    }
-    50%{
-        opacity:0.5;
-    }
-
-}
-
+/* este es el codigo que hace que el div capa se mueva por encima de las imagenes  */
 @keyframes moverse{
-
         0% {
             transform: translateX(-550px);
-            opacity: 0;
         }
         100% {
             transform: translateX(550px);
-            opacity: 0.5;
         }
-
 }

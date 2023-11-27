@@ -9,12 +9,14 @@ img{
     border-radius: 15px;
 }
 
+/* a cada div que tiene las imagenes se le da el efecto de la animacion  */
 #div1, #div2, #div3, #div4{
     margin-left: 10px;
     white-space: nowrap;
-    animation:  slideInOut 10s linear infinite;
+    animation:  moverse 10s linear infinite;
 }
 
+/* Se usa el overflow para que cada vez que salga del div desaparezca  */
 #grande{
     display: flex;
     justify-content:center;
@@ -26,8 +28,8 @@ img{
     margin: 20%;
 }
 
-
-/* @keyframes slideInOut {
+/* Hay dos formas de hacerlo, esa es la primera   */
+/* @keyframes moverse {
 
     0% {
         transform: translateX(0px);
@@ -46,7 +48,8 @@ img{
     }
 } */
 
-@keyframes slideInOut {
+/* Esta es la segunda forma de hacerlo   */
+@keyframes moverse {
 
     0% {
         transform: translateX(-550px);
