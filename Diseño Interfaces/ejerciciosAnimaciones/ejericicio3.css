@@ -6,26 +6,68 @@ body{
 img{
     width: 200px;
     height: 200px;
-    border-radius: 15px;
+    border-radius: 15px; 
 }
 
 #grande{
     display: flex;
-    justify-content:center;
+    justify-content: center;
     margin: 10%;
-    
-    animation: transform 2s ease-in-out, opacity 2s ease-in-out;
 }
 
 #div1, #div2, #div3, #div4{
     margin-left: 30px;
 }
 
-@keyframes aclaramiento {
-    0% {
-      width: 0;
+#capa{
+    display: flex;
+    justify-content:center;
+    position: absolute;
+    margin: 10%;
+    width: 200px;
+    height: 100px;
+    color: white;
+   
+} 
+
+#div1{
+    animation: fadeEffect 4s, moveRight 4s linear infinite;
+}
+
+#div2{
+    animation: fadeEffect 4s, moveRight 4s linear infinite;
+    animation-delay: 4s;
+}
+
+#div3{
+    animation: fadeEffect 4s, moveRight 4s linear infinite;
+    animation-delay: 8s;
+}
+
+#div4{
+    animation: fadeEffect 4s, moveRight 4s linear infinite;
+    animation-delay: 12s;
+}
+
+@keyframes fadeEffect{
+    0%{
+        opacity:0;
     }
-    100% {
-      width: 100%;
+    50%{
+        opacity:0.5;
     }
-  }
+
+}
+
+@keyframes moverse{
+
+        0% {
+            transform: translateX(-550px);
+            opacity: 0;
+        }
+        100% {
+            transform: translateX(550px);
+            opacity: 0.5;
+        }
+
+}
