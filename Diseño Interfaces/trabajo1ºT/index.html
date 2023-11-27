@@ -8,7 +8,7 @@
 
     <!-- enlaza el css de bootstrap-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">  
 
 </head>
 <body>
@@ -18,6 +18,12 @@
             <input type="text" placeholder="&nbsp; &nbsp; Buscar 🔍" id="buscador">
             <button type="button" type="button" class="btn btn-outline-light">Buscar</button>
         </div>
+
+            <audio id="myAudio" autoplay>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <button id="playPauseButton">Play/Pause</button>
+
         <button id="menu">
             <p><strong>⸻</strong><br>
             <strong>⸻</strong><br>
@@ -26,43 +32,47 @@
 
         <div id="myModal" class="modal">
             <div class="modal-content">
-                <span class="close" id="closeModalBtn"> X </span>
-                <p> texto del modal</p>
-                <button>el señor boton</button>
-
-            </div>    
+                <span class="close" id="closeModalBtn">&times;</span>
+                <a id="opciones" href="index.html">Home</a>
+                <a id="opciones" href="info.html">INFO</a>
+                <a id="opciones" href="kpop.html">K-POP</a>
+                <a id="opciones" href="khiphop.html">K-HIPHOP</a>
+                <a id="opciones" href="krock.html">K-ROCK</a>
+                <a id="opciones" href="kclassic.html">K-CLASSIC</a>
+            </div>
         </div>
     </div>
 
-        <div id="containerP1">
-            <h1>STIXER NAVER</h1>
-            &nbsp;
-            <h5> ¿Quieres conocer o saber más sobre la mùsica </br>
-                que nos brinda corea? </br>
-                Este es tu sitio de confianza 😏</h5>
+    <div id="containerP1">
+        <h1>STIXER NAVER</h1>
+        &nbsp;
+        <h5> ¿Quieres conocer o saber más sobre la mùsica </br>
+            que nos brinda corea? </br>
+            Este es tu sitio de confianza 😏</h5>
 
-            <button id="toggleButton" href="#containerP2" type="button" class="btn btn-purple btn-outline-light">START</button>
-    
+        <button id="toggleButton" type="button" class="btn btn-purple btn-outline-light">START</button>
+
+    </div>
+
+    <div id="containerP2">
+        
+        <h2>¿Qué música quieres conocer y escuchar?</br>
+            ¡Elige tu estilo favorito!</h2>
+        <section>
+            <!-- no se pone la letra Vina Sans -->
+            <div class="music1">K-POP</div>
+            <div class="music2">K-HIPHOP</div>
+            <div class="music3">K-ROCK</div>
+            <div class="music4">K-CLASSIC</div>
+        </section>
+        <div id="footer">
+            <p>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</br>
+                    <p>
+                        Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico.
+                    </br>
+                    www.stixernaver.com, stixer naver community, NIF: 111111-x</br>
+                    Dirección: c/A llorar a la lloreria tu casa, Alaska. Telefono de contacto: 23423432
         </div>
-
-        <div id="containerP2">
-            <h2>¿Qué música quieres conocer y escuchar?</br>
-                ¡Elige tu estilo favorito!</h2>
-            <section>
-                <div class="music">K-POP</div>
-                <div class="music">K-HIPHOP</div>
-                <div class="music">K-ROCK</div>
-                <div class="music">K-CLASSIC</div>
-                <div class="music">FOLK</div>
-            </section>
-            <div id="footer">
-                <p>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</br>
-                        <p>
-                            Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico.
-                        </br>
-                        www.stixernaver.com, stixer naver community, NIF: 111111-x</br>
-                        Dirección: c/A llorar a la lloreria tu casa, Alaska. Telefono de contacto: 23423432
-            </div>
     </div>
 
     <script type="text/javascript" src="index.js"></script> 
