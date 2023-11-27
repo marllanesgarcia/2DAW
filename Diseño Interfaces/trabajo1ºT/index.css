@@ -125,6 +125,15 @@ body {
     justify-content: space-between;
 }
 
+#containerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px;
+    padding-top: 15%;
+}
+
 section{
     display: flex;
     justify-content: center;
@@ -181,6 +190,13 @@ section{
     font-family: 'AdventPro';
     src: url('trabajo1ºT/AdventPro-VariableFont_wdth,wght.ttf') format('truetype');
 }
+
+#imgGrande{
+    display: flex;
+    justify-content:center;
+    margin-top: 0;
+}
+
 h5, h2{
     color:white;
     font-size:x-large;
@@ -211,6 +227,36 @@ h2{
     font-family: 'Aclonica';
     src: url('Aclonica-Regular.ttf') format('truetype');
 }
+
+/* imagenes Info  */
+#div1, #div2, #div3{
+    margin-left: 50px;
+    animation: rotateAnimation 1s linear infinite;
+}
+
+img{
+    height: 150px;
+    width: 250px;
+    border-radius: 20px;
+}
+
+/* Aqui se ejecuta el codigo de la animacion a traves de Keyframes que hace que las imagenes "bailen" */
+@keyframes rotateAnimation{
+    
+    0%,50% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(5deg);
+    }
+    75% {
+        transform: rotate(-5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+
 
 h1 {
     font-size: 80px;
@@ -287,6 +333,20 @@ h1 {
     height: auto;
     font-size: xx-small;
     margin-top: 70px;
+    padding: 20px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+#footer2 {
+    background-color: #8d8d8d50;
+    color: #fff;
+    margin:0;
+    text-align: center;
+    display: block;
+    height: auto;
+    font-size: xx-small;
     padding: 20px;
     position: relative;
     width: 100%;
