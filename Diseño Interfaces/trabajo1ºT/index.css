@@ -12,6 +12,13 @@ body {
     height: 100vh;
 }
 
+@media only screen and (max-width: 768px) {
+    body {
+      width: 100%;
+      padding: 10px;
+    }
+}
+
 #header {
     position: absolute;
     padding: 30px 0px;
@@ -46,7 +53,12 @@ body {
     width: 40%;
     max-width: 200px;
   }
-  
+
+  @media only screen and (max-width: 600px) {
+    .modal {
+        max-width: 100%;
+    }
+}  
   .close {
     color: #aaa;
     float: right;
