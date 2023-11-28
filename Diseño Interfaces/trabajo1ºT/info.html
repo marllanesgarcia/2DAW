@@ -14,10 +14,13 @@
 <body>
     <div id="header">
         <img src="logoBlanco.png" alt="Logo" id="logoPrincipal">
+        
         <div id="search">
-            <input type="text" placeholder="&nbsp; &nbsp; Buscar 🔍" id="buscador">
-            <button type="button" type="button" class="btn btn-outline-light">Buscar</button>
-        </div>
+            <form id="searchForm" action="https://www.google.com/search" method="GET" target="_blank">
+              <input type="text" id="buscador" name="q" placeholder="&nbsp; &nbsp; Buscar 🔍">
+              <button type="submit" class="btn btn-outline-light">Buscar</button>
+            </form>
+          </div>
 
             <audio id="myAudio" autoplay>
                 <source src="music.mp3" type="audio/mp3">
@@ -44,24 +47,22 @@
         </div>
     </div>
 
-        <div id="containerInfo">
-            <h1> ¿Quiénes Somos?</h1>
-            &nbsp;
-            &nbsp;
-            <h5> Somos una página web que busca el informar sobre la música existente en Corea del Sur.</br>
-            Porque... ¿Alguno conoce al famoso BTS? ¡Por supuesto! Pues hay muchos grupos más de K-pop.</br>
-            Aunque claro, no a todo el mundo le puede gustar el Kpop. En Stixer Naver te mostraremos la variedad de </br>
-            de géneros musicales que hay. Actualmente acabamos de nacer, como quien dice, y estamos en fase de aprender y </br>
-            mejorar según vuestros gustos y preferencias. ¿Nos Ayudaríais? 💗</h5>
-        </div> 
+    <div id="containerInfo">
+        <h1> ¿Quiénes Somos?</h1>
+        &nbsp;
+        &nbsp;
+        <h5> Somos una página web que busca el informar sobre la música existente en Corea del Sur.</br>
+        Porque... ¿Alguno conoce al famoso BTS? ¡Por supuesto! Pues hay muchos grupos más de K-pop.</br>
+        Aunque claro, no a todo el mundo le puede gustar el Kpop. En Stixer Naver te mostraremos la variedad de </br>
+        de géneros musicales que hay. Actualmente acabamos de nacer, como quien dice, y estamos en fase de aprender y </br>
+        mejorar según vuestros gustos y preferencias. ¿Nos Ayudaríais? 💗</h5>
+    </div> 
 
-        <div id="imgGrande">
-            <div id="div1"><img src="korean-music (1).png"></div>
-            <div id="div2"><img src="korean-music-boy.png"></div>
-            <div id="div3"><img src="korean-music.png"></div>
-        </div>
-
-  
+    <div id="imgGrande">
+        <div id="div1"><img src="korean-music (1).png"></div>
+        <div id="div2"><img src="korean-music-boy.png"></div>
+        <div id="div3"><img src="korean-music.png"></div>
+    </div>
 
     <div id="footer2">
         <p>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</br>
