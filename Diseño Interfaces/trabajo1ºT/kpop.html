@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Desplazamiento Automático</title>
+     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">  
+
+</head>
+<body>
+    <div id="header">
+        <img src="logoBlanco.png" alt="Logo" id="logoPrincipal">
+        
+        <div id="search">
+            <form id="searchForm" action="https://www.google.com/search" method="GET" target="_blank">
+              <input type="text" id="buscador" name="q" placeholder="&nbsp; &nbsp; Buscar 🔍">
+              <button type="submit" class="btn btn-outline-light">Buscar</button>
+            </form>
+          </div>
+
+            <audio id="myAudio" autoplay>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <button id="playPauseButton" class="btn btn-outline-light">Play&Pause</button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="100">
+
+        <button id="menu">
+            <p><strong>⸻</strong><br>
+            <strong>⸻</strong><br>
+            <strong>⸻</strong></p>
+        </button>
+
+        <div id="myModal" class="modal" tabindex="-1">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <a id="opciones" href="index.html">Home</a>
+                <a id="opciones" href="info.html">INFO</a>
+                <a id="opciones" href="kpop.html">K-POP</a>
+                <a id="opciones" href="khiphop.html">K-HIPHOP</a>
+                <a id="opciones" href="krock.html">K-ROCK</a>
+                <a id="opciones" href="kclassic.html">K-CLASSIC</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="containerInfo">
+        <h1 id="titulo"> K-Pop </h1>
+        <video width="740" height="460" controls loop>
+            <source src="video.mp4" type="video/mp4">
+    </div>
+    <div id="containerKpop">
+        <h2>¿Qué es el K-pop? </h2>
+
+        <p> El kpop es... Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Molestiae molestias maxime earum veniam, quidem omnis doloremque suscipit placeat </br>
+            provident debitis dicta libero quae minus consequatur totam dolorem maiores cumque ipsa.</br>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. </br>
+            Non molestiae voluptatem dolores aliquid velit animi consequuntur totam 
+            eveniet est quo. Velit quaerat amet, veniam hic aliquid assumenda dicta ipsa harum.</br></p>
+    </div>
+
+    <div id="footer2">
+        <p>⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻⸻</br>
+                <p>
+                    Ley 34/2002 de Servicios de la Sociedad de la Información y el Comercio Electrónico.
+                </br>
+                www.stixernaver.com, stixer naver community, NIF: 111111-x</br>
+                Dirección: c/A llorar a la lloreria tu casa, Alaska. Telefono de contacto: 23423432
+    </div>
+    
+
+    <script type="text/javascript" src="index.js"></script> 
+</body>
+</html>
