@@ -1,4 +1,20 @@
 crear tabla productos
+
+CREATE TABLE `producto` (
+`id` int(10) PRIMARY KEY UNSIGNED AUTO_INCREMENT,
+`nombre` varchar(100) NOT NULL,
+`descripcion` varchar(500) NOT NULL,
+`precio` double NOT NULL,
+`destacado` tinyint(1) NOT NULL,
+`id_categoria` int(11) NOT NULL
+) 
+
+
 crear tabla compras
 crear tabla usuarios
 crear tabla categorias
+
+CREATE TABLE `categorias` (
+    `id_categoria` int(10) PRIMARY KEY UNSIGNED AUTO_INCREMENT,
+    `nombre_categoria` varchar(50) NOT NULL
+);

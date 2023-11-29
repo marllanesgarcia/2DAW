@@ -41,15 +41,11 @@ if (isset($_SESSION['nombre'])) {
         <div id="contenido">
                 <div id="productosActuales">
                         <!-- Sección central para mostrar productos -->
-                    <h2>Productos Destacados</h2>
+                        <h2>Productos Destacados</h2>
                         <table id="cosas">
-                            <td>ID</td>
-                            <td>Nombre</td>
-                            <td>Descripcion</td>
-                            <td>Precio</td>
-                            <td>categoria</td>
+                            <?php include 'codigoindex.php'; ?>
                         </table>
-            </div>
+                </div>
         </div>
 
     <footer> Informacion Legal</footer>

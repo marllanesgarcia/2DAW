@@ -1,4 +1,4 @@
-INSERT INTO `producto` (`id`,`nombre`, `descripcion`, `precio`, `destacado`, `id_categoria`)
+INSERT INTO `producto` (`id`,`nombre`, `descripcion`, `precio`, `destacado`, `id_categoria`, `ruta_imagen`port)
 VALUES
 ('0','Camiseta Roja', 'Camiseta de algodón roja con diseño moderno', 19.99, 1, 4),
 ('1','Zapatos Deportivos', 'Zapatos para correr con tecnología avanzada', 49.99, 1, 5),
@@ -7,8 +7,8 @@ VALUES
 ('4','Silla gamer', 'Silla ajustable para mayor comodidad en el trabajo', 149.99, 1, 7),
 ('5','Gafas de Sol', 'Gafas de sol con estilo y protección UV', 29.99, 0, 8),
 ('6','Camiseta Friki', 'Camiseta de Star Wars de algodon', 39.99, 1, 7),
-('7','Cámara de Fotos', 'Cámara con sensor avanzado y capacidad de grabación 4K', 599.99, 1, 10),
-('8','Teclado Gaming', 'Teclado diseñado para jugadores con retroiluminación RGB', 89.99, 1, 11),
+('7','Cámara de Fotos', 'Cámara con sensor avanzado y capacidad de grabación 4K', 599.99, 1, 8),
+('8','Teclado Gaming', 'Teclado diseñado para jugadores con retroiluminación RGB', 89.99, 1, 2),
 ('9','Smart TV 4K', 'Televisor inteligente con resolución 4K y aplicaciones integradas', 499.99, 1, 1),
 ('10','Auriculares Inalámbricos', 'Auriculares con cancelación de ruido y conectividad Bluetooth', 129.99, 0, 1),
 ('11','Pintalabios', 'Pintalabios de Color Rojo Pasion de la marca Jeje', 29.99, 0, 3),

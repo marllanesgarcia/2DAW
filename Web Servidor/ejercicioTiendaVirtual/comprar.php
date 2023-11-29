@@ -33,10 +33,20 @@ if (isset($_SESSION['nombre'])) {
 ?> 
 
             <h1 id="titulo">Ama(tu)zon(a) 🐦 </h1>
+        </br>
+        <div id="contenido">
+                <div id="productosActuales">
+                        <!-- Sección central para mostrar productos -->
+                    <h2>Carrito</h2>
+                        <table id="cosas">
+                            <td>
+                                
+                            </td>
+                        </table>
+            </div>
+        </div>
+        
+<footer> Informacion Legal</footer>
 
-
-
-
-            <footer> Informacion Legal</footer>
 </body>
 </html>
