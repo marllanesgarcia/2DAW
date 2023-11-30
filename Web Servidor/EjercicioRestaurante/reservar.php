@@ -10,49 +10,63 @@
 
 <div style="text-align: center;" id="div1">
 
+<!-- Código para reservar la mesa según de la elección -->
+
+
 <?php
 
 $conexion = new mysqli('localhost', 'root', '', 'mesas');
-$mesas = [
-    ['id' => 0, 'capacidad' => 2, 'reservada' => false],
-    ['id' => 1, 'capacidad' => 2, 'reservada' => false],
-    ['id' => 2, 'capacidad' => 4, 'reservada' => false],
-    ['id' => 3, 'capacidad' => 4, 'reservada' => false],
-    ['id' => 4, 'capacidad' => 6, 'reservada' => false],
-    ['id' => 5, 'capacidad' => 6, 'reservada' => false],
-    ['id' => 6, 'capacidad' => 8, 'reservada' => false],
-    ['id' => 7, 'capacidad' => 8, 'reservada' => false],
-];
-$imagenesMesas = [
-    2 => 'mesa2.png',
-    4 => 'mesa4.png',
-    6 => 'mesa6.png',
-    8 => 'mesa8.png',
-];
+
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
 $mesa_id = $_GET['mesa_id'];
+$diaSeleccionado = $_GET['dia'];
 
-$query = "SELECT id_usuario_reserva FROM mesas WHERE id = ?";
+$query = "SELECT id_usuario_reserva, dia_reserva FROM mesas WHERE id = ?";
 $stmt = $conexion->prepare($query);
+
+if (!$stmt) {
+    die("Error en la preparación de la consulta: " . $conexion->error);
+}
+
 $stmt->bind_param("i", $mesa_id);
 $stmt->execute();
+
+if ($stmt->error) {
+    die("Error al ejecutar la consulta: " . $stmt->error);
+}
+
 $resultado = $stmt->get_result();
 $reserva_existente = $resultado->fetch_assoc();
 
-if ($reserva_existente['id_usuario_reserva'] === null) {
+if ($reserva_existente['id_usuario_reserva'] === null || $reserva_existente['dia_reserva'] !== $diaSeleccionado) {
+    $idUsuario = $usuario['id'];
 
-    echo "<script>alert('Mesa reservada con éxito.');</script></br> <img src='https://i.pinimg.com/originals/cc/4e/13/cc4e13c7aa8896b068576783e9c379dd.gif'>";
+    $updateQuery = "UPDATE mesas SET id_usuario_reserva = ?, dia_reserva = ? WHERE id = ?";
+    $stmtUpdate = $conexion->prepare($updateQuery);
+
+    if (!$stmtUpdate) {
+        die("Error en la preparación de la consulta de actualización: " . $conexion->error);
+    }
+
+    $stmtUpdate->bind_param("isi", $idUsuario, $diaSeleccionado, $mesa_id);
+    $stmtUpdate->execute();
+
+    if ($stmtUpdate->error) {
+        die("Error al ejecutar la consulta de actualización: " . $stmtUpdate->error);
+    }
+
+    $stmtUpdate->close();
+
+    echo "<script>alert('Mesa reservada con éxito.'); window.location.href = 'inicio.php';</script>";
 } else {
-    echo "<script>alert('Esta mesa ya está reservada. Por favor, elija otra mesa.');</script>";
+    echo "<script>alert('Esta mesa ya está reservada para el día seleccionado. Por favor, elija otra mesa o día.'); window.location.href = 'inicio.php';</script>";
 }
 
-$stmt->close();
 $conexion->close();
 ?>
-
 
 </div>
 

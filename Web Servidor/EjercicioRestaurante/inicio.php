@@ -11,31 +11,7 @@
 <div style="text-align: center;" id="div1">
     <h1>Gestor de Reservas</h1>
 
-
-    <!-- <form method="post" action="funcionesMesas.php">
-    <label for="nombre">Número de comensales:</label>
-        <input type="text" name="nombre" id="nombre" required>
-        </br>
-
-    <label for="mesa">Selecciona el día:</label>
-        <select name="dia" id="dia">
-            <option value="lunes">Lunes</option>
-            <option value="martes">Martes</option>
-            <option value="miercoles">Miércoles</option>
-            <option value="jueves">Jueves</option>
-            <option value="viernes">Viernes</option>
-            <option value="sabado">Sábado</option>
-            <option value="domingo">Domingo</option>
-        </select>
-        </br>
-
-        <label for="comensales">Número de comensales:</label>
-        <p> De 1 a 8 comensales</p>
-        <input type="number" name="comensales" id="comensales" min="1" required>
-        <br> -->
-
-
-        <form method="post" action="funcionesMesas.php">
+    <form method="post" action="funcionesMesas.php">
     <label for="nombre">Nombre:</label>
     <input type="text" name="nombre" id="nombre" required>
     <br>
@@ -76,3 +52,4 @@
 
 </body>
 </html>
+
