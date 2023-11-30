@@ -1,8 +1,12 @@
 "use strict";
 
-function addItemToList(){
-    var elementos = document.getElementById("listItem")[0].value;
+function addItemToList() {
+        var nuevoElemento = document.getElementById('listItem').value;
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(nuevoElemento));
+        document.getElementById('custom-list').appendChild(li);
     
+        document.getElementById('listItem').value = '';
 }
 
 function applyPreferences() {
@@ -21,8 +25,17 @@ function applyPreferences() {
 if(sessionStorage.getItem("bgColor")!=null){
     document.body.style.backgroundColor=sessionStorage.getItem("bgColor"); */
 
-    var estilo = document.getElementById("option").value;
+      //  var miElemento = addItemToList(li);
+    
+        var valor = document.getElementById('listStyle').value;
+        console.log(valor);
+        var listStyle = document.getElementById("custom-list");
+        listStyle.style.listStyleType = valor;
 
+        sessionStorage.setItem("listStyle", valor);
+        document.getElementById('listItem').value = valor;
+
+    
 }
 
 
