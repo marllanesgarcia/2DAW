@@ -9,7 +9,6 @@ if ($conexion->connect_error) {
 $usuario = $_POST['usuario'];
 $password = $_POST['password'];
 
-// Insertar datos en la tabla de usuarios
 $query = "INSERT INTO usuarios (nombre, password) VALUES ('$usuario', '$password')";
 
 if ($conexion->query($query) === TRUE) {
