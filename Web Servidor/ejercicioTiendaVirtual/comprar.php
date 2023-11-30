@@ -39,9 +39,7 @@ if (isset($_SESSION['nombre'])) {
                         <!-- Sección central para mostrar productos -->
                     <h2>Carrito</h2>
                         <table id="cosas">
-                            <td>
-                                
-                            </td>
+                                <?php include 'codigoComprar.php'; ?>
                         </table>
             </div>
         </div>

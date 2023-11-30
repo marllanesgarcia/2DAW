@@ -43,7 +43,9 @@ if (isset($_SESSION['nombre'])) {
                         <!-- Sección central para mostrar productos -->
                         <h2>Productos Destacados</h2>
                         <table id="cosas">
-                            <?php include 'codigoindex.php'; ?>
+                            <td>    
+                                <?php include 'codigoindex.php'; ?>
+                            </td>
                         </table>
                 </div>
         </div>
