@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorinchis</title>
+</head>
+<body>
+<!-- 
+    <h1>Preferencias de Estilo</h1>
+
+    <label for="bgColor">Color de Fondo:</label>
+    <input type="color" id="bgColor">
+
+    <label for="fontSize">Tamaño del Texto:</label>
+    <input type="range" id="fontSize" min="10" max="30" step="1">
+
+    <button onclick="applyPreferences()">Aplicar Preferencias</button> -->
+
+    <h1>Preferencias de Lista</h1>
+
+    <label for="listItem">Nuevo Elemento:</label>
+    <input type="text" id="listItem">
+
+    <label for="listStyle">Estilo de Lista:</label>
+    <select id="listStyle">
+        <option value="none">Ninguno</option>
+        <option value="disc">Viñetas (disc)</option>
+        <option value="circle">Viñetas (circle)</option>
+        <option value="square">Viñetas (square)</option>
+        <option value="decimal">Numeración (decimal)</option>
+        <option value="lower-alpha">Numeración (a, b, c)</option>
+        <option value="upper-alpha">Numeración (A, B, C)</option>
+    </select>
+
+    <button onclick="addItemToList()">Agregar Elemento</button>
+    <button onclick="applyPreferences()">Aplicar Preferencias</button>
+
+    <ul id="custom-list"></ul>
+
+
+    <script src="colores.js"></script>
+</body>
+</html>
