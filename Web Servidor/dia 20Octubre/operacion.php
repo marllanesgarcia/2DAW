@@ -24,7 +24,7 @@ class Sumar extends Operacion{
 class Restar extends Operacion{
     
     public function operar(){
-        echo "La resta es " . ($this -> num1 -s $this -> num2);
+        echo "La resta es " . ($this -> num1 - $this -> num2);
     }
 }
 
