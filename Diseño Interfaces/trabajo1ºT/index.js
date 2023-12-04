@@ -5,24 +5,24 @@ var menu = document.getElementById("menu");
 var closeModalBtn = document.getElementById("closeModalBtn");
 
 /* Función para abrir el modal con el boton */
-menu.onclick = function() {
+menu.onclick = function () {
   modal.style.display = "block";
 }
 
 /* Función para cerrar el modal */
-closeModalBtn.onclick = function() {
+closeModalBtn.onclick = function () {
   modal.style.display = "none";
 }
 
 /* Cerrar el modal si se hace clic fuera de él */
-window.onclick = function(event) {
+window.onclick = function (event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
 
-/*  Funcion para el scroll           */
-document.addEventListener("DOMContentLoaded", function() {
+/*  Funcion para el scroll       */    
+ document.addEventListener("DOMContentLoaded", function() {
     var toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", function() {
 
@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-    /*  Funcion para la música    */
-  document.addEventListener("DOMContentLoaded", function() {
+    /*  Funcion para la música   */
+  document.addEventlListener("DOMContentLoaded", function() {
     var myAudio = document.getElementById("myAudio");
     var playPauseButton = document.getElementById("playPauseButton");
     var volumeSlider = document.getElementById("volumeSlider");
@@ -53,17 +53,78 @@ document.addEventListener("DOMContentLoaded", function() {
     volumeSlider.addEventListener("input", function() {
       myAudio.volume = volumeSlider.value / 100;
     });
-  });
+  }); 
 
-  /* Código para la búsqueda de palabras en la barra buscadora    */
-  document.addEventListener("DOMContentLoaded", function() {
-    var searchForm = document.getElementById("searchForm");
-    var buscadorInput = document.getElementById("buscador");
-  
-    searchForm.addEventListener("submit", function(event) {
-      if (buscadorInput.value.trim() === "") {
-        event.preventDefault(); 
-      }
-    });
+  /* Código para la búsqueda de palabras en la barra buscadora   */  
+  document.getElementById('buscar').addEventlistener('submit', function(event) {
+    event.preventDefault();
+    search();
   });
+  
+  function search() {
+    var terminoino = document.getElementById('buscador').value.toLowerCase();
+    var paginas = buscarPaginas(terminoino);
+  
+    resultadosPosibles(paginas);
+  }
+  
+  function buscarPaginas(terminoino) {
+    var links = [
+      { titulo: 'Página 1', url: 'index.html' },
+      { titulo: 'Página 2', url: 'info.html' },
+      { titulo: 'Página 3', url: 'kpop.html' },
+      { titulo: 'Página 4', url: 'khiphop.html' },
+      { titulo: 'Página 5', url: 'krock.html' },
+      { titulo: 'Página 6', url: 'kclassic.html' },
+    ];
+      // metodo para buscar por filtro (filter)
+    var paginas = links.filter(pagina => {
+      var contenidoPagina = obtenerContenidoDePagina(pagina.url).toLowerCase();
+      return contenidoPagina.includes(terminoino);
+    });
+  
+    return paginas;
+  }
+  
+  function obtenerContenidoDePagina(url) {
+    switch (url) {
+      case 'index.html':
+        return 'Contenido de la página...';
+      case 'info.html':
+        return 'Contenido de la página...';
+      case 'kpop.html':
+        return 'Contenido de la página...';
+      case 'khiphop.html':
+        return 'Contenido de la página...';
+    case 'krock.html':
+       return 'Contenido de la página...';
+    case 'kclassic.html':
+        return 'Contenido de la página...';
+      default:
+        return '';
+    }
+  }
+  
+  function resultadosPosibles(paginas) {
+    var resultados = document.getElementById('resultados');
+    resultados.innerHTML = '';
+  
+    if (paginas.length > 0) {
+      var h3 = document.createElement('h3');
+      h3.textContent = `Páginas que contienen la palabra "${document.getElementById('buscador').value}":`;
+      resultados.appendChild(h3);
+  
+      var lista = document.createElement('ul');
+      paginas.forEach(pagina => {
+        var listaItem = document.createElement('li');
+        listaItem.innerHTML = `<a href="${pagina.url}">${pagina.titulo}</a>`;
+        lista.appendChild(listaItem);
+      });
+      resultados.appendChild(lista);
+    } else {
+      var noResultados = document.createElement('p');
+      noResultados.textContent = 'No se encontraron páginas con la palabra ingresada.';
+      resultados.appendChild(noResultados);
+    }
+  }
   

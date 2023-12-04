@@ -7,10 +7,8 @@ body {
     justify-content: space-between;
     background-image: url("fondo.jpg");
     background-color: #131007;
-    background-size: cover;
-    background-position: center;
+    background-size: 100vw 120vh;
     background-repeat: repeat;
-    height: 100vh;
 }
 
 @media only screen and (max-width: 768px) {
@@ -156,6 +154,11 @@ body {
     justify-content: space-between;
 }
 
+/*n Para poner amarillas las letras de la búsqueda */
+.highlight {
+    background-color: yellow;
+  }
+
 #containerInfo {
     display: flex;
     flex-direction: column;
@@ -240,6 +243,8 @@ h5, h2{
     font-size:x-large;
     font-family: 'Aclonica', sans-serif;
     justify-content: space-around;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgb(49, 49, 49);
 }
 
 h2{
@@ -387,6 +392,7 @@ h1 {
     display: block;
     height: auto;
     font-size: xx-small;
+    
     padding: 20px;
     width: 100%;
     bottom: 0;

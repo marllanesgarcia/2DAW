@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Desplazamiento Automático</title>
+     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">  
+
+</head>
+<body>
+    <div id="header">
+        <img src="logoBlanco.png" alt="Logo" id="logoPrincipal">
+        
+        <div id="search">
+            <form id="buscar" method="GET" target="_blank">
+              <input type="text" id="buscador" name="q" placeholder="&nbsp; &nbsp; Buscar 🔍">
+              <button type="submit" class="btn btn-outline-light">Buscar</button>
+            </form>
+          </div>
+
+            <audio id="myAudio" autoplay>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <button id="playPauseButton" class="btn btn-outline-light">Play&Pause</button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="100">
+
+        <button id="menu">
+            <p><strong>⸻</strong><br>
+            <strong>⸻</strong><br>
+            <strong>⸻</strong></p>
+        </button>
+
+        <div id="myModal" class="modal" tabindex="-1">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <a id="opciones" href="index.html">Home</a>
+                <a id="opciones" href="info.html">INFO</a>
+                <a id="opciones" href="kpop.html">K-POP</a>
+                <a id="opciones" href="khiphop.html">K-HIPHOP</a>
+                <a id="opciones" href="krock.html">K-ROCK</a>
+                <a id="opciones" href="kclassic.html">K-CLASSIC</a>
+            </div>
+        </div>
+    </div>
+
+                <!-- Contenido de las busquedas -->
+
+    <div id="resultados"></div>
+
+
+
+
+    <script type="text/javascript" src="index.js"></script> 
+</body>
+</html>
