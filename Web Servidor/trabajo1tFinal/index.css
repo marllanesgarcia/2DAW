@@ -36,14 +36,14 @@ form {
                 0 20px 20px rgba(0, 0, 0, .15) ;   
 }
 
-#blogActual{
+#blogActual{ 
         display: block;
         padding: 20px;
         background-color: white;
         border: 1px solid #ddd;
         border-radius: 5px;
-        width: 100%; /* Ocupa todo el ancho disponible */
-        height: 100%; /* Ocupa todo el alto disponible */
+        width: 100%; 
+        height: 100%; 
         justify-content: center;
 }
 
@@ -96,9 +96,8 @@ a {
     font-size: 20px;
 }
 
+
 #form{
-    /* 
- display: flex; */
  justify-content: flex-start;
 }
 

@@ -8,10 +8,10 @@
 <?php
     session_start();
 
-if (isset($_SESSION['usuario'])) {
+if (isset($_SESSION['usuarios_id'])) {
     $nombre_usuario = $_SESSION['usuario'];
     echo'&nbsp;';
-    echo "<a style='display:flex; justify-content:center; color:white;'>Bienvenido, $nombre_usuario!</a>";
+    echo "<a style='display:flex; justify-content:center;  color:white;'>Bienvenido, $nombre_usuario!</a>";
     echo '<div style="text-align: center;">
                 <a  href="index.php" id="inicioButton"><h1 id="titulo">Phasmo.GRR 👻</h1></a>
                     <form id="form" method="get" action="buscar.php">
@@ -26,7 +26,7 @@ if (isset($_SESSION['usuario'])) {
 } else {
     $nombre_usuario = "Fantasmita";
     echo'&nbsp;';
-    echo "<a style='display:flex; justify-content:center;  color:white;'>Bienvenido, $nombre_usuario!</a>";
+    echo "<a style='display:flex; justify-content:center; color:white;'>Bienvenido, $nombre_usuario!</a>";
     echo '<div style="text-align: center;">
             <a  href="index.php" id="inicioButton"><h1 id="titulo">Phasmo.GRR 👻</h1></a>
             <form id="form" method="get" action="buscar.php">
@@ -39,23 +39,30 @@ if (isset($_SESSION['usuario'])) {
         </div>';
 }
 ?> 
-    <hr>
+        <hr>
+
 
     <div style="display: flex; justify-content:center;">
-            <div id="loggeo" >
-                <h2>Inicia Sesion</h2>
+        <div id="loggeo" >
+                <h2>Registrarse</h2>
                     <div id="contenidoBlog">
-                        <form method="post" action="funcionesInicioSesion.php">
+                        <form method="post" action="funcionesRegistro.php">
                             <label for="usuario">Usuario:</label>
-                            <input type="text" name="usuario" id="usuario"><br><br>
+                            <input type="text" name="usuario" id="usuario" required><br><br>
 
                             <label for="contrasena">Contraseña:</label>
-                            <input type="password" name="contrasena" id="contrasena"><br><br>
+                            <input type="password" name="contrasena" id="contrasena" required><br><br>
+                            <select name="rol" required>
+                                <option value="administrador">Administrador</option>
+                                <option value="usuario">Usuario</option>
+                            </select>
+                            <br>
 
                             <input type="submit" value="iniciarSesion">
                         </form>
                     </div>
-            </div>
+            
+        </div>
     </div>
 </body>
-</html>
+</hmtl>
