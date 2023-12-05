@@ -97,17 +97,11 @@ var numerito = -6;
 esPar(numerito);
 
 ejercicio 5
-*/
-
 
 function contar(string,silaba){
     var numeritos = 0;
 
     for (var i=0;i<string.length;i++){
-/*      numeritos = string[i].split(silaba);
-        numeritos++;
-        console.log(numeritos);
-        return numeritos; */
         if (string[i] == silaba) {
             numeritos++;
         }
@@ -117,6 +111,76 @@ function contar(string,silaba){
 }
 
 contar("holaquetalestaspaca","a");
+
+
+// Conceptos básicos JS
+// sumar rango
+rango1 (1,12);
+rango (1,10,2);
+function rango1 (inicio, final){
+    for (var i=inicio;i<final;i++){
+}       console.log(inicio+1);
+}
+
+function rango(inicio,final,salto){
+    for (var i=inicio;i<final;i++){
+       var contar = inicio + salto;
+        console.log(contar + salto);
+    }
+}
+
+// array de numeros que recorrer, sumar rango
+function rango1 (inicio, final){
+    var myArray=[];
+    for(var i=inicio;i<final;i++){
+        myArray.push(i+1);
+    }
+    console.log(myArray);
+}
+
+// array de numero que recorrer con salto
+rango2(1,20,5);
+function rango2 (inicio, final, salto){
+    var myArray=[];
+    var ayuda =inicio;
+    console.log("entre");
+    while (ayuda < final){
+        console.log("entre otra vez");
+        myArray.push(ayuda);
+        ayuda+=salto;
+    }
+    
+    console.log(myArray);
+}
+
+// suma un array de numeros 
+var array=[2,6,84,4,8,9,10,24,55];
+function suma(array = []){
+    var contador=0;
+    for (let i=0;i<array.length;i++){
+        contador+=array[i];
+    }
+    return contador;
+}
+console.log(suma(array));
+*/
+
+var Persona = {
+    nombre : "manolo",
+    edad : 12
+}
+
+toString(Persona); // imprime el objeto persona
+Persona.hasOwnProperty(nombre); // comprueba si en Persona existe nombre
+Objtect.isPrototype(Persona); // se comprueba si Persona pertenece al objeto Objeto
+
+var FA = [];
+var FB = [];
+
+document.form[0].element; Ç// coge el array FA 
+
+
+
 
 
 
