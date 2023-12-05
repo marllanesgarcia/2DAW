@@ -405,3 +405,77 @@ p{
 html {
     scroll-behavior: smooth;
 }
+
+@keyframes aumento {
+    0%, 100% {
+      transform: translateX(0) scale(0.5);
+    }
+    50% {
+      transform: translateX(120px) scale(1);
+    }
+  }
+
+  #movimiento {
+    margin-right: 12%;
+    font-size: 2em;
+    animation: aumento 5s ease-in-out infinite;
+  }
+
+  /* Contenido de artistas en las paginas de listas deseos  */
+  #listaDeseos {
+    list-style: none;
+    padding: 10px;
+    width: 500px;
+    float: left;
+    margin-right: 20px;
+  }
+
+  #contenedorCorazones {
+    float: left;
+    width: 200px;
+  }
+
+
+  .corazon {
+    color: red;
+    margin-left: 5px;
+  }
+
+  .deseo{
+    width: 120px;
+  }
+
+
+/* este cogido es para el boton de lista de deseos */
+.ov-btn-grow-box {
+    background: #fff; 
+    color: #4741d7;
+    border: 2px solid #4741d7;
+    padding: 16px 20px;
+    border-radius: 3px; 
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    display: inline-block;
+  }
+  .ov-btn-grow-box:hover {
+    color: #fff;
+  }
+  .ov-btn-grow-box::after {
+    content: "";
+    background: #4741d7;
+    position: absolute;
+    z-index: -1;
+    padding: 16px 20px;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    transform: scale(0, 0);
+    transition: all 0.3s ease;
+  }
+  .ov-btn-grow-box:hover::after {
+    transition: all 0.3s ease-out;
+    transform: scale(1, 1);
+  }

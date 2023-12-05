@@ -21,8 +21,45 @@ window.onclick = function (event) {
   }
 }
 
+/* Funcion para el boton de lista de deseos   */
+function coger(ev) {
+  ev.dataTransfer.setData("text/plain", ev.target.innerText);
+}
+
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var textoDeseo = ev.dataTransfer.getData("text/plain");
+
+  var deseo = document.createElement("div");
+  deseo.className = "deseo";
+  deseo.innerText = textoDeseo;
+
+  var corazon = document.createElement("span");
+  corazon.className = "corazon";
+  corazon.innerText = "❤️";
+
+  deseo.appendChild(corazon);
+
+  document.getElementById("contenedorCorazones").appendChild(deseo);
+
+  agregarATabla(textoDeseo);
+}
+
+function agregarATabla(texto) {
+  var table = document.getElementById("tablaDeseos");
+  var row = table.insertRow(-1);
+  var cell = row.insertCell(0);
+  cell.innerHTML = texto;
+}
+
+
+
 /*  Funcion para el scroll       */    
- document.addEventListener("DOMContentLoaded", function() {
+/*  document.addEventListener("DOMContentLoaded", function() {
     var toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", function() {
 
@@ -35,9 +72,9 @@ window.onclick = function (event) {
       });
     });
   });
-  
+   */
     /*  Funcion para la música   */
-  document.addEventlListener("DOMContentLoaded", function() {
+  /* document.addEventlListener("DOMContentLoaded", function() {
     var myAudio = document.getElementById("myAudio");
     var playPauseButton = document.getElementById("playPauseButton");
     var volumeSlider = document.getElementById("volumeSlider");
@@ -53,10 +90,10 @@ window.onclick = function (event) {
     volumeSlider.addEventListener("input", function() {
       myAudio.volume = volumeSlider.value / 100;
     });
-  }); 
+  });  */
 
   /* Código para la búsqueda de palabras en la barra buscadora   */  
-  document.getElementById('buscar').addEventlistener('submit', function(event) {
+ /*  document.getElementById('buscar').addEventlistener('submit', function(event) {
     event.preventDefault();
     search();
   });
@@ -128,3 +165,4 @@ window.onclick = function (event) {
     }
   }
   
+ */
