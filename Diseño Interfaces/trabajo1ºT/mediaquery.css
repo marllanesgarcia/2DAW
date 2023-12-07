@@ -9,18 +9,48 @@
       width: 100%;
       padding: 10px;
     }
-
+/*
     #header {
-        padding: 15px 0; /* Modificado para pantallas pequeñas */
-    }
+        padding: 15px 0; /* Modificado para pantallas pequeñas 
+    }*/
 
-   /*  .modal-content {
-        width: 80%; /* Modificado para pantallas pequeñas 
+   /*   .modal-content {
+        width: 80%; Modificado para pantallas pequeñas 
     }
 
     .close {
         font-size: 24px; /* Modificado para pantallas pequeñas 
     }*/
+
+    #header {
+        padding: 5px; /* Reducción del relleno para dispositivos móviles */
+    }
+
+    #search {
+        margin-left: 5px; /* Separación aún más reducida para dispositivos móviles */
+    }
+
+    #playPauseButton {
+        font-size: x-small; /* Tamaño de fuente aún más reducido para dispositivos móviles */
+    }
+
+    #menu {
+        margin-right: 5px; /* Separación aún más reducida para dispositivos móviles */
+    }
+
+    #myModal {
+        width: 100%; /* Ancho completo para dispositivos móviles */
+    }
+
+    .modal-content {
+        width: 90%; /* Ancho aún más reducido para dispositivos móviles */
+    }
+
+    #opciones {
+        font-size: x-small; 
+    }
+    /* Tamaño de fuente aún más reducido para dispositivos móviles 
+    }
 
     #opciones {
         height: 40px; 
@@ -32,7 +62,7 @@
     #menu {
         border-radius: 10px; 
     }
-
+*/
     #menu p {
         font-size: small;
     }
@@ -48,16 +78,10 @@
         margin-bottom: 10px; 
     }
 
-    #menu {
+   /* #menu {
         margin-left: 0; 
         float: none; 
-    }
-
-    #buscador {
-        width: 100%; 
-        max-width: none; 
-        margin-top: 10px; 
-    }
+    }*/
 
     #containerP1 {
         padding-top: 20%; 
@@ -80,14 +104,13 @@
     }
 
     #containerP2 {
-        padding-top: 100px; 
-        height: 100vh;
-        position: relative; 
-        overflow: hidden;
+        padding-top: 100px;
+        height: auto; 
     }
 
     .music1, .music2, .music3, .music4 {
-        font-size: 1.5em; 
-        padding: 30px;
+        font-size: 1.5em;
+        padding: 30px; 
     }
+
 }

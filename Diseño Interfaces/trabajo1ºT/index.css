@@ -11,14 +11,46 @@
     background-repeat: repeat;
 }
 
+/* Codigo header */
+
 #header {
-    position: absolute;
-    padding: 30px 0px;
-    text-align: center;
-    justify-content: center;
     display: flex;
+    justify-content: center;
     align-items: center;
+    position: relative; 
+    padding: 30px 0;
+    text-align: center;
     margin-bottom: 20px;
+}
+
+#menu {
+    border-style: solid;
+    background-color: rgba(255, 255, 255, 0.788);
+    border-radius: 20%;
+    padding: 10px;
+    margin-right: 20px; 
+}
+
+
+#menu p {
+    margin: 0; 
+    font-size: x-small;
+}
+
+#menu strong {
+    font-weight: bold;
+}
+
+
+#search { 
+    margin-left: 30px;
+    display: inline-block;
+}
+
+#logoPrincipal {    
+    height: 80px; 
+    width: auto;
+    margin-right: 20px; 
 }
 
 .modal {
@@ -77,23 +109,6 @@
     background-color: #5b327c;
     box-shadow: 0 0 10px rgba(139, 0, 139, 0.7);
   }
-
-
-#menu {
-    border-style: solid;
-    background-color: rgba(255, 255, 255, 0.788);
-    border-radius: 20%;
-    padding: 10px;
-}
-
-#menu p {
-    margin: 0; 
-    font-size: x-small;
-}
-
-#menu strong {
-    font-weight: bold;
-}
 
 #containerP1 {
     display: flex;
@@ -304,14 +319,6 @@ h1 {
     color: white;
 }
 
-/* Codigo fijo del logo para todas las páginas   */
-#logoPrincipal {
-    float: left;
-    height: 150px; 
-    width: auto; 
-}
-
-
 #titulo{
     font-size: 60px;
     -webkit-text-stroke-width: 2px;
@@ -324,32 +331,6 @@ h1 {
     font-size: 24px;
     margin-top: 20px;
     text-align: center;
-}
-
-/* código para la barra de busqueda del header  */ç
-#search { 
-    margin-left: 30px;
-    margin-right: 20px;
-    display: inline-block;
-}
-
-#menu {
-    margin-left: 10px;
-    float: right;
-}
-
-#buscador{
-    width: 700px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.589);
-}
-
-#buscador::placeholder {
-    font-family: "Comic Sans MS", cursive;
-    font-weight: bold;
-    font-size: 15x; 
-    text-transform: uppercase; 
-    color: #00000096;
 }
 
 /*  Boton de desplazamiento de la pagina principal "start"*/
@@ -398,7 +379,6 @@ al codigo, para no modificar el de la pagina principal  */
     display: block;
     height: auto;
     font-size: xx-small;
-    
     padding: 20px;
     width: 100%;
     bottom: 0;
