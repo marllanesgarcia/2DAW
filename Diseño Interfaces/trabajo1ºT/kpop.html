@@ -6,6 +6,7 @@
     <title>Página con Desplazamiento Automático</title>
      <link rel="stylesheet" href="index.css">
      <link rel="stylesheet" href="mediaquery.css">
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">  
 
@@ -43,6 +44,7 @@
         </div>
     </div>
 
+
     <div id="containerInfo">
         <h1 id="titulo"> K-Pop </h1>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/9TNHWJGPw0Q" frameborder="0" allowfullscreen></iframe>
@@ -62,7 +64,7 @@
             al mundo extranjero obteniendo un éxito inesperado.</br>
             Uno de los pioneros fue el famoso BTS, ganando numerosos premios internacionales.  </br>      
         </p>
-        <img src="estadistica1.PNG" style="width: 840px; height: 260px;">
+        <img id="kpopImagen" src="estadistica1.PNG">
         &nbsp;
         &nbsp;
         <p>
@@ -79,7 +81,7 @@
             Este gráfico a continuación, representa un esquema más actual de cómo está la popularidad en los </br>
             premios más internacionales y visualizaciones de youtube. </br>
        </p>
-       <img src="estadistica2.PNG" style="width: 560px; height: 350px;">
+       <img id="kpopImagen2" src="estadistica2.PNG">
        &nbsp;
        &nbsp;
        <h2> ¿Cuáles son sus origenes?</h2>
@@ -96,7 +98,7 @@
         Una parte muy importante del K-pop es la comunicación de los artistas con sus fans; ellos suben mucha 
         información sobre cómo es su día a día, </br> y de esta forma sus fans pueden saber fácilmente qué marcas de ropa 
         usan y cómo es su rutina de cuidado de la piel.</br>
-        <img src="gifsMusica/coreokpop1.gif" style="width: auto; height: auto; margin-top: 2%;">
+        <img id="kpopImagen3" src="gifsMusica/coreokpop1.gif">
        </p>
        <p>
         El término que se emplea comúnmente para referirse a la difusión de los
@@ -115,12 +117,12 @@
         los automóviles y semiconductores y, </br>decidieron imitar el modelo de producción de
         Hollywood.
        </p>
-       <img src="gifsMusica/coreokpop3.gif" style="width: auto; height: auto;">
+       <img id="kpopImagen" src="gifsMusica/coreokpop3.gif">
        &nbsp;
        &nbsp;     
             <div style="display: flex; margin-bottom: 2%;">
             <div>
-                <img src="https://sites.duke.edu/dukeiff/files/2021/11/Screen-Shot-2021-11-19-at-9.53.39-AM.png" style="width: 260px; height: 360px;">
+                <img id="kpopImagen5" src="https://sites.duke.edu/dukeiff/files/2021/11/Screen-Shot-2021-11-19-at-9.53.39-AM.png">
             </div>
             <div style="margin-left: 5%;">
                 <p>
@@ -161,48 +163,47 @@
                     </p>
                 </div>
                 <div>
-                    <img src="gifsMusica/coreokpop5.gif" style="width: 240px; height: 260px;">
+                    <img id="kpopImagen4" src="gifsMusica/coreokpop5.gif">
                 </div>
             </div>
 
             <h2 id="movimiento"> ¿Ya terminaste de Leer el apartado?</br>¡Espero que te gustase! Aqui tienes una lista 
             para que elijas </br> los artistas que más te gusten.</h2>
-            <div style="display: flex; justify-content: center;" id="listaDeseos">
-                <div style="margin-right: 50%;">
-                <h3>Boygroups</h3>
-                <ul>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">ATEEZ</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">BTS</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">EXO</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">STRAY KIDS</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">SEVENTEEN</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">NCT</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">XIKERS</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">ENHYPEN</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">TXT</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">MONSTA X</li>
-                </ul>
-                &nbsp;
-                <h3>Girlgroups</h3>
-                <ul>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">TWICE</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">LE SSERAFIM</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">LOONA</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">BLACKPINK</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">(G)-IDLE</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">SUNMI</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">IVE</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">GIRLS GENERATION</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">F(X)</li>
-                <li class="deseo" draggable="true" ondragstart="coger(event)">NEW JEANS</li>
-                </ul>
+            <div id="listaDeseos">
+                <div id="artistas">
+                    <h3>Boygroups</h3>
+                    <ul>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">ATEEZ</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">BTS</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">EXO</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">STRAY KIDS</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">SEVENTEEN</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">NCT</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">XIKERS</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">ENHYPEN</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">TXT</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">MONSTA X</li>
+                    </ul>
+                    &nbsp;
+                    <h3>Girlgroups</h3>
+                    <ul>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">TWICE</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">LE SSERAFIM</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">LOONA</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">BLACKPINK</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">(G)-IDLE</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">SUNMI</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">IVE</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">GIRLS GENERATION</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">F(X)</li>
+                    <li class="deseo" draggable="true" ondragstart="coger(event)">NEW JEANS</li>
+                    </ul>
                 </div>
                 <div id="contenedorCorazones" ondrop="drop(event)" ondragover="allowDrop(event)">
                     <h3>¡Mis Favoritos!</h3>
                 </div>
             </div>
-            ¡Mira aqui a los artistas que escogiste de todos los géneros!
-            <a href="info.html"><button class="ov-btn-grow-box"> Lista de Favoritos</button></a>
+            <a href="listaDeseos.html" id="favoritos"><button class="ov-btn-grow-box"> Lista de Favoritos</button></a>
         </br>
         </br>
 </div>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Desplazamiento Automático</title>
+     <link rel="stylesheet" href="index.css">
+     <link rel="stylesheet" href="mediaquery.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Acme&display=swap">  
+
+</head>
+<body>
+    <div id="header">
+        <img src="logoBlanco.png" alt="Logo" id="logoPrincipal">
+        
+        <div id="search">
+              <button type="submit" class="btn btn-outline-light" id="contacto"><a href="contacto.html">¡Contacte con nosotros!</a></button>
+          </div>
+
+            <audio id="myAudio" autoplay>
+                <source src="music.mp3" type="audio/mp3">
+            </audio>
+            <button id="playPauseButton" class="btn btn-outline-light">Play&Pause</button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="100">
+
+        <button id="menu">
+            <p><strong>⸻</strong><br>
+            <strong>⸻</strong><br>
+            <strong>⸻</strong></p>
+        </button>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeModalBtn">&times;</span>
+                <a id="opciones" href="index.html">Home</a>
+                <a id="opciones" href="info.html">INFO</a>
+                <a id="opciones" href="kpop.html">K-POP</a>
+                <a id="opciones" href="khiphop.html">K-HIPHOP</a>
+                <a id="opciones" href="krock.html">K-ROCK</a>
+                <a id="opciones" href="kclassic.html">K-CLASSIC</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="editContacto">
+        <div id="listaDeseos">
+            <div id="artistas">
+                <h3>Boygroups</h3>
+                <ul>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">ATEEZ</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">BTS</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">EXO</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">STRAY KIDS</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">SEVENTEEN</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">NCT</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">XIKERS</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">ENHYPEN</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">TXT</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">MONSTA X</li>
+                </ul>
+                &nbsp;
+                <h3>Girlgroups</h3>
+                <ul>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">TWICE</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">LE SSERAFIM</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">LOONA</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">BLACKPINK</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">(G)-IDLE</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">SUNMI</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">IVE</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">GIRLS GENERATION</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">F(X)</li>
+                <li class="deseo" draggable="true" ondragstart="coger(event)">NEW JEANS</li>
+                </ul>
+            </div>
+            <div id="contenedorCorazones" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <h3>¡Mis Favoritos!</h3>
+            </div>
+        </div>
+    </div>
+    <a href="kpop.html"><button class="ov-btn-grow-box"> Volver ~
+    </button></a>
+        
+    <script type="text/javascript" src="index.js"></script>
+</body>
+</html>

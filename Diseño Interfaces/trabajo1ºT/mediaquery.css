@@ -103,7 +103,7 @@
         width: auto;
         height: auto;
         position: relative;
-    overflow: hidden;
+        overflow: hidden;
     }
 
     #toggleButton{
@@ -124,6 +124,40 @@
     .music1, .music2, .music3, .music4 {
         font-size: 1.5em;
         padding: 30px; 
+    }
+
+    iframe {
+        width: 100%; 
+        height: 100%; 
+    }
+
+    #kpopImagen, #kpopImagen2, #kpopImagen3{
+        width: 80vw;
+        height: 20vh;
+    }
+
+    #kpopImagen4, #kpopImagen5{
+        width: 80vw;
+        height: 20vh;
+        display: none;
+    
+    }
+
+    #listaDeseos, #artistas{
+        display: none;
+    }
+
+    #movimiento{
+        margin-left: 0;
+        padding-right: 0;
+    }
+
+    #imgGrande{
+        display:none;
+    }
+
+    #imgGrande2{
+        display:flex;
     }
 
 }
