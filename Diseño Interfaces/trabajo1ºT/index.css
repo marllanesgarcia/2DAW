@@ -477,3 +477,48 @@ html {
     transition: all 0.3s ease-out;
     transform: scale(1, 1);
   }
+
+  /*  Codigo de estilos para formulario de contactos  */
+
+#editContacto {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding-bottom: 0;
+    color: white;
+    font-family: 'Aclonica';
+    font-size: medium;
+    margin: 10px;
+}
+
+form {
+    max-width: 600px;
+    width: 100%; 
+    margin: 20px auto;
+}
+
+#campos {
+    display: block;
+    margin-bottom: 8px;
+}
+
+#email, #nombre, #contactando {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+#enviar {
+    cursor: pointer;
+}
+
+#enviar:hover {
+    color: white;
+    background-color: #5b327c;
+}

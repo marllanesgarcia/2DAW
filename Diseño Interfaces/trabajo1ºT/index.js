@@ -164,3 +164,17 @@ document.getElementById('buscar').addEventlistener('submit', function(event) {
       resultados.appendChild(noResultados);
     }
   }
+
+/* Codigo de contacto  */
+function validarFormulario() {
+    var nombre = document.getElementById('nombre').value;
+    var email = document.getElementById('email').value;
+    var mensaje = document.getElementById('mensaje').value;
+
+    if (!nombre || !email || !mensaje) {
+        alert('Por favor, complete todos los campos.');
+        return false;
+    }
+
+  return true;
+}
