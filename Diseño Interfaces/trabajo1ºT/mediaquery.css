@@ -11,7 +11,7 @@
     }
 
     #header {
-        padding: 15px 0; /* Modificado para pantallas pequeñas */
+        padding: 15px 0;
     }
 
     .modal-content {
@@ -19,37 +19,35 @@
     }
 
     .close {
-        font-size: 24px; /* Modificado para pantallas pequeñas */
+        font-size: 24px; 
     }
 
     #header {
-        padding: 5px; /* Reducción del relleno para dispositivos móviles */
+        padding: 5px;
     }
 
     #search {
-        margin-left: 5px; /* Separación aún más reducida para dispositivos móviles */
+        margin-left: 5px; 
     }
 
     #playPauseButton {
-        font-size: x-small; /* Tamaño de fuente aún más reducido para dispositivos móviles */
+        font-size: x-small;
     }
 
     #menu {
-        margin-right: 5px; /* Separación aún más reducida para dispositivos móviles */
+        margin-right: 5px; 
     }
 
     #myModal {
-        width: 100%; /* Ancho completo para dispositivos móviles */
+        width: 100%;
     }
 
     .modal-content {
-        width: 90%; /* Ancho aún más reducido para dispositivos móviles */
+        width: 90%; 
     }
 
     #opciones {
         font-size: x-small; 
-    }
-    /* Tamaño de fuente aún más reducido para dispositivos móviles 
     }
 
     #opciones {
@@ -62,7 +60,7 @@
     #menu {
         border-radius: 10px; 
     }
-*/
+
     #menu p {
         font-size: small;
     }
@@ -78,10 +76,10 @@
         margin-bottom: 10px; 
     }
 
-   /* #menu {
-        margin-left: 0; 
-        float: none; 
-    }*/
+    #volumeSlider {
+        width: 80%; 
+        
+    }
 
     #containerP1 {
         padding-top: 20%; 
