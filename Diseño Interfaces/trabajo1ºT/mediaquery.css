@@ -9,18 +9,18 @@
       width: 100%;
       padding: 10px;
     }
-/*
-    #header {
-        padding: 15px 0; /* Modificado para pantallas pequeñas 
-    }*/
 
-   /*   .modal-content {
-        width: 80%; Modificado para pantallas pequeñas 
+    #header {
+        padding: 15px 0; /* Modificado para pantallas pequeñas */
+    }
+
+    .modal-content {
+        width: 80%;
     }
 
     .close {
-        font-size: 24px; /* Modificado para pantallas pequeñas 
-    }*/
+        font-size: 24px; /* Modificado para pantallas pequeñas */
+    }
 
     #header {
         padding: 5px; /* Reducción del relleno para dispositivos móviles */
