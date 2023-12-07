@@ -4,16 +4,13 @@
     .modal {
         max-width: 100%;
     }
-}
 
-@media only screen and (max-width: 768px) {
+
     body {
       width: 100%;
       padding: 10px;
     }
-}
 
-@media only screen and (max-width: 600px) {
     #header {
         padding: 15px 0; /* Modificado para pantallas pequeñas */
     }
@@ -40,9 +37,7 @@
     #menu p {
         font-size: small; /* Ajustado para pantallas pequeñas */
     }
-}
 
-@media only screen and (max-width: 600px) {
     #logoPrincipal {
         height: 100px; /* Modificado para pantallas pequeñas */
     }
@@ -63,5 +58,15 @@
         width: 100%; /* O ajusta según tus necesidades específicas */
         max-width: none; /* O ajusta según tus necesidades específicas */
         margin-top: 10px; /* Ajustado para pantallas pequeñas */
+    }
+
+    #containerP1 {
+        padding-top: 10%; /* Ajusta según tus necesidades específicas */
+        padding-bottom: 10%; /* Ajusta según tus necesidades específicas */
+        margin-top: 20px; /* Ajustado para pantallas pequeñas */
+    }
+    #containerP2 {
+        padding-top: 100px; /* Ajusta según tus necesidades específicas */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
     }
 }
