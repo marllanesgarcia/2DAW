@@ -1,4 +1,4 @@
-body {
+ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -9,13 +9,6 @@ body {
     background-color: #131007;
     background-size: 100vw 120vh;
     background-repeat: repeat;
-}
-
-@media only screen and (max-width: 768px) {
-    body {
-      width: 100%;
-      padding: 10px;
-    }
 }
 
 #header {
@@ -51,11 +44,6 @@ body {
     max-width: 200px;
   }
 
-  @media only screen and (max-width: 600px) {
-    .modal {
-        max-width: 100%;
-    }
-}  
   .close {
     color: #aaa;
     float: right;
@@ -154,7 +142,7 @@ body {
     justify-content: space-between;
 }
 
-/*n Para poner amarillas las letras de la búsqueda */
+/* Para poner amarillas las letras de la búsqueda */
 .highlight {
     background-color: yellow;
   }
@@ -181,6 +169,7 @@ section{
     src: url('VinaSans-Regular.ttf') format('truetype');
 }
 
+/* Codigo para el div de las imagenes segun la seccion elegida  */
 .music1, .music2, .music3, .music4 {
     font-family: 'VinaSans', sans-serif;
     font-size: 2em;
@@ -220,6 +209,7 @@ section{
     background-position: center;
 }
 
+/* Esto es para el movimiento cada vez que posicionar el cursor encima de cada una  */
 .music1:hover,.music2:hover,.music3:hover,.music4:hover {
     transform: translateX(-50px);
   }
@@ -228,6 +218,7 @@ section{
     font-size: 3em;
 }
 
+/* Son para las imagenes animadas del apartado infoS   */
 #imgGrande{
     display: flex;
     justify-content:center;
@@ -238,6 +229,11 @@ section{
     margin-left: 50px;
     animation: rotateAnimation 1s linear infinite;
 }
+
+/* Estilos base para los diferentes h5 y h2 que puede haber en las paginas. Despues puede haber 
+modificaciones dentro del codigo html ajeno al css dependiendo de la adecuacion especifica que se
+quiso dar en cierto caso   */
+
 h5, h2{
     color:white;
     font-size:x-large;
@@ -252,6 +248,7 @@ h2{
     animation:  moverse 15s linear;
 }
 
+/*  Los h2 llevan consigo una animacion de moverse para hacer mas divertida la pagina web   */
 @keyframes moverse {
     0% {
         transform: translateX(-550px);
@@ -267,6 +264,7 @@ h2{
     }
 }
 
+/* Codigo de importacion de una fuente de texto externa a la establecida en visual studio */
 @font-face {
     font-family: 'Aclonica';
     src: url('Aclonica-Regular.ttf') format('truetype');
@@ -294,7 +292,8 @@ img{
     }
 }
 
-
+/*  Código base para los h1 de todas las páginas para que de ahi se realicen 
+modificaciones al gusto segun el momento   */
 h1 {
     font-size: 80px;
     -webkit-text-stroke-width: 2px;
@@ -303,11 +302,13 @@ h1 {
     color: white;
 }
 
+/* Codigo fijo del logo para todas las páginas   */
 #logoPrincipal {
     float: left;
     height: 150px; 
     width: auto; 
 }
+
 
 #titulo{
     font-size: 60px;
@@ -317,8 +318,14 @@ h1 {
     color: white;
 }
 
-#search {
+#title {
+    font-size: 24px;
+    margin-top: 20px;
+    text-align: center;
+}
 
+/* código para la barra de busqueda del header  */ç
+#search { 
     margin-left: 30px;
     margin-right: 20px;
     display: inline-block;
@@ -327,12 +334,6 @@ h1 {
 #menu {
     margin-left: 10px;
     float: right;
-}
-
-#title {
-    font-size: 24px;
-    margin-top: 20px;
-    text-align: center;
 }
 
 #buscador{
@@ -349,7 +350,7 @@ h1 {
     color: #00000096;
 }
 
-
+/*  Boton de desplazamiento de la pagina principal "start"*/
 #toggleButton {
     display: block;
     margin: 20px auto;
@@ -370,6 +371,7 @@ h1 {
     text-align: center;
 }
 
+/* Codigo especifico para el footer de la primera pantalla    */
 #footer {
     background-color: #131007;
     color: #fff;
@@ -384,6 +386,8 @@ h1 {
     bottom: 0;
 }
 
+/* Codigo de otro footer para las demas paginas por si le queremos hacer una modificacion
+al codigo, para no modificar el de la pagina principal  */
 #footer2 {
     background-color: #131007;
     color: #fff;
@@ -398,6 +402,7 @@ h1 {
     bottom: 0;
 }
 
+/* Codigo generico para los p y el html ya que esta puesto el desplazamiento al pulsar el boton  */
 p{
     margin:0;
 }

@@ -59,7 +59,7 @@ function agregarATabla(texto) {
 
 
 /*  Funcion para el scroll       */    
-/*  document.addEventListener("DOMContentLoaded", function() {
+ document.addEventListener("DOMContentLoaded", function() {
     var toggleButton = document.getElementById("toggleButton");
     toggleButton.addEventListener("click", function() {
 
@@ -72,9 +72,9 @@ function agregarATabla(texto) {
       });
     });
   });
-   */
+
     /*  Funcion para la música   */
-  /* document.addEventlListener("DOMContentLoaded", function() {
+document.addEventlListener("DOMContentLoaded", function() {
     var myAudio = document.getElementById("myAudio");
     var playPauseButton = document.getElementById("playPauseButton");
     var volumeSlider = document.getElementById("volumeSlider");
@@ -90,10 +90,10 @@ function agregarATabla(texto) {
     volumeSlider.addEventListener("input", function() {
       myAudio.volume = volumeSlider.value / 100;
     });
-  });  */
+  });  
 
   /* Código para la búsqueda de palabras en la barra buscadora   */  
- /*  document.getElementById('buscar').addEventlistener('submit', function(event) {
+document.getElementById('buscar').addEventlistener('submit', function(event) {
     event.preventDefault();
     search();
   });
@@ -164,5 +164,3 @@ function agregarATabla(texto) {
       resultados.appendChild(noResultados);
     }
   }
-  
- */

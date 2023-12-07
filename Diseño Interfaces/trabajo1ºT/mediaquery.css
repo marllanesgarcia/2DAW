@@ -1,0 +1,67 @@
+@import 'index.css';
+
+@media only screen and (max-width: 600px) {
+    .modal {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    body {
+      width: 100%;
+      padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #header {
+        padding: 15px 0; /* Modificado para pantallas pequeñas */
+    }
+
+    .modal-content {
+        width: 80%; /* Modificado para pantallas pequeñas */
+    }
+
+    .close {
+        font-size: 24px; /* Modificado para pantallas pequeñas */
+    }
+
+    #opciones {
+        height: 40px; /* Ajustado para pantallas pequeñas */
+        width: 80%; /* Modificado para pantallas pequeñas */
+        margin-right: auto; /* Centrar en pantallas pequeñas */
+        margin-left: auto; /* Centrar en pantallas pequeñas */
+    }
+
+    #menu {
+        border-radius: 10px; /* Ajustado para pantallas pequeñas */
+    }
+
+    #menu p {
+        font-size: small; /* Ajustado para pantallas pequeñas */
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #logoPrincipal {
+        height: 100px; /* Modificado para pantallas pequeñas */
+    }
+
+    #search {
+        margin-left: 10px; /* Modificado para pantallas pequeñas */
+        margin-right: 10px; /* Modificado para pantallas pequeñas */
+        display: inline-block;
+        margin-bottom: 10px; /* Agregado margen inferior para separar del resto en pantallas pequeñas */
+    }
+
+    #menu {
+        margin-left: 0; /* Resetear margen izquierdo para pantallas pequeñas */
+        float: none; /* Eliminar el flotante en pantallas pequeñas */
+    }
+
+    #buscador {
+        width: 100%; /* O ajusta según tus necesidades específicas */
+        max-width: none; /* O ajusta según tus necesidades específicas */
+        margin-top: 10px; /* Ajustado para pantallas pequeñas */
+    }
+}
