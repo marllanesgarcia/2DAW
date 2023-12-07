@@ -5,7 +5,6 @@
         max-width: 100%;
     }
 
-
     body {
       width: 100%;
       padding: 10px;
@@ -15,58 +14,75 @@
         padding: 15px 0; /* Modificado para pantallas pequeñas */
     }
 
-    .modal-content {
-        width: 80%; /* Modificado para pantallas pequeñas */
+   /*  .modal-content {
+        width: 80%; /* Modificado para pantallas pequeñas 
     }
 
     .close {
-        font-size: 24px; /* Modificado para pantallas pequeñas */
-    }
+        font-size: 24px; /* Modificado para pantallas pequeñas 
+    }*/
 
     #opciones {
-        height: 40px; /* Ajustado para pantallas pequeñas */
-        width: 80%; /* Modificado para pantallas pequeñas */
-        margin-right: auto; /* Centrar en pantallas pequeñas */
-        margin-left: auto; /* Centrar en pantallas pequeñas */
+        height: 40px; 
+        width: 80%; 
+        margin-right: auto;
+        margin-left: auto;
     }
 
     #menu {
-        border-radius: 10px; /* Ajustado para pantallas pequeñas */
+        border-radius: 10px; 
     }
 
     #menu p {
-        font-size: small; /* Ajustado para pantallas pequeñas */
+        font-size: small;
     }
 
     #logoPrincipal {
-        height: 100px; /* Modificado para pantallas pequeñas */
+        height: 100px; 
     }
 
     #search {
-        margin-left: 10px; /* Modificado para pantallas pequeñas */
-        margin-right: 10px; /* Modificado para pantallas pequeñas */
+        margin-left: 10px;
+        margin-right: 10px; 
         display: inline-block;
-        margin-bottom: 10px; /* Agregado margen inferior para separar del resto en pantallas pequeñas */
+        margin-bottom: 10px; 
     }
 
     #menu {
-        margin-left: 0; /* Resetear margen izquierdo para pantallas pequeñas */
-        float: none; /* Eliminar el flotante en pantallas pequeñas */
+        margin-left: 0; 
+        float: none; 
     }
 
     #buscador {
-        width: 100%; /* O ajusta según tus necesidades específicas */
-        max-width: none; /* O ajusta según tus necesidades específicas */
-        margin-top: 10px; /* Ajustado para pantallas pequeñas */
+        width: 100%; 
+        max-width: none; 
+        margin-top: 10px; 
     }
 
     #containerP1 {
-        padding-top: 10%; /* Ajusta según tus necesidades específicas */
-        padding-bottom: 10%; /* Ajusta según tus necesidades específicas */
-        margin-top: 20px; /* Ajustado para pantallas pequeñas */
+        padding-top: 20%; 
+        padding-bottom: 10%;
+        margin-top: 80px;
+        width: auto;
+        height: auto;
+        position: relative;
+    overflow: hidden;
     }
+
+    #toggleButton{
+        width: auto;
+        height: auto;
+    }
+
+    section{
+        width: auto;
+        height: auto;
+    }
+
     #containerP2 {
-        padding-top: 100px; /* Ajusta según tus necesidades específicas */
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        padding-top: 100px; 
+        height: 100vh;
+        position: relative; 
+    overflow: hidden;
     }
 }
