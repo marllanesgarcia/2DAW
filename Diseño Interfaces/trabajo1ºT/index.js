@@ -92,89 +92,27 @@ document.addEventlListener("DOMContentLoaded", function() {
     });
   });  
 
-  /* Código para la búsqueda de palabras en la barra buscadora   */  
-document.getElementById('buscar').addEventlistener('submit', function(event) {
-    event.preventDefault();
-    search();
-  });
-  
-  function search() {
-    var terminoino = document.getElementById('buscador').value.toLowerCase();
-    var paginas = buscarPaginas(terminoino);
-  
-    resultadosPosibles(paginas);
-  }
-  
-  function buscarPaginas(terminoino) {
-    var links = [
-      { titulo: 'Página 1', url: 'index.html' },
-      { titulo: 'Página 2', url: 'info.html' },
-      { titulo: 'Página 3', url: 'kpop.html' },
-      { titulo: 'Página 4', url: 'khiphop.html' },
-      { titulo: 'Página 5', url: 'krock.html' },
-      { titulo: 'Página 6', url: 'kclassic.html' },
-    ];
-      // metodo para buscar por filtro (filter)
-    var paginas = links.filter(pagina => {
-      var contenidoPagina = obtenerContenidoDePagina(pagina.url).toLowerCase();
-      return contenidoPagina.includes(terminoino);
-    });
-  
-    return paginas;
-  }
-  
-  function obtenerContenidoDePagina(url) {
-    switch (url) {
-      case 'index.html':
-        return 'Contenido de la página...';
-      case 'info.html':
-        return 'Contenido de la página...';
-      case 'kpop.html':
-        return 'Contenido de la página...';
-      case 'khiphop.html':
-        return 'Contenido de la página...';
-    case 'krock.html':
-       return 'Contenido de la página...';
-    case 'kclassic.html':
-        return 'Contenido de la página...';
-      default:
-        return '';
-    }
-  }
-  
-  function resultadosPosibles(paginas) {
-    var resultados = document.getElementById('resultados');
-    resultados.innerHTML = '';
-  
-    if (paginas.length > 0) {
-      var h3 = document.createElement('h3');
-      h3.textContent = `Páginas que contienen la palabra "${document.getElementById('buscador').value}":`;
-      resultados.appendChild(h3);
-  
-      var lista = document.createElement('ul');
-      paginas.forEach(pagina => {
-        var listaItem = document.createElement('li');
-        listaItem.innerHTML = `<a href="${pagina.url}">${pagina.titulo}</a>`;
-        lista.appendChild(listaItem);
-      });
-      resultados.appendChild(lista);
-    } else {
-      var noResultados = document.createElement('p');
-      noResultados.textContent = 'No se encontraron páginas con la palabra ingresada.';
-      resultados.appendChild(noResultados);
-    }
-  }
-
 /* Codigo de contacto  */
-function validarFormulario() {
-    var nombre = document.getElementById('nombre').value;
-    var email = document.getElementById('email').value;
-    var mensaje = document.getElementById('mensaje').value;
+function guardarDatos() {
+  var nombre = document.getElementById('nombre').value;
+  var email = document.getElementById('email').value;
 
-    if (!nombre || !email || !mensaje) {
-        alert('Por favor, complete todos los campos.');
-        return false;
-    }
+  localStorage.setItem('nombre', nombre);
+  localStorage.setItem('email', email);
 
-  return true;
+  mostrarDatosGuardados();
 }
+
+function mostrarDatosGuardados() {
+  var nombre = localStorage.getItem('nombre');
+  var email = localStorage.getItem('email');
+
+  if (nombre && email) {
+      document.getElementById('datosGuardados').innerHTML =
+          'Nombre: ' + nombre + '<br>' +
+          'Email: ' + email;
+  } else {
+      document.getElementById('datosGuardados').innerHTML = 'No hay datos almacenados.';
+  }
+}
+mostrarDatosGuardados();
