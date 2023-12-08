@@ -21,7 +21,7 @@ window.onclick = function (event) {
   }
 }
 
-/* Funcion para el boton de lista de deseos   */
+/* Funcion para el boton de lista de deseos  */
 function coger(ev) {
   ev.dataTransfer.setData("text/plain", ev.target.innerText);
 }
@@ -51,6 +51,13 @@ function drop(ev) {
 
 function agregarATabla(texto) {
   var table = document.getElementById("tablaDeseos");
+  var row = table.insertRow(-1);
+  var cell = row.insertCell(0);
+  cell.innerHTML = texto;
+}
+
+function agregarATabla(texto) {
+  var table = document.getElementById("tablaDeseos2");
   var row = table.insertRow(-1);
   var cell = row.insertCell(0);
   cell.innerHTML = texto;
