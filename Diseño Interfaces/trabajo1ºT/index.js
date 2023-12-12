@@ -63,41 +63,37 @@ function agregarATabla(texto) {
   cell.innerHTML = texto;
 }
 
-
-
-/*  Funcion para el scroll       */    
- document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener("DOMContentLoaded", function() {
     var toggleButton = document.getElementById("toggleButton");
-    toggleButton.addEventListener("click", function() {
+    
+    /*  Funcion para el scroll  */
+    var containerP2 = document.getElementById("containerP2");
+    var containerP2Position = containerP2.offsetTop;
 
-      var containerP2 = document.getElementById("containerP2");
-      var containerP2Position = containerP2.offsetTop;
-  
+    toggleButton.onclick = function() {
       window.scrollTo({
         top: containerP2Position,
         behavior: "smooth"
       });
-    });
-  });
+    };
 
     /*  Funcion para la música   */
-document.addEventlListener("DOMContentLoaded", function() {
     var myAudio = document.getElementById("myAudio");
     var playPauseButton = document.getElementById("playPauseButton");
     var volumeSlider = document.getElementById("volumeSlider");
-  
-    playPauseButton.addEventListener("click", function() {
+
+    playPauseButton.onclick = function() {
       if (myAudio.paused) {
         myAudio.play();
       } else {
         myAudio.pause();
       }
-    });
-  
-    volumeSlider.addEventListener("input", function() {
+    };
+
+    volumeSlider.oninput = function() {
       myAudio.volume = volumeSlider.value / 100;
-    });
-  });  
+    };
+  });
 
 /* Codigo de contacto  */
 function guardarDatos() {
