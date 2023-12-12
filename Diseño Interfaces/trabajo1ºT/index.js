@@ -56,11 +56,15 @@ function agregarATabla(texto) {
   cell.innerHTML = texto;
 }
 
-function agregarATabla(texto) {
-  var table = document.getElementById("tablaDeseos2");
-  var row = table.insertRow(-1);
-  var cell = row.insertCell(0);
-  cell.innerHTML = texto;
+function agregarATabla(texto, tableId) {
+  var table = document.getElementById(tableId);
+  if (table) {
+      var row = table.insertRow(-1);
+      var cell = row.insertCell(0);
+      cell.innerHTML = texto;
+  } else {
+      console.error("No se encontró la tabla con ID " + tableId + ".");
+  }
 }
 
   document.addEventListener("DOMContentLoaded", function() {
