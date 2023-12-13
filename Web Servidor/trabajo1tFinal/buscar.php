@@ -72,19 +72,42 @@ if (isset($_SESSION['usuario'])) {
 
     <div style="display: flex; justify-content:center;">
             <div id="loggeo" >
-                <h2>Inicia Sesion</h2>
-                    <div id="contenidoBlog">
-                        <form method="post" action="funcionesInicioSesion.php">
-                            <label for="usuario">Usuario:</label>
-                            <input type="text" name="usuario" id="usuario"><br><br>
+    <?php
+        include 'funcionesBuscar.php';
 
-                            <label for="contrasena">Contraseña:</label>
-                            <input type="password" name="contrasena" id="contrasena"><br><br>
+        $conexion = new mysqli('localhost', 'root', '', 'phasmofobia');
 
-                            <input type="submit" value="iniciarSesion">
-                        </form>
-                    </div>
-            </div>
+        if ($conexion->connect_error) {
+            die("Error de conexión: " . $conexion->connect_error);
+        }
+
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['q'])) {
+            $categoria = $_GET['q'];
+
+            $resultados = buscarPorCategoria($conexion, $categoria);
+
+            if ($resultados !== false) {
+                echo '<h2>Resultados de la Búsqueda:</h2>';
+                echo '<ul>';
+                
+                foreach ($resultados as $blog) {
+                    echo '<li>';
+                    echo '<h3>' . $blog['titulo'] . '</h3>';
+                    echo '<p>' . $blog['introduccion'] . '</p>';
+                    echo '<p>Categoría: ' . $blog['categoria'] . '</p>';
+                    echo '</li>';
+                }
+                
+                echo '</ul>';
+            } else {
+                echo "Error en la consulta: " . $conexion->error;
+            }
+        }
+
+        $conexion->close();
+?>
     </div>
+    </div>
+
 </body>
 </html>

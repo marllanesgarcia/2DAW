@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<body style= 'background-color: black;'>
                     <div style= 'display:block; justify-content:center; padding: 20%; padding-top:5%; padding-bottom:5%; '>
                         <h2 style= 'color:white;'>
-                        Inicio de sesión exitoso. ¡Bienvenido, . $usuario!
+                        Inicio de sesión exitoso. ¡Bienvenido, $usuario!
                         </h2>
                         <br><br>
                         <a href='index.php'>
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } else {
             echo "<body style= 'background-color: black;'>
                     <div style= 'display:block; justify-content:center; padding: 10%; '>
-                        <h2>
+                        <h2 style= 'color:white;'>
                         Error: Contraseña incorrecta.
                         </h2>
                         <br><br>
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         echo "<body style= 'background-color: black;'>
                     <div style= 'display:block; justify-content:center; padding: 10%; '>
-                        <h2>
+                        <h2 style= 'color:white;'>
                         Error: Usuario no encontrado.
                         </h2>
                         <br><br>

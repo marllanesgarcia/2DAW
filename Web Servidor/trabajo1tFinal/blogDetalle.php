@@ -68,23 +68,51 @@ if (isset($_SESSION['usuario'])) {
         </div>';
 }
 ?>
+
     <hr>
 
-    <div style="display: flex; justify-content:center;">
-            <div id="loggeo" >
-                <h2>Inicia Sesion</h2>
-                    <div id="contenidoBlog">
-                        <form method="post" action="funcionesInicioSesion.php">
-                            <label for="usuario">Usuario:</label>
-                            <input type="text" name="usuario" id="usuario"><br><br>
+    <div id="contenidoBlog" style="color:white; height: 50%; padding: 5%;">
 
-                            <label for="contrasena">Contraseña:</label>
-                            <input type="password" name="contrasena" id="contrasena"><br><br>
+    <?php
+$conexion = new mysqli('localhost', 'root', '', 'phasmofobia');
 
-                            <input type="submit" value="iniciarSesion">
-                        </form>
-                    </div>
-            </div>
-    </div>
+if ($conexion->connect_error) {
+    die("Error de conexión: " . $conexion->connect_error);
+}
+
+if ($_GET['id']) {
+    $blogId = $_GET['id'];
+    
+    $consulta = "SELECT titulo, introduccion, contenido, fecha_publicacion
+                 FROM blog
+                 WHERE id = $blogId";
+    $resultado = $conexion->query($consulta);
+
+    if ($resultado) {
+        $blog = $resultado->fetch_assoc();
+
+        if ($blog) {
+            echo '<h2 >' . $blog['titulo'] . '</h2>';
+            echo '<a>Fecha de Publicación: ' . $blog['fecha_publicacion'] . '</a>';
+            echo '<p>' . $blog['introduccion'] . '</p>';
+            echo '<p>' . $blog['contenido'] . '</p>';
+        } else {
+            echo "Blog no encontrado.";
+        }
+    } else {
+        echo "Error en la consulta: " . $conexion->error;
+    }
+} else {
+    echo "ID de blog no proporcionado.";
+}
+
+$conexion->close();
+?>
+
+</div>
+ <a href='index.php' style="display:flex; justify-content: center;">
+<button style="font-family: 'Oswald', sans-serif; text-decoration: none; color: #999999; border-color: #999999; font-size: 20px;">Volver</button></a>
+</a> 
+
 </body>
 </html>

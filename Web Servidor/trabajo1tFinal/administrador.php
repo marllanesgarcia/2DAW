@@ -68,11 +68,10 @@ if (isset($_SESSION['usuario'])) {
         </div>';
 }
 ?>
-    <hr>
 
-    <div style="display: flex;">
-    <ul>
-                <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
+    <hr>
+    <div style="display: flex; height: 50vh;">
+            <ul>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
@@ -85,47 +84,48 @@ if (isset($_SESSION['usuario'])) {
             
             </ul>
 
-            <div id="blogActual">
-                <form method="post" action="funcionesCrearBlogs.php">
-                    <a for="titulo">Título</a><br>
-                    <input type="text" name="titulo" required><br><br>
+        
+        <div id='blogActual'>
+    <h2 style='display:flex; justify-content:center;'>Asignar Categorías a Blogs</h2></br>
+    <?php
+    
+    include "funcionesAdmin.php";
+    $conexion = establecerConexion();
 
-                    <a for="introduccion">Introducción</a><br>
-                    <textarea name="introduccion" id="introduccion" style="width: 100%; height: 100px;" onkeydown="handleKeyDown(event, 'introduccion')" required></textarea><br><br>
+    if ($conexion) {
+        $lista_blogs = obtenerBlogs($conexion);
+        $lista_categorias = obtenerCategorias($conexion);
 
-                    <a for="contenido">Contenido</a><br>
-                    <textarea name="contenido" id="contenido" style="width: 100%; height: 200px;" onkeydown="handleKeyDown(event, 'contenido')" required></textarea><br><br>
-
-                    <a for="fecha">Fecha de Creación (yyyy-mm-dd hh:mm:ss) </a><br>
-                    <input name="fecha" id="fecha" style="width: 280px; height: 50px;" required></input><br><br>
-
-                    <a for="categoria_id">Seleccione una Categoría:</a>
-                    <select name="categoria_id" id="categoria_id" required>
-                        
+        cerrarConexion($conexion);
+    } else {
+        echo "Error en la conexión.";
+    }
+    ?>
+    <form method="post" action="funcionesAdmin.php">
+        <a for="blog_id">Seleccione un Blog:</a>
+        <select name="blog_id" id="blog_id" required>
             <?php
-            $conexion = new mysqli('localhost', 'root', '', 'phasmofobia');
-            if ($conexion->connect_error) {
-                die("Error de conexión: " . $conexion->connect_error);
+            foreach ($lista_blogs as $blog) {
+                echo "<option value='{$blog['id']}'>{$blog['titulo']}</option>";
             }
-
-            $consulta_categorias = "SELECT id, nombre FROM categorias";
-            $resultado_categorias = $conexion->query($consulta_categorias);
-
-            while ($categoria = $resultado_categorias->fetch_assoc()) {
-                echo "<option value='{$categoria['id']}'>{$categoria['nombre']}</option>";
-            }
-            $conexion->close();
             ?>
-
-                    </select>
-                    </br>
-                    <input type="submit" value="Publicar Blog">
-                </form>
-</div>
-
-
-            <ul>
-                <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
+        </select>
+        </br>
+        </br>
+        <a for="categoria_id">Seleccione una Categoría:</a>
+            <select name="categoria_id" id="categoria_id" required>
+                <?php
+                foreach ($lista_categorias as $categoria) {
+                    echo "<option value='{$categoria['id']}'>{$categoria['nombre']}</option>";
+                }
+                ?>
+            </select>
+            </br>
+            </br>
+            <input type="submit" value="Asignar Categoria">
+        </form>
+        </div>
+        <ul>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
                 <li><img style='width:50px; heigth:50px;' src='https://www.gifmaniacos.es/wp-content/uploads/2017/10/fantasmas-halloween-gifs-gifmaniacos.es-19.gif'></li>
@@ -139,14 +139,5 @@ if (isset($_SESSION['usuario'])) {
             </ul>
         
     </div>
-
-<script>
-    function handleInput(textareaId) {
-        var textarea = document.getElementById(textareaId);
-        textarea.value = textarea.value.replace(/\r?\n/g, '\n');
-    }
-</script>
 </body>
 </html>
-
- 
