@@ -177,7 +177,7 @@ Objtect.isPrototype(Persona); // se comprueba si Persona pertenece al objeto Obj
 var FA = [];
 var FB = [];
 
-document.form[0].element; Ç// coge el array FA 
+document.form[0].element; // coge el array FA 
 
 
 

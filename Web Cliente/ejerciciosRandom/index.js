@@ -84,7 +84,8 @@ document.addEventListener("DOMContentLoaded", function () {
   // ESTO CON SWEETALERT, SOLO FALTA QUE SALGA LA PUTA CARTA
   function mostrarResultado(mensaje) {
     var ultimaCarta = cartas[baraja.length - 1];
-    var mensajeFinal = `${mensaje}\nPuntuación total: ${puntuacion}\nPartidas jugadas: ${partidasJugadas}\nÚltima carta: ${ultimaCarta}`;
+    var mensajeFinal = `${mensaje}\nPuntuación total: ${puntuacion}\n
+    Partidas jugadas: ${partidasJugadas}\nÚltima carta: ${ultimaCarta}`;
 
     alert(mensajeFinal);
     reiniciarJuego();

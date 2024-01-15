@@ -1,34 +1,5 @@
 "use strict";
 
-// usuario
-
-// var opciones=document.getElementById("seleccion");
-
-/* 
-var papel=document.getElementById("papel").value;
-var piedra=document.getElementById("piedra").value;
-var tijera=document.getElementById("tijera").value;
- */
-/*  var opcionSeleccionada;
-
-opciones.addEventListener("submit",function(event){
-    event.preventDefault(); 
-}); 
-/* 
-    if(opciones == opcionSeleccionada("papel").value){
-        opcionSeleccionada=="papel";
-    } else if(opciones == opcionSeleccionada("piedra").value) {
-        opcionSeleccionada=="piedra";
-    } else if (opciones == opcionSeleccionada("tijera").value){
-        opcionSeleccionada=="tijera";
-    }
-
-    console.log(opcionSeleccionada);
-
-
-    var opciones; */
-
-
 function jugar(opcionSeleccionada){
 
     console.log("El usuario ha elegido: "+opcionSeleccionada);

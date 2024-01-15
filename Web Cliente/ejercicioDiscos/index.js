@@ -1,35 +1,30 @@
 "use strict";
 
-let discos = [];
-let mostrarMenu = true;
-let opcion;
+var discos = [];
+var mostrarMenu = true;
+var opcion;
 
 /*  Los datos del disco cuando lo añade el usuario   */
 function agregarDisco() {
 
-  let nombre = prompt("Nombre del disco:");
-  let cantante = prompt("Cantante:");
-  let año = parseInt(prompt("Año de publicación:"));
-  let tipo = prompt("Tipo de música (Rock, Pop, Indie, Punk):");
-  let localizacion = parseInt(prompt("Número de estantería:"));
-  let prestado = false;
+  var nombre = prompt("Nombre del disco:");
+  var cantante = prompt("Cantante:");
+  var año = parseInt(prompt("Año de publicación:"));
+  var tipo = prompt("Tipo de música (Rock, Pop, Indie, Punk):");
+  var localizacion = parseInt(prompt("Número de estantería:"));
+  var prestado = false;
 
   if (año < 1902 || año > 2020) {
-
     alert("Año no válido. Debe estar entre 1902 y 2020.");
     return;
   }
-
-  let disco = new Disco(nombre, cantante, año, tipo, localizacion, prestado);
-
+  var disco = new Disco(nombre, cantante, año, tipo, localizacion, prestado);
   discos.push(disco);
   alert("Disco agregado con éxito.");
-
 }
 
 /*  Se crea la clase Disco con los diferentes tipos que lo constituyen     */
 class Disco {
-
     constructor(nombre, cantante, año, tipo, localizacion, prestado) {
       this.nombre = nombre;
       this.cantante = cantante;
@@ -61,20 +56,20 @@ class Disco {
   function mostrarListadoAscendente() {
     discos.sort((a, b) => a.nombre.localeCompare(b.nombre));
 
-    let listaDiscosContainer = document.getElementById("lista");
+    var listaDiscosContainer = document.getElementById("lista");
 
     listaDiscosContainer.innerHTML = "";
 
     discos.forEach(disco => {
 
-      let discoElement = document.createElement("div");
+      var discoElement = document.createElement("div");
       discoElement.classList.add("disco");
 
-      let tituloElement = document.createElement("div");
+      var tituloElement = document.createElement("div");
       tituloElement.classList.add("titulo");
       tituloElement.textContent = disco.nombre;
 
-      let infoElement = document.createElement("div");
+      var infoElement = document.createElement("div");
       infoElement.innerHTML = `
         <p><strong>Cantante:</strong> ${disco.cantante}</p>
         <p><strong>Año:</strong> ${disco.año}</p>
@@ -100,7 +95,7 @@ class Disco {
 
     discos.sort((a, b) => b.año - a.año);
 
-    let mensaje = "Listado de discos (Descendente por Año de Publicación):\n";
+    var mensaje = "Listado de discos (Descendente por Año de Publicación):\n";
     discos.forEach(disco => mensaje += `${disco.nombre} - ${disco.año}\n`);
     alert(mensaje);
   }
@@ -109,12 +104,12 @@ class Disco {
   /* Intervalo segun el año de los discos    */
   function mostrarIntervaloConcreto() {
 
-    let añoInicio = parseInt(prompt("Año de inicio del intervalo:"));
-    let añoFin = parseInt(prompt("Año de fin del intervalo:"));
+    var añoInicio = parseInt(prompt("Año de inicio del intervalo:"));
+    var añoFin = parseInt(prompt("Año de fin del intervalo:"));
 
-    let discosIntervalo = discos.filter(disco => disco.año >= añoInicio && disco.año <= añoFin);
+    var discosIntervalo = discos.filter(disco => disco.año >= añoInicio && disco.año <= añoFin);
 
-    let mensaje = `Listado de discos en el intervalo ${añoInicio}-${añoFin}:\n`;
+    var mensaje = `Listado de discos en el intervalo ${añoInicio}-${añoFin}:\n`;
     discosIntervalo.forEach(disco => mensaje += `${disco.nombre} - ${disco.año}\n`);
 
     alert(mensaje);
@@ -123,7 +118,7 @@ class Disco {
   /*  Por si quieres borrar el disco    */
   function borrarDisco() {
 
-    let nombreDisco = prompt("Nombre del disco para borrar:");
+    var nombreDisco = prompt("Nombre del disco para borrar:");
 
     discos = discos.filter(disco => disco.nombre !== nombreDisco);
 
@@ -134,11 +129,11 @@ class Disco {
   /*  Los diferentes generos de musica que se pueden guardar y por los que se clasifican los discos   */
   function mostrarTipoMusicaConcreta() {
 
-    let tipoMusica = prompt("Tipo de genero musical (Rock, Pop, Indie, Punk):");
+    var tipoMusica = prompt("Tipo de genero musical (Rock, Pop, Indie, Punk):");
 
-    let discosTipoMusica = discos.filter(disco => disco.tipo.toLowerCase() === tipoMusica.toLowerCase());
+    var discosTipoMusica = discos.filter(disco => disco.tipo.toLowerCase() === tipoMusica.toLowerCase());
 
-    let mensaje = `Listado de discos de ${tipoMusica}:\n`;
+    var mensaje = `Listado de discos de ${tipoMusica}:\n`;
     discosTipoMusica.forEach(disco => mensaje += `${disco.nombre} - ${disco.año}\n`);
     alert(mensaje);
   }
@@ -146,10 +141,10 @@ class Disco {
   /*  Cuiando quieres cambiar detalles del disco como la estanteria  */
   function cambiarLocalizacionDisco() {
 
-    let nombreDisco = prompt("Nombre del disco:");
-    let nuevaLocalizacion = parseInt(prompt("Nueva estantería:"));
+    var nombreDisco = prompt("Nombre del disco:");
+    var nuevaLocalizacion = parseInt(prompt("Nueva estantería:"));
 
-    let disco = discos.find(disco => disco.nombre === nombreDisco);
+    var disco = discos.find(disco => disco.nombre === nombreDisco);
 
     if (disco) {
       disco.cambiarLocalizacion(nuevaLocalizacion);
