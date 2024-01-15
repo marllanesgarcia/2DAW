@@ -1,0 +1,53 @@
+$colores : purple, aqua, black, rgb(66, 8, 66), white;
+$grosor: 3px;
+$distancia: 20px;
+$distanciaBloque: 10%;
+$alineacion: center;
+
+
+body{
+    background: nth($colores, 4);
+    color: nth($colores, 5);
+}
+
+header{
+    border-color: nth($colores, 3);
+    border: $grosor solid;
+    text-align: $alineacion;
+    background-color: nth($colores, 3);
+    margin-bottom: $distancia;
+    margin-top: $distancia;
+}
+
+li{
+    list-style: none;
+}
+
+section{
+    padding-left: $distanciaBloque;
+    padding-top:$distanciaBloque;
+    padding-bottom: $distanciaBloque;
+}
+
+.estilo-original{
+    font-style: oblique;
+    font-size: xx-large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.estilo-extendido{
+    @extend .estilo-original;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.estilo-raro{
+    @extend .estilo-original;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+}
+
+
+footer{
+    @extend header;
+    font-style: oblique;
+}

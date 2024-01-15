@@ -1,0 +1,26 @@
+.nav.conestilo {
+  background-color: red;
+}
+.nav.conestilo ul {
+  padding: 5px;
+}
+.nav.conestilo ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+.nav.conestilo ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.estilo-sinclase {
+  color: green;
+}
+
+.estilo-base, .estilo-extendido {
+  color: blue;
+}
+
+.estilo-extendido {
+  text-decoration: underline;
+}/*# sourceMappingURL=estilo.css.map */

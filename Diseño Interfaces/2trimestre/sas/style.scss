@@ -1,0 +1,65 @@
+$color-primario: gray;
+$color-secundario: black;
+
+body{
+    background: $color-primario;
+}
+
+h2,h3{
+    color: $color-secundario;
+}
+
+$tamaño-fuente: 30px;
+
+p{
+    font-size: $tamaño-fuente;
+}
+ 
+h1{
+    font-size: $tamaño-fuente*2;
+
+}
+
+$vertical: 10px;
+$horizontal: 20px;
+
+section{
+    margin: $vertical 0 $vertical $horizontal;
+}
+
+article{
+    padding: $vertical $horizontal;
+}
+
+$grosor-borde: 5px;
+$radio-borde: 5px;
+
+.button{
+    padding: $vertical;
+    border: $grosor-borde solid $color-secundario;
+    border-radius: $radio-borde;
+}
+
+.contenedor-principal{
+    display: flex;
+    justify-content: center;
+}
+
+/*      MEDIA QUERY
+
+$tablet: 768px;
+$pc: 900px;
+
+@media screen and (max-width:$tablet){
+    body{
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width:$pc){
+    body{
+        font-size: 10px;
+        color:aquamarine;
+        background: black;
+    }
+} */

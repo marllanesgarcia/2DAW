@@ -1,0 +1,53 @@
+body {
+  background: gray;
+}
+
+h2, h3 {
+  color: black;
+}
+
+p {
+  font-size: 30px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+section {
+  margin: 10px 0 10px 20px;
+}
+
+article {
+  padding: 10px 20px;
+}
+
+.button {
+  padding: 10px;
+  border: 5px solid black;
+  border-radius: 5px;
+}
+
+.contenedor-principal {
+  display: flex;
+  justify-content: center;
+}
+
+/*      MEDIA QUERY
+
+$tablet: 768px;
+$pc: 900px;
+
+@media screen and (max-width:$tablet){
+    body{
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width:$pc){
+    body{
+        font-size: 10px;
+        color:aquamarine;
+        background: black;
+    }
+} *//*# sourceMappingURL=style.css.map */
