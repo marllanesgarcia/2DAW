@@ -1,0 +1,42 @@
+body {
+  background: rgb(66, 8, 66);
+  color: white;
+}
+
+header, footer {
+  border-color: black;
+  border: 3px solid;
+  text-align: center;
+  background-color: black;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  padding-left: 10%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.estilo-original, .estilo-raro, .estilo-extendido {
+  font-style: oblique;
+  font-size: xx-large;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.estilo-extendido {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.estilo-raro {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-style: oblique;
+}
+
+footer {
+  font-style: oblique;
+}/*# sourceMappingURL=ejercicio1.css.map */

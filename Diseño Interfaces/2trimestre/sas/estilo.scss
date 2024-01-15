@@ -1,0 +1,15 @@
+
+$color-primario:red;
+$colores: red, blue, green;
+$tema:(
+    $color1: blue,
+    $color2: green,
+);
+
+body {
+   // background: nth($colores, 3); para usar una lista se pone nth + (nombre de lista , posicion del elemento)
+   background: map-get($tema, color1); // es igual que la lista pero se usa el map-get para coger los elementos
+    h1{
+        color:blue;
+    }
+}

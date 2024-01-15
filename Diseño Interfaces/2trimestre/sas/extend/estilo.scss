@@ -1,0 +1,31 @@
+.nav.conestilo{
+    background-color: red;
+    ul{
+        padding: 5px;
+        li{
+            display: inline-block;
+            margin-right: 10px;
+            a{
+                text-decoration: none;
+                color:white;
+            }
+        }
+    }
+}
+
+%regla{
+    color:green;
+}
+
+.estilo-base{
+        color:blue;
+}
+
+.estilo-sinclase{
+    @extend %regla;
+}
+
+.estilo-extendido{
+   @extend .estilo-base;
+   text-decoration: underline;
+}

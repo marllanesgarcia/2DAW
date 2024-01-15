@@ -1,0 +1,51 @@
+header, footer {
+  background: violet;
+  text-align: center;
+  color: white;
+  padding: 10px 40px 10px;
+}
+
+h2 {
+  color: purple;
+}
+
+section {
+  background: rgb(230, 230, 230);
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 10px;
+}
+
+article {
+  padding: 10px;
+  padding-bottom: 10px;
+}
+
+.button {
+  background: violet;
+  color: black;
+  padding: 10px;
+  border-radius: 8%;
+  color: white;
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.sidebar {
+  margin-left: 40px;
+}/*# sourceMappingURL=styles.css.map */

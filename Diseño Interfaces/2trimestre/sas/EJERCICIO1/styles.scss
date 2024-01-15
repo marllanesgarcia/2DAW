@@ -1,0 +1,63 @@
+$cuadradoAzul: violet;
+$verdecito: purple;
+$colorBoton: black;
+$cuadradoGris: rgb(230, 230, 230);
+$colorletras: white;
+$posicion: flex;
+$distribucion: center;
+$grosor-borde: 3px;
+$distancia: 10px;
+$distancia2: 40px;
+
+
+header, footer {
+    background: $cuadradoAzul;
+    text-align: $distribucion;  // para alinear texto
+    color: $colorletras;
+    padding: $distancia $distancia2 $distancia; 
+}
+
+h2{
+    color:$verdecito;
+}
+
+section{
+    background: $cuadradoGris;
+    display: $posicion;
+    justify-content: $distribucion;
+    margin-top: $distancia;
+    margin-left: $distancia2;
+    margin-right: $distancia2;
+    padding-bottom: $distancia;
+}
+
+article{
+    padding: 10px;
+    padding-bottom: 10px;
+}
+
+.button{
+    background: $cuadradoAzul;
+    color: $colorBoton;
+    padding: 10px;
+    border-radius: 8%;
+    color: $colorletras; 
+    text-decoration: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+
+li{
+    margin-bottom: 5px;
+}
+
+.sidebar{
+    margin-left: $distancia2;
+}
