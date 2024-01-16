@@ -70,7 +70,18 @@ document.addEventListener('DOMContentLoaded', function () {
     */
     email.addEventListener('blur',validarEmail);
 
-
+    /*   
+    Quinto ejercicio:
+    Para los teléfonos necesito que el primer campo sea un fijo de Málaga, con prefijo 952
+    y para el segundo campo que sea un móvil y por tanto debe comenzar por 6 o por 7. La
+    edad debe ser superior a 18. Se irá pasando el foco de uno a otro de los tres campos
+    siempre que se cumplan las condiciones mencionadas y si no es así se avisará con los
+    correspondientes errores. Es importante que no se permita escribir letras en ninguno de
+    los campos.
+    */
+    telf1.addEventListener('blur',validarTelefono1);
+    telf2.addEventListener('blur',validarTelefono2);
+    edad.addEventListener('blur',validarEdad);
 
 
 });
@@ -106,6 +117,14 @@ function validarApellidos(){
         limpiarError(apellido2Input);
         limpiarError(apellido1Input);
         deshabilitarCampos();
+    }
+}
+
+function deshabilitarCampos() {
+    if (nombre.value.trim() && apellido1Input.value.trim() && apellido2Input.value.trim()) {
+        nombre.disabled = true;
+        apellido1Input.disabled = true;
+        apellido2Input.disabled = true;
     }
 }
 
@@ -158,22 +177,48 @@ function validarContraseña(){
     var passwordNew = primeraLetraNombre + primerApellido + primeraLetraApellido2 + random;
     password.value = passwordNew;
     password.focus();
-
     /*   
         Ejercicio cuatro
     */
-   
     if(!password.focus()){
         var asteriscos = '*'.repeat(password.value.length);
         password.value = asteriscos;
     }
-
 }
 
-function deshabilitarCampos() {
-    if (nombre.value.trim() && apellido1Input.value.trim() && apellido2Input.value.trim()) {
-        nombre.disabled = true;
-        apellido1Input.disabled = true;
-        apellido2Input.disabled = true;
+function validarTelefono1(){
+    var expresionTelf = /^952\d{6}$|^6\d{8}$|^7\d{8}$/;
+    var expresionTelfValue = telf1.value.trim();
+
+    if (!expresionTelf.test(expresionTelfValue)) {
+        mostrarError(telf1, 'el telefono 1 no existe, inserte otro');
+        telf1.style.borderColor = 'red';
+    } else {
+        limpiarError(telf1);
     }
 }
+
+function validarTelefono2(){
+    var expresionTelf = /^952\d{6}$|^6\d{8}$|^7\d{8}$/;
+    var expresionTelfValue = telf2.value.trim();
+
+    if (!expresionTelf.test(expresionTelfValue)) {
+        mostrarError(telf2, 'el telefono 2 no existe, inserte otro');
+        telf2.style.borderColor = 'red';
+    } else {
+        limpiarError(telf2);
+    }
+}
+
+function validarEdad(){
+    var mayorEdad = /^(1[89]|[2-9]\d+)$/;
+    var mayorEdadValue = edad.value.trim();
+
+    if (!mayorEdad.test(mayorEdadValue)) {
+        mostrarError(edad, 'DEBES SER MAYOR DE EDAD');
+        edad.style.borderColor = 'red';
+    } else {
+        limpiarError(edad);
+    }
+}
+
