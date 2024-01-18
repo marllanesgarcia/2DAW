@@ -1,7 +1,7 @@
 "use strict";
 var nombre = document.getElementById("name");
 var email = document.getElementById("email");
-//var password = document.getElementById("password");
+var password = document.getElementById("password");
 /* 
 Otra forma de hacerlo:
 var telf1 = document.querySelectorAll("input[type=text]")[2];
@@ -27,7 +27,6 @@ var apellido2Input = document.createElement('input');
 apellido2Input.type = 'text';
 apellido2Input.id = 'apellido2';
 apellido2Input.name = 'apellido2';
-
 
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -63,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         
     Cuarto ejercicio:
-     El campo contraseña puede aceptar la contraseña generada o permitir una que cumpla
+    El campo contraseña puede aceptar la contraseña generada o permitir una que cumpla
     con el mismo patrón. Cuando pierda el foco deberá cambiar el valor por una fila de
     asteriscos de igual longitud, pero si volvemos a tener el foco en el campo contraseña
     debe aparecer la contraseña que existía antes de perder el foco    
@@ -81,14 +80,14 @@ document.addEventListener('DOMContentLoaded', function () {
     */
     telf1.addEventListener('blur',validarTelefono1);
     telf2.addEventListener('blur',validarTelefono2);
-    edad.addEventListener('blur',validarEdad);
+    //edad.addEventListener('blur',validarEdad);
 
 
 });
 
 function validarNombre() {
     //var expresion = /^[a-zA-ZÁÉÍÓÚáéíóúñ]+$/;
-    var expresion2 = /^[A-Z][a-z]*(-[A-Z][a-z]*)*$/;
+    var expresion2 = /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/;
     var nombreValue = nombre.value.trim();
 
     if (!expresion2.test(nombreValue)) {
@@ -102,29 +101,23 @@ function validarNombre() {
 }
 
 function validarApellidos(){
-    var expresion2 = /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/;
-    
+    var expresion2 = /^[A-Z][a-z]*(-[A-Z][a-z]*)*$/;
     var apellido2Value = apellido2Input.value.trim();
     var apellido1Value = apellido1Input.value.trim();
 
-    if(!(expresion2.test(apellido1Value))|| !(expresion2.test(apellido2Value))){
-        mostrarError(apellido1Input, 'el apellido 1 esta mal, ARREGLALO');
-        mostrarError(apellido2Input, 'el apellido 2 esta mal, ARREGLALO');
+    if(!expresion2.test(apellido1Value)){
+        mostrarError(apellido2Input, 'el apellido 1 esta mal, ARREGLALO');
         apellido1Input.style.borderColor = 'red';
+        apellido1Input.focus();
+        console.log(apellido1Input);
+    }  else if(!expresion2.test(apellido2Value)) {
+        mostrarError(apellido2Input, 'el apellido 1 esta mal, ARREGLALO');
         apellido2Input.style.borderColor = 'red';
-        console.log(apellido2Input);
-    } else {
+        apellido2Input.focus();
+        console.log(apellido1Input);
+    }else{
         limpiarError(apellido2Input);
         limpiarError(apellido1Input);
-        deshabilitarCampos();
-    }
-}
-
-function deshabilitarCampos() {
-    if (nombre.value.trim() && apellido1Input.value.trim() && apellido2Input.value.trim()) {
-        nombre.disabled = true;
-        apellido1Input.disabled = true;
-        apellido2Input.disabled = true;
     }
 }
 
@@ -166,24 +159,35 @@ function meterApellidos() {
     apellidoDiv.appendChild(apellido2Label);
     apellidoDiv.appendChild(apellido2Input);
     nombre.parentNode.insertBefore(apellidoDiv, nombre.nextSibling);
+    apellido1Input.focus();
 
 }
 
 function validarContraseña(){
-    var primeraLetraNombre = nombre.value.trim().charAt(0).toUpperCase();
+    var primeraLetraNombre = (nombre.value).trim().charAt(0).toUpperCase();
     var primerApellido = apellido1Input.value.trim().slice(0, 3);
     var primeraLetraApellido2 = apellido2Input.value.trim().charAt(0).toUpperCase();
-    var random = Math.floor(Math.random() * 10000).toString().padStart(4, '0');
+    var random = Math.floor(Math.random() * 1000).toString().padStart(4, '0');
+
+    console.log(primeraLetraNombre.value);
+    console.log(primerApellido.value);
+    console.log(primeraLetraApellido2.value);
+    console.log(random.value);
     var passwordNew = primeraLetraNombre + primerApellido + primeraLetraApellido2 + random;
-    password.value = passwordNew;
-    password.focus();
+   // if (password.value == null){
+     //   password.innerHTML = passwordNew;
+   // }
+   password.innerText = passwordNew;
+   /*  if (primeraLetraNombre && primerApellido && primeraLetraApellido2 && random ){
+        password.value = passwordNew;
+    } */
     /*   
         Ejercicio cuatro
     */
     if(!password.focus()){
         var asteriscos = '*'.repeat(password.value.length);
         password.value = asteriscos;
-    }
+    }   
 }
 
 function validarTelefono1(){
