@@ -1,7 +1,7 @@
 "use strict";
 var nombre = document.getElementById("name");
 var email = document.getElementById("email");
-var password = document.getElementById("password");
+var password = document.getElementsByClassName("password");
 /* 
 Otra forma de hacerlo:
 var telf1 = document.querySelectorAll("input[type=text]")[2];
@@ -111,7 +111,7 @@ function validarApellidos(){
         apellido1Input.focus();
         console.log(apellido1Input);
     }  else if(!expresion2.test(apellido2Value)) {
-        mostrarError(apellido2Input, 'el apellido 1 esta mal, ARREGLALO');
+        mostrarError(apellido2Input, 'el apellido 2 esta mal, ARREGLALO');
         apellido2Input.style.borderColor = 'red';
         apellido2Input.focus();
         console.log(apellido1Input);
