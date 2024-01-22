@@ -1,0 +1,22 @@
+@import 'variables.scss';
+
+body{
+    background-color: nth($coloresPrimarios, 2);
+}
+
+header{
+    text-align: center;
+    padding: 5%;
+    background-color: nth($coloresPrimarios, 3);
+}
+
+#div1{
+    @include clase1(nth($coloresSecundarios, 3));
+    @include clase2(nth($coloresPrimarios, 4));
+}
+
+#div2{
+    @include clase1(nth($coloresSecundarios, 2));
+    @include clase2(nth($coloresSecundarios, 1));
+    padding: 10%;
+}

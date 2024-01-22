@@ -1,0 +1,10 @@
+$coloresPrimarios: black, aqua, pink, white;
+$coloresSecundarios: white, rgb(126, 126, 214), purple;
+
+@mixin clase1($color1){
+    background-color: $color1;
+}
+
+@mixin clase2($color2){
+    color:$color2;    
+}

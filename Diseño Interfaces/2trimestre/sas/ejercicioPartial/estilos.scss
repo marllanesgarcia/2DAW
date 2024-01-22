@@ -5,7 +5,7 @@ body{
     justify-content: space-between;
 }
 
-div{
+#div{
     display: $posicion;
     justify-content: $alineacion;
     background-color: nth($fondoDIV, 3);
@@ -50,4 +50,14 @@ h2{
 .textoDesaturate{
     background-color: nth($fondoDIV, 2);
     color: desaturate($colorCambiante, 30%);
+}
+
+#ejercicio4{
+    color: nth($fondoDIV, 2);
+    content: $cadena;
+    &::after{
+        content: ("Tamaño de la cadena " + str-length($cadena) + 
+        "Parte de la cadena "+ str-slice($cadena,1,6)+
+        "La cadena en mayúsculas "+ to-upper-case($cadena));
+    }
 }

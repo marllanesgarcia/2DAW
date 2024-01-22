@@ -1,9 +1,10 @@
+@charset "UTF-8";
 body {
   background-color: orange;
   justify-content: space-between;
 }
 
-div {
+#div {
   display: flex;
   justify-content: center;
   background-color: black;
@@ -50,4 +51,12 @@ h2::after {
 .textoDesaturate {
   background-color: white;
   color: #6d136d;
+}
+
+#ejercicio4 {
+  color: white;
+  content: "Hola Mundo";
+}
+#ejercicio4::after {
+  content: "Tamaño de la cadena 10Parte de la cadena Hola MLa cadena en mayúsculas HOLA MUNDO";
 }/*# sourceMappingURL=estilos.css.map */
