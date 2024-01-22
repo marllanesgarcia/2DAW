@@ -2,6 +2,7 @@
 
 body{
     background-color: map-get($fondo, color4);
+    justify-content: space-between;
 }
 
 div{
