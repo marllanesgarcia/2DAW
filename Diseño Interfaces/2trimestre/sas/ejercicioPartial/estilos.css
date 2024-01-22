@@ -1,0 +1,52 @@
+body {
+  background-color: orange;
+}
+
+div {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+h1 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: white;
+}
+
+p {
+  color: yellow;
+}
+
+img {
+  width: 300px;
+  height: 280px;
+  border-style: solid;
+  border-color: black;
+}
+
+h2 {
+  background-color: white;
+}
+h2::after {
+  content: "Hace 86 grados.";
+}
+
+.textoLighten {
+  background-color: white;
+  color: #ff1aff;
+}
+
+.textoDarken {
+  background-color: white;
+  color: black;
+}
+
+.textoSaturate {
+  background-color: white;
+  color: purple;
+}
+
+.textoDesaturate {
+  background-color: white;
+  color: #6d136d;
+}/*# sourceMappingURL=estilos.css.map */

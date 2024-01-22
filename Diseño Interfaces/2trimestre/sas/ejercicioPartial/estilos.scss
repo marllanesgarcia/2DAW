@@ -1,0 +1,52 @@
+@import 'variables.scss';
+
+body{
+    background-color: map-get($fondo, color4);
+}
+
+div{
+    display: $posicion;
+    justify-content: $alineacion;
+    background-color: nth($fondoDIV, 3);
+}
+
+h1{
+    font-family: $estiloh1;
+    color: nth($fondoDIV, 2);
+}
+
+p{
+    color : map-get($fondo, color3);
+}
+
+img{
+    width: $numerito;
+    height: $numerito2;
+    border-style: solid;
+    border-color: nth($fondoDIV, 3);
+}
+
+h2{
+    background-color: nth($fondoDIV, 2);
+
+    &::after{
+        content: "Hace "+ convertirGrados($gradosCelsius) + " grados.";
+    }
+}
+
+.textoLighten{
+    background-color: nth($fondoDIV, 2);
+    color: lighten($colorCambiante, 30%);
+}
+.textoDarken{
+    background-color: nth($fondoDIV, 2);
+    color: darken($colorCambiante, 30%);
+}
+.textoSaturate{
+    background-color: nth($fondoDIV, 2);
+    color: saturate($colorCambiante, 30%);
+}
+.textoDesaturate{
+    background-color: nth($fondoDIV, 2);
+    color: desaturate($colorCambiante, 30%);
+}

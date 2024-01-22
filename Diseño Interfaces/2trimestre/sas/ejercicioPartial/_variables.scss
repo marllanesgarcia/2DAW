@@ -1,0 +1,24 @@
+$fondo: (
+    color1: blue,
+    color2: pink,
+    color3: yellow,
+    color4: orange
+);
+
+$estiloh1:  'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+$fondoDIV: purple, white, black;
+
+$alineacion: center;
+$posicion: flex;
+$numerito: 300px;
+$numerito2: 280px;
+
+$gradosCelsius : 30;
+
+@function convertirGrados($grados){
+    $resultado : $grados*9/5+32;
+    @return $resultado;
+}
+
+$colorCambiante: purple;

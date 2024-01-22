@@ -1,9 +1,4 @@
-$colores : purple, aqua, black, rgb(66, 8, 66), white;
-$grosor: 3px;
-$distancia: 20px;
-$distanciaBloque: 10%;
-$alineacion: center;
-
+@import 'variables.scss';
 
 body{
     background: nth($colores, 4);
@@ -46,6 +41,13 @@ section{
     font-style: oblique;
 }
 
+p{
+    color: map-get($map: $colores2, $key: color1);
+}
+
+.hola{
+    color: map-get($map: $colores2, $key: color3);
+}
 
 footer{
     @extend header;
