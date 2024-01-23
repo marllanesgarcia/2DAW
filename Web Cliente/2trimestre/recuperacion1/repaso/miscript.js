@@ -28,6 +28,10 @@ apellido2Input.type = 'text';
 apellido2Input.id = 'apellido2';
 apellido2Input.name = 'apellido2';
 
+var final;
+
+var selectCA = document.getElementById("selectCA");
+var selectCiudad = document.getElementById("selectCity");
 
 document.addEventListener('DOMContentLoaded', function () {
     /* 
@@ -80,7 +84,11 @@ document.addEventListener('DOMContentLoaded', function () {
     */
     telf1.addEventListener('blur',validarTelefono1);
     telf2.addEventListener('blur',validarTelefono2);
-    //edad.addEventListener('blur',validarEdad);
+    edad.addEventListener('blur',validarEdad);
+
+    /* Sexto ejercicio */
+    selectCA.addEventListener("blur",function(){validarSelectCA(selectCA.value)});
+    selectCiudad.addEventListener("blur",function(){validarCiudad(selectCiudad.value)});
 
 
 });
@@ -130,7 +138,7 @@ function validarEmail(){
         email.style.borderColor = 'red';
     } else {
         limpiarError(email);
-        validarContraseña();
+        generarContraseña();
     }
 }
 
@@ -163,31 +171,31 @@ function meterApellidos() {
 
 }
 
-function validarContraseña(){
-    var primeraLetraNombre = (nombre.value).trim().charAt(0).toUpperCase();
-    var primerApellido = apellido1Input.value.trim().slice(0, 3);
-    var primeraLetraApellido2 = apellido2Input.value.trim().charAt(0).toUpperCase();
-    var random = Math.floor(Math.random() * 1000).toString().padStart(4, '0');
+function generarContraseña(){
+    var passwordNombre = password.value;
+    var primeraLetraNombre = passwordNombre.trim().charAt(0).toUpperCase();
+    var primerApellido = apellido1Input.value.trim();
+    var tresLetrasApellido1 = primerApellido.charAt.trim().substring(0,3).toLowerCase();
+    var passwordApellido2 = apellido2Input.trim().value;
+    var primeraLetraApellido2 = passwordApellido2.charAt(0).toUpperCase();
+    var random = Math.floor(1000 + Math.random()*9000);
+    final = primeraLetraNombre + tresLetrasApellido1 + primeraLetraApellido2 + random;
 
-    console.log(primeraLetraNombre.value);
-    console.log(primerApellido.value);
-    console.log(primeraLetraApellido2.value);
-    console.log(random.value);
-    var passwordNew = primeraLetraNombre + primerApellido + primeraLetraApellido2 + random;
-   // if (password.value == null){
-     //   password.innerHTML = passwordNew;
-   // }
-   password.innerText = passwordNew;
-   /*  if (primeraLetraNombre && primerApellido && primeraLetraApellido2 && random ){
-        password.value = passwordNew;
-    } */
-    /*   
-        Ejercicio cuatro
-    */
-    if(!password.focus()){
-        var asteriscos = '*'.repeat(password.value.length);
-        password.value = asteriscos;
-    }   
+    password.value = final;
+    validarContraseña();
+}
+
+function validarContraseña(){
+    var contraseñaValue = password.value;
+    var patron = /[A-Z][a-z]{3}[A-Z][0-9]{4}$/;    
+    var valido = patron.test(contraseñaValue);
+    if(!valido){
+       mostrarError(password,"contraseña no valida, hazla de nuevo");
+       password.focus();
+    }else{
+        limpiarError(password);
+        final=contraseñaValue;
+    }
 }
 
 function validarTelefono1(){
@@ -226,3 +234,50 @@ function validarEdad(){
     }
 }
 
+var array = undefined;
+function validarSelectCA(valor){
+    if(array!=undefined){
+        selectCiudad.innerHTML = "";
+    }
+    switch (true){
+        case valor == "":
+            mostrarError(selectCA, "Selecciona una opción");
+            selectCA.focus();
+            break;
+        case valor == "Andalucia":
+            limpiarError(selectCA);
+            array = ["Selecciona una ciudad","Almería","Granada", "Málaga","Jaén","Córdoba","Sevilla","Cádiz","Huelva"];
+            break;
+        case valor == "Extremadura":
+            limpiarError(selectCA);
+            array = ["Selecciona una ciudad","Cáceres","Badajoz"];
+            break;
+        case valor == "CastillaLaMancha":
+            limpiarError(selectCA);
+            array = ["Selecciona una ciudad","Albacete","Ciudad Real", "Cuenca","Guadalajara","Toledo"];
+            break;
+        case valor == "Valencia":
+            limpiarError(selectCA);
+            array = ["Selecciona una ciudad","Alicante","Castellón", "Valencia"];
+            break;
+    }
+
+    if(array!=undefined){
+        selectCiudad.removeAttribute("disabled");
+        for(var i=0;i<array.length;i++){
+            var opcion = document.createElement("option");
+            opcion.setAttribute("name",array[i]);
+            opcion.innerHTML = array[i];
+            selectCiudad.append(opcion);
+        }
+    }
+}
+
+function validarCiudad(valor){
+    if(valor == "Seleccionar Ciudad"){
+        mostrarError(selectCiudad, "Selecciona una ciudad válida");
+        selectCiudad.focus();
+    }else{
+        limpiarError(selectCiudad);
+    }
+}
