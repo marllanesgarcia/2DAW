@@ -1,37 +1,32 @@
 "use strict";
 var nombre = document.getElementById("name");
-var email = document.getElementById("email");
-var password = document.getElementsByClassName("password");
-/* 
-Otra forma de hacerlo:
-var telf1 = document.querySelectorAll("input[type=text]")[2];
-var telf2 = document.querySelectorAll("input[type=text]")[3]; 
-*/
-var telf1 = document.getElementsByName("telefono")[0];
-var telf2 = document.getElementsByName("telefono")[1];
-var edad = document.getElementsByName("edad");
-
-/*   crear elementos */
-var errorElement = document.createElement('span');
-errorElement.className = 'error-message';
-
+var apellidoDiv = document.createElement('div');
 var apellido1Label = document.createElement('label');
-apellido1Label.textContent = 'Apellido 1:';
+apellido1Label.textContent = 'Apellido 1';
 var apellido1Input = document.createElement('input');
 apellido1Input.type = 'text';
 apellido1Input.id = 'apellido1';
 apellido1Input.name = 'apellido1';
 var apellido2Label = document.createElement('label');
-apellido2Label.textContent = 'Apellido 2:';
+apellido2Label.textContent = 'Apellido 2';
 var apellido2Input = document.createElement('input');
 apellido2Input.type = 'text';
 apellido2Input.id = 'apellido2';
-apellido2Input.name = 'apellido2';
+apellido2Input.name = 'apellido2'
+var apellido1;
+
+var email = document.getElementById("email");
+var contrasenaInput = document.getElementsByName("password")[0];
 
 var final;
 
-var selectCA = document.getElementById("selectCA");
-var selectCiudad = document.getElementById("selectCity");
+var errorElement = document.createElement('span');
+errorElement.className = "error-message";
+let asteriscos="";
+var selectCA=document.getElementById("selectCA");
+var selectCiudad=document.getElementById("selectCity");
+
+var boton = document.getElementsByClassName("button");
 
 document.addEventListener('DOMContentLoaded', function () {
     /* 
@@ -72,6 +67,12 @@ document.addEventListener('DOMContentLoaded', function () {
     debe aparecer la contraseña que existía antes de perder el foco    
     */
     email.addEventListener('blur',validarEmail);
+    contrasenaInput.addEventListener('focus', function(){
+        //cuando tiene el foco mostrar contraseña
+        if (final !== undefined ){
+            contrasenaInput.value = final;
+        }
+    });
 
     /*   
     Quinto ejercicio:
@@ -82,15 +83,42 @@ document.addEventListener('DOMContentLoaded', function () {
     correspondientes errores. Es importante que no se permita escribir letras en ninguno de
     los campos.
     */
-    telf1.addEventListener('blur',validarTelefono1);
-    telf2.addEventListener('blur',validarTelefono2);
+    telefonoFijo.addEventListener('keypress', noLetras);
+    telefonoMovil.addEventListener('keypress', noLetras);
+    edad.addEventListener('keypress', noLetras);
+
+    telefonoFijo.addEventListener('blur',validarTelefonoFijo);
+    telefonoMovil.addEventListener('blur',validarTelefonoMovil);
     edad.addEventListener('blur',validarEdad);
 
-    /* Sexto ejercicio */
+    /* Sexto ejercicio:
+    Cuando el select de las comunidades autónomas pierda el foco debemos de activar y
+    rellenar el select de las ciudades. Crearemos un array dentro de nuestro script con las
+    ciudades de cada comunidad autónoma y cuando la comunidad pierda el foco
+    cargaremos en el select de ciudades las pertenecientes a dicha comunidad. Si
+    abandonamos el select de comunidades sin seleccionar ninguna nos avisará como un
+    error. Si al perder el foco se ha seleccionado alguna se habilita las ciudades, se cargan
+    los select correspondientes y se le pasa el foco. Al perder el foco el select de ciudades
+    debe tener una ciudad seleccionada, sino nos avisaría mediante error
+    */
     selectCA.addEventListener("blur",function(){validarSelectCA(selectCA.value)});
     selectCiudad.addEventListener("blur",function(){validarCiudad(selectCiudad.value)});
 
+    /* Séptimo ejercicio:
+    Cuando pulse el botón enviar se debe validar en primer lugar que se han aceptado las
+    condiciones, sino es el caso se avisará de que el formulario solo se enviará en el caso de
+    aceptar las condiciones de uso. Si las condiciones están aceptadas se validarán que los
+    campos nombre, apellido1, apellido2, correo, contraseña y teléfonos están completos.
 
+    Además se recogerá en el caso de que se haya seleccionado algún color. Se comprobará
+    que además el campo comentario esté relleno y se analizará el contenido del text area.
+    En el text area comprobaremos si aparece la palabra reclamación o sugerencia. Una vez
+    comprobados todos los campos, si las verificaciones son correctas se deberá de añadir
+    un div con el fondo del color seleccionado, si no se seleccionó ninguno el fondo será rosa.
+    En el div aparecerá toda la información recogida en el formulario y en el comentario se
+    indicará si es una reclamación un comentario o una sugerencia
+    */
+    boton.addEventListener("click", validarFormulario);    
 });
 
 function validarNombre() {
@@ -198,43 +226,53 @@ function validarContraseña(){
     }
 }
 
-function validarTelefono1(){
-    var expresionTelf = /^952\d{6}$|^6\d{8}$|^7\d{8}$/;
-    var expresionTelfValue = telf1.value.trim();
+var telefono=document.querySelectorAll("input[name='telefono']");
+var telefonoFijo=telefono[0];
+var telefonoMovil=telefono[1];
 
-    if (!expresionTelf.test(expresionTelfValue)) {
-        mostrarError(telf1, 'el telefono 1 no existe, inserte otro');
-        telf1.style.borderColor = 'red';
-    } else {
-        limpiarError(telf1);
+var edad=document.querySelector("input[name='edad']");
+
+function validarTelefonoFijo(){
+    var expresion=/^952\d{6}$/;
+    var valido=expresion.test(telefonoFijo.value);
+    if(!valido){
+        mostrarError(telefonoFijo,"telefono fijo incorrecto");
+        telefonoFijo.focus();
+    }else{
+        limpiarError(telefonoFijo);
     }
 }
 
-function validarTelefono2(){
-    var expresionTelf = /^952\d{6}$|^6\d{8}$|^7\d{8}$/;
-    var expresionTelfValue = telf2.value.trim();
-
-    if (!expresionTelf.test(expresionTelfValue)) {
-        mostrarError(telf2, 'el telefono 2 no existe, inserte otro');
-        telf2.style.borderColor = 'red';
-    } else {
-        limpiarError(telf2);
+function validarTelefonoMovil(){
+    var expresion=/^[67]\d{8}$/;
+    var valido=expresion.test(telefonoMovil.value);
+    if(!valido){
+        mostrarError(telefonoMovil,"telefono móvil incorrecto");
+        telefonoMovil.focus();
+    }else{
+        limpiarError(telefonoMovil);
     }
 }
 
 function validarEdad(){
-    var mayorEdad = /^(1[89]|[2-9]\d+)$/;
-    var mayorEdadValue = edad.value.trim();
-
-    if (!mayorEdad.test(mayorEdadValue)) {
-        mostrarError(edad, 'DEBES SER MAYOR DE EDAD');
-        edad.style.borderColor = 'red';
-    } else {
+    if(edad.value<18){
+        mostrarError(edad,"error:menor de edad");
+        edad.focus();
+    }else{
         limpiarError(edad);
     }
 }
 
+function noLetras(){
+    var charCode= event.which;
+     
+    if (charCode > 57){
+        event.preventDefault();
+    }
+}
+
 var array = undefined;
+
 function validarSelectCA(valor){
     if(array!=undefined){
         selectCiudad.innerHTML = "";
@@ -280,4 +318,8 @@ function validarCiudad(valor){
     }else{
         limpiarError(selectCiudad);
     }
+}
+
+function validarFormulario(){
+    
 }
