@@ -165,7 +165,7 @@ function validarContraseña(){
         asteriscos = "*".repeat(final.length);
         contrasenaInput.value = asteriscos;
         limpiarError(contrasenaInput);
-       final=contrasenaValue;
+        final=contrasenaValue;
     }
 }
 

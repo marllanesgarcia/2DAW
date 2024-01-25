@@ -22,11 +22,15 @@ var final;
 
 var errorElement = document.createElement('span');
 errorElement.className = "error-message";
-let asteriscos="";
+var asteriscos="";
 var selectCA=document.getElementById("selectCA");
 var selectCiudad=document.getElementById("selectCity");
 
-var boton = document.getElementsByClassName("button");
+var boton = document.querySelectorAll("button[type='button']")[0];
+
+console.log(boton);
+var terminos = document.getElementById("checkbox");
+
 
 document.addEventListener('DOMContentLoaded', function () {
     /* 
@@ -70,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
     contrasenaInput.addEventListener('focus', function(){
         //cuando tiene el foco mostrar contraseña
         if (final !== undefined ){
-            contrasenaInput.value = final;
+           mostrarContraseña();
         }
     });
 
@@ -116,9 +120,28 @@ document.addEventListener('DOMContentLoaded', function () {
     comprobados todos los campos, si las verificaciones son correctas se deberá de añadir
     un div con el fondo del color seleccionado, si no se seleccionó ninguno el fondo será rosa.
     En el div aparecerá toda la información recogida en el formulario y en el comentario se
-    indicará si es una reclamación un comentario o una sugerencia
+    indicará si es una reclamación un comentario o una sugerencia.
     */
     boton.addEventListener("click", validarFormulario);    
+     /* PASOS:
+        extraemos el boton -> se pone modo click y se llama a la funcion.
+        En la funcion:
+        1. Si los terminos estan checked : Si -> sigo , no -> MUESTRO EL ERROR
+        2. Si los campos vacios:  con if o con switch -> (comprobamos que el value!== " ");
+        3. Recogemos todos los elementos de los input: 
+            -QUERYSELECTORALL y ambos se guardan en un array.
+            -CON EL NOMBRE
+            Recogemos el array y vemos cuales son checked.
+            Guardamos el value de checked en una variable.
+        4. Analizamos el textArea, lo recogemos por su id: con include busco que contenga la palabra: reclamacion o sugerencia
+        5. Se crea un div debajo de todo el formulario para que lo añada abajo y que contenga el color seleccionado
+        si esta vacia, se le agrega el color rosa por defecto tambien se puede poner la variable color en rosa desde el principio
+        y se le añade dentro del div todas las variables value.
+        Si tiene reclamacoin o sugerencia se pone que es cada una.
+     */
+
+
+
 });
 
 function validarNombre() {
@@ -200,37 +223,44 @@ function meterApellidos() {
 }
 
 function generarContraseña(){
-    var passwordNombre = password.value;
-    var primeraLetraNombre = passwordNombre.trim().charAt(0).toUpperCase();
-    var primerApellido = apellido1Input.value.trim();
-    var tresLetrasApellido1 = primerApellido.charAt.trim().substring(0,3).toLowerCase();
-    var passwordApellido2 = apellido2Input.trim().value;
+
+    var primeraLetraNombre = nombre.value.trim().substring(0,1).toUpperCase();
+    var tresLetrasApellido1 = apellido1Input.value.trim().substring(0,3).toLowerCase();
+    var passwordApellido2 = apellido2Input.value.trim();
     var primeraLetraApellido2 = passwordApellido2.charAt(0).toUpperCase();
     var random = Math.floor(1000 + Math.random()*9000);
     final = primeraLetraNombre + tresLetrasApellido1 + primeraLetraApellido2 + random;
 
-    password.value = final;
+    contrasenaInput.value = final;
     validarContraseña();
 }
 
+
 function validarContraseña(){
-    var contraseñaValue = password.value;
+    var contraseñaValue = contrasenaInput.value;
     var patron = /[A-Z][a-z]{3}[A-Z][0-9]{4}$/;    
     var valido = patron.test(contraseñaValue);
     if(!valido){
-       mostrarError(password,"contraseña no valida, hazla de nuevo");
-       password.focus();
+       mostrarError(contrasenaInput,"contraseña no valida, hazla de nuevo");
+       contrasenaInput.focus();
     }else{
-        limpiarError(password);
-        final=contraseñaValue;
+        console.log("entro aqui eh");
+        asteriscos = "*".repeat(contraseñaValue.length);
+        console.log(asteriscos);
+        contrasenaInput.value = asteriscos;
+        console.log(contrasenaInput.value);
+
+        limpiarError(contrasenaInput);
+        final = contraseñaValue;
+        console.log(final);
     }
 }
 
-var telefono=document.querySelectorAll("input[name='telefono']");
+var telefono=document.querySelectorAll("input[name='telefono']"); // te devuelve todos en tipo array
 var telefonoFijo=telefono[0];
 var telefonoMovil=telefono[1];
 
-var edad=document.querySelector("input[name='edad']");
+var edad=document.querySelector("input[name='edad']"); // te devuelve el primero
 
 function validarTelefonoFijo(){
     var expresion=/^952\d{6}$/;
@@ -321,5 +351,23 @@ function validarCiudad(valor){
 }
 
 function validarFormulario(){
-    
+   
+    console.log(terminos.checked); // esto es para ver si esta pulsado o no
+
+    switch(true){   // siempre entra con true
+        case !terminos.checked:
+            mostrarError(terminos, "Tienes que aceptarlo");
+            break;
+        case nombre.value.trim() == "" && apellido1Input.value.trim() == "" && apellido2Input.value.trim() == "" && email.value.trim() == "" && contrasenaInput.value.trim() == "" &&
+        email.value.trim() == "" && telefonoFijo.value.trim() == "" && telefonoMovil.value.trim() == "" :
+            alert("Tienes que rellenar los campos vacíos, tonto.");
+            break;
+            // si tienes que poner errores juntos, con un array.push
+        default :
+            alert (
+                "Está todo bien: "+ "Nombre: "+nombre.value+", Primer apellido: "+apellido1Input.value+
+                ", Segundo Apellido: "+apellido2Input.value+", email: "+email.value+ ", contraseña: es privada, bro, "+
+                email.value+ ", telelefono 1: "+telefonoFijo.value+", telefono 2: "+telefonoMovil.value); 
+        break;
+    }
 }
