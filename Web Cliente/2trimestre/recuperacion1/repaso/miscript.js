@@ -203,7 +203,8 @@ function mostrarError(elemento, mensaje) {
 }
 
 function limpiarError(elemento) {
-    var errorElement = elemento.parentNode.querySelector('.error-message');
+    var errorElement = elemento.parentNode.querySelector
+    ('.error-message');
     if (errorElement) {
         errorElement.parentNode.removeChild(errorElement);
     }
@@ -256,7 +257,8 @@ function validarContraseña(){
     }
 }
 
-var telefono=document.querySelectorAll("input[name='telefono']"); // te devuelve todos en tipo array
+var telefono=document.querySelectorAll("input[name='telefono']"); 
+// te devuelve todos en tipo array
 var telefonoFijo=telefono[0];
 var telefonoMovil=telefono[1];
 
@@ -314,7 +316,8 @@ function validarSelectCA(valor){
             break;
         case valor == "Andalucia":
             limpiarError(selectCA);
-            array = ["Selecciona una ciudad","Almería","Granada", "Málaga","Jaén","Córdoba","Sevilla","Cádiz","Huelva"];
+            array = ["Selecciona una ciudad","Almería","Granada"
+            , "Málaga","Jaén","Córdoba","Sevilla","Cádiz","Huelva"];
             break;
         case valor == "Extremadura":
             limpiarError(selectCA);
@@ -322,11 +325,13 @@ function validarSelectCA(valor){
             break;
         case valor == "CastillaLaMancha":
             limpiarError(selectCA);
-            array = ["Selecciona una ciudad","Albacete","Ciudad Real", "Cuenca","Guadalajara","Toledo"];
+            array = ["Selecciona una ciudad","Albacete","Ciudad Real",
+             "Cuenca","Guadalajara","Toledo"];
             break;
         case valor == "Valencia":
             limpiarError(selectCA);
-            array = ["Selecciona una ciudad","Alicante","Castellón", "Valencia"];
+            array = ["Selecciona una ciudad","Alicante","Castellón",
+             "Valencia"];
             break;
     }
 
@@ -352,22 +357,27 @@ function validarCiudad(valor){
 
 function validarFormulario(){
    
-    console.log(terminos.checked); // esto es para ver si esta pulsado o no
+    console.log(terminos.checked); 
+    // esto es para ver si esta pulsado o no
 
     switch(true){   // siempre entra con true
         case !terminos.checked:
             mostrarError(terminos, "Tienes que aceptarlo");
             break;
-        case nombre.value.trim() == "" && apellido1Input.value.trim() == "" && apellido2Input.value.trim() == "" && email.value.trim() == "" && contrasenaInput.value.trim() == "" &&
-        email.value.trim() == "" && telefonoFijo.value.trim() == "" && telefonoMovil.value.trim() == "" :
+        case nombre.value.trim() == "" && apellido1Input.value.trim() == "" && 
+        apellido2Input.value.trim() == "" && email.value.trim() == "" && 
+        contrasenaInput.value.trim() == "" && email.value.trim() == "" && 
+        telefonoFijo.value.trim() == "" && telefonoMovil.value.trim() == "" :
             alert("Tienes que rellenar los campos vacíos, tonto.");
             break;
             // si tienes que poner errores juntos, con un array.push
         default :
             alert (
-                "Está todo bien: "+ "Nombre: "+nombre.value+", Primer apellido: "+apellido1Input.value+
-                ", Segundo Apellido: "+apellido2Input.value+", email: "+email.value+ ", contraseña: es privada, bro, "+
-                email.value+ ", telelefono 1: "+telefonoFijo.value+", telefono 2: "+telefonoMovil.value); 
+                "Está todo bien: "+ "Nombre: "+nombre.value+", Primer apellido: "
+                +apellido1Input.value+", Segundo Apellido: "+apellido2Input.value+
+                ", email: "+email.value+ ", contraseña: es privada, bro, "+
+                email.value+ ", telelefono 1: "+telefonoFijo.value+", telefono 2: "
+                +telefonoMovil.value); 
         break;
     }
 }

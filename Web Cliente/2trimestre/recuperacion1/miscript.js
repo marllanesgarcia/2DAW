@@ -24,13 +24,11 @@ errorElement.className = "error-message";
 let asteriscos="";
 var selectCA=document.getElementById("selectCA");
 var selectCiudad=document.getElementById("selectCity");
-document.addEventListener('DOMContentLoaded', function () {
-    /*
-    EJERCICIO 1:   
-    */
 
+document.addEventListener('DOMContentLoaded', function () {
     nombre.addEventListener('blur', validarNombre);
-    apellido2Input.addEventListener('blur', function () { validarApellidos(apellido1Input.value, apellido2Input.value) });
+    apellido2Input.addEventListener('blur', function () { 
+    validarApellidos(apellido1Input.value, apellido2Input.value) });
 
     email.addEventListener("blur", validarEmail);
     selectCA.addEventListener("blur",function(){validarSelectCA(selectCA.value)});
@@ -41,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (final !== undefined ){
             contrasenaInput.value = final;
         }
-       
     });
     
     contrasenaInput.addEventListener('blur', function () {
@@ -56,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
     telefonoMovil.addEventListener('blur',validarTelefonoMovil);
     edad.addEventListener('blur',validarEdad);
 
-})
+});
 
 function validarNombre() {
     var expresionNombre = /^[A-Z][a-z]*(\s[A-Z][a-z]*)*$/;
