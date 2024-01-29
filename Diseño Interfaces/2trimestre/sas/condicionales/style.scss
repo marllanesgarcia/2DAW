@@ -1,0 +1,52 @@
+$temperatura: 30;
+
+.temperatura{
+    @if ($temperatura>30){
+        background-color: red;
+    }@else if $temperatura>20{
+        background-color: yellow;
+    }@else{
+        background-color: green;
+    }
+}
+
+.temperatura {
+    background-color: if($temperatura, red, blue);
+}
+
+.clima-info{
+    color:white;
+    &::before{
+        content :  "Temperatura actual: ${$temperatura}";
+    }
+}
+
+.cuadricula{
+    display: flex;
+    flex-wrap: wrap;
+
+    @for $i from 1 through 6{
+        .elemento-#{1}{
+            width: 100px*$i;
+            height: 100px;
+            background-color: lightblue;
+            margin: 5px;
+        }
+    }
+}
+
+$colo: red, green, blue, yellow, orange;
+
+.colores-container{
+    display: flex;
+
+    @each $colo in $colores{
+        .elemento-F#{index($colores, $colo)}{
+
+        width:100px;
+        height: 100px;
+        background-color: $colo;
+        margin: 10px;
+        }
+    }
+}

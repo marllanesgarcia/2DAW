@@ -1,0 +1,30 @@
+#cuadrado {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+body{
+    background-image: url('https://cdn.wallpapersafari.com/55/88/wlCyTI.jpg');
+}
+
+#imagen{
+    height: 80px;
+    width: 80px;
+}
+
+.estrella{
+  display: none;
+}
+
+#menu{
+    display:flex;
+    justify-content:flex-end ;
+}
+
+#menu > img{
+    height: 80px;
+    width: 120px;
+}
