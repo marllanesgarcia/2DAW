@@ -18,18 +18,20 @@ export class Campo1Component {
     return this.resultado-=numero;
   }
 
+  variable:String="";
   resultado2=0;
-  sumar(number1:any, number2:any){
-    return this.resultado2=number1+number2;
-  }
-  restar(number1:any, number2:any){
-    return this.resultado2=number1-number2;
-  }
-  dividir(number1:any, number2:any){
-    return this.resultado2=number1/number2;
-  }
-  multiplicar(number1:any, number2:any){
-    return this.resultado2=number1*number2;
+  sumar(numero1:any,numero2:any){
+    return this.resultado2=Number(numero1.value)+Number(numero2.value);
+    // el number sirve para que te coja el puto numero del value, siempre hay que usar Number que PETA
   }
 
+  restar(numero1:any, numero2:any){
+    return this.resultado2=Number(numero1.value)-Number(numero2.value);
+  }
+  dividir(numero1:any, numero2:any){
+    return this.resultado2=Number(numero1.value)/Number(numero2.value);
+  }
+  multiplicar(numero1:any, numero2:any){
+    return this.resultado2=Number(numero1.value)*Number(numero2.value);
+  }
 }

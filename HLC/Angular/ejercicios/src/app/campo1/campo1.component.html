@@ -1,4 +1,3 @@
-<body>
 
     <!--Sumar y restar-->
     <!-- <h1>Contador</h1>
@@ -21,11 +20,11 @@
     <input type="button" value=9 id="number">
     <input type="button" value=0 id="number">
     <input type="button" value="Calcular" (click)="calcular()"> -->
-    <input type="text" #numero1>
+    <input type="text" #numero1> <!--[(ngModel)]="variable"-->
     <input type="text" #numero2>
-    <input type="button" value="sumar" (click)="sumar(numero1,numero2)" id="number">
+    <input type="button" value="sumar" (click)="sumar(numero1,numero2)">
     <input type="button" value="restar" (click)="restar(numero1,numero2)" id="number">
     <input type="button" value="multiplicar" (click)="multiplicar(numero1,numero2)" id="number">
     <input type="button" value="dividir" (click)="dividir(numero1,numero2)" id="number">
 </div>
-<div>{{resultado2}}</div>
+<div id="resultado">{{resultado2}}</div>
