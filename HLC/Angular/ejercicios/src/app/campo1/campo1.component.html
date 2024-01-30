@@ -1,0 +1,31 @@
+<body>
+
+    <!--Sumar y restar-->
+    <!-- <h1>Contador</h1>
+    <input type="text" value="{{resultado}}" #numero>
+    <input type="button" value=1 (click)="aumentar(1)" id="aumentar">
+    <input type="button" value=-1 (click)="disminuir(1)" id="disminuir"> -->
+
+<div id="calculadora">
+<!-- Calculadora-->
+    <h1>Calculadora</h1>
+<!--<input type="text" value="{{resultado2}}" #numero>
+    <input type="button" value=1 id="number">
+    <input type="button" value=2 id="number">
+    <input type="button" value=3 id="number">
+    <input type="button" value=4 id="number">
+    <input type="button" value=5 id="number">
+    <input type="button" value=6 id="number">
+    <input type="button" value=7 id="number">
+    <input type="button" value=8 id="number">
+    <input type="button" value=9 id="number">
+    <input type="button" value=0 id="number">
+    <input type="button" value="Calcular" (click)="calcular()"> -->
+    <input type="text" #numero1>
+    <input type="text" #numero2>
+    <input type="button" value="sumar" (click)="sumar(numero1,numero2)" id="number">
+    <input type="button" value="restar" (click)="restar(numero1,numero2)" id="number">
+    <input type="button" value="multiplicar" (click)="multiplicar(numero1,numero2)" id="number">
+    <input type="button" value="dividir" (click)="dividir(numero1,numero2)" id="number">
+</div>
+<div>{{resultado2}}</div>

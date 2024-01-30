@@ -1,0 +1,8 @@
+body{
+    background-color: rgb(140, 219, 219);
+}
+
+#calculadora{
+    display: grid;
+    justify-content: center;
+}
