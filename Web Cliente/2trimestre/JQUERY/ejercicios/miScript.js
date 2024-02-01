@@ -58,7 +58,8 @@ $(document).ready(function(){
     /*  Al hacer click en las imágenes se debe mostrar la descripción si está oculta,
     si se da click en otra se debe ocultar la descripción del elemento que no se pulso */
     $('img').click(function(){
-        
+        $('figcaption').hide();
+        $(this).next().show();
     })
 
 });
