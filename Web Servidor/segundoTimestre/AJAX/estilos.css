@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(213, 187, 238);
+}
+
+#botonHombre{
+    border: solid blue 2px;
+    background-color: rgb(170, 170, 255);
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#botonMujer{
+    border: solid purple 2px;
+    background-color: rgb(182, 134, 182);
+    color:white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#container{
+    text-align: center;
+}
+
+#listado{
+    border: double black 1px;
+    display: column;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de listado</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<script>
+    function filtrar(sexo) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4) {
+                if (this.status == 200) {
+                    document.getElementById("listado").innerHTML = this.responseText;
+                }
+            }
+        };
+        xhttp.open("GET", "funciones.php?sexo=" + sexo, true);
+        xhttp.send();
+    }
+</script>
+
+<body>
+
+    <div id="container">
+        <h1> App de Información de Personas </h1>
+
+        <div id="genero">
+            <button onclick="filtrar('hombre')" id="botonMujer">Mostrar Hombres</button>
+            <button onclick="filtrar('mujer')" id="botonHombre">Mostrar Mujeres</button>
+        </div>
+        &nbsp;
+        <div id="listado"></div>
+</body>
+
+</html>

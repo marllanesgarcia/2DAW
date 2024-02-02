@@ -1,0 +1,24 @@
+<a href="#" onclick="lanza_ajax(123456);">PULSAR</a>
+
+<div id="response"></div>
+
+<script>
+    function lanza_ajax(parametro) {
+        var objXMLHttpRequest = new XMLHttpRequest();
+        objXMLHttpRequest.onreadystatechange = function() {
+            console.log(objXMLHttpRequest.readyState);
+            if (objXMLHttpRequest.readyState === 4) {
+                if (objXMLHttpRequest.status === 200) {
+                    document.getElementById("response").innerHTML = objXMLHttpRequest.responseText;
+                } else {
+                    alert('Error Code: ' + objXMLHttpRequest.status);
+                    alert('Error Message: ' + objXMLHttpRequest.statusText);
+                }
+            }
+        }
+       
+        objXMLHttpRequest.open('GET', 'peticion_ajax_data1.php?dato=' + parametro); // el metodo usado
+        
+        objXMLHttpRequest.send();
+    }
+</script>

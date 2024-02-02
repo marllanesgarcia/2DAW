@@ -1,175 +1,268 @@
-"use strict";
+"use strict"
+//declaro fuera del addEventlistener estas variables para hacerlas globales. 
+var usuario;
+var edad;
+var comenzar;
 
-    document.addEventListener("DOMContentLoaded", function () {
-        
-        /* Aqui se declaran los elementos  */
-        var usuarioCorrecto = false;
-        var edadCorrecta = false;
-        var puntuacionSpan = 0;
-        var partidasGanadas = 0;
-        var partidasPerdidas = 0;
-        var partidasEmpatadas = 0;
+//array de cartas
+var arrayCartas = new Array();
 
-        var tablero = document.getElementById("tablero");
-        document.getElementById("usuario").addEventListener("blur", validarNombre);
-        document.getElementById("edad").addEventListener("blur", validarEdad);
-        document.getElementById("comenzar").addEventListener("click", comenzarJuego);
-        document.getElementById("botonCarta").addEventListener("click", darCarta);
-        var botonMePlanto = document.getElementById("botonMePlanto");
-           
-        /* Esta funcion sirve para ver si el nombre introducido esta bien o no */
-        function validarNombre() {
-            var usuario = document.getElementById("usuario");
-            var errorUsuario = document.getElementById("errorUser");
-        
-            /* Esta expresion es para poder validar el nombre */
-            var patron = /^[a-zA-Z0-9]{6,}$/;
-        
-            if (patron.test(usuario.value)) {
-                usuarioCorrecto = true;
-                errorUsuario.innerHTML = "";
+//creaciÃ³n de los elementos que debo crear el el tablero
+var h2 = document.createElement("h2");
+var input = document.createElement("input");
+var imagenCarta = document.createElement("img");
+var botonCarta = document.createElement("button");
+var botonPlanto = document.createElement("button");
+
+//creaciÃ³n de variables contador
+var ganadas = 0;
+var perdidas = 0;
+var jugadas = 0;
+var plantadas = 0
+
+
+
+window.addEventListener("load", () => {
+    //le doy valor a las variables
+    usuario = document.getElementById("usuario");
+    edad = document.getElementById("edad");
+    comenzar = document.getElementById("comenzar");
+
+    //comienzan los eventos.
+    usuario.addEventListener("blur", validarUsuario);
+    edad.addEventListener("keypress", validarNumeros);
+    edad.addEventListener("blur", valor);
+    comenzar.addEventListener("click", validarEntrada);
+})
+
+function validarUsuario() {
+    //Me hubiera valido cualquier expresiÃ³n siempre que el mensaje de error estÃ© acorde con lo que se pide. 
+    //var expresion = /^[a-zA-Z0-9]{6,}$/;
+    var expresion = /^[a-zA-Z]{4,}[0-9]{2,}$/;
+    //var expresion = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/
+
+    var spam = document.getElementById("errorUser");
+    if (!expresion.test(usuario.value)) {
+        spam.innerHTML = "Debe introducir un nombre de usuario valido de al menos seis caracteres (numeros y letras)";
+        usuario.focus();
+    } else {
+        spam.innerHTML = "";
+    }
+}
+//opcional si lo habeis aplicado bien pero no se pidio en esta ocasiÃ³n, 
+//igualmente hubiera sido copiar un cÃ³digo que ya habÃ­amos desarrollado
+function validarNumeros(e) {
+    var evento = e || event;
+    if (evento.which < 48 || evento.which > 57) {
+        e.preventDefault();
+    }
+}
+//funciÃ³n para validar que sea mayor de 18 y porque no menor de 110 porque muy mayor me parece
+function valor() {
+    var spam = document.getElementById("errorEdad");
+    if (edad.value < 18 || edad.value > 110) {
+        spam.innerHTML = "Lo sentimos su edad no es apropiada para jugar";
+        edad.focus();
+    } else {
+        spam.innerHTML = "";
+    }
+}
+
+//una vez que se completa el formulario comenzamos, 
+//y comprobamos que no se ha pulsado el boton antes de rellenar campos
+function validarEntrada(e) {
+    var evento = e || event;
+    //establezco una bandera por si los campos estÃ¡n en blanco
+    var flag = false;
+    if (usuario.value == "") {
+        document.getElementById("errorUser").innerHTML = "Campo Requerido";
+        flag = true
+    }
+    if (edad.value == "" || edad.value < 18) {
+        document.getElementById("errorEdad").innerHTML = "Campo Requerido";
+        flag = true
+    }
+    //si los campos estÃ¡n en blanco vuelvo a llevar el foco al usuario. 
+    if (flag) {
+        e.preventDefault();
+        usuario.focus();
+    } else {
+        // si todo esta bien comenzamos cargando el tablero y el array de cartas
+        cargarTablero();
+        cargarCartas();
+        //una vez que el tablero se cargo a los botones se les dara el evento click
+        botonCarta.disabled = false;
+        botonPlanto.disabled = false;
+        botonCarta.addEventListener("click", darCarta);
+        botonPlanto.addEventListener("click", plantarse)
+    }
+}
+
+function cargarTablero() {
+    //lo primero hacer visible el elemento tablero
+    document.getElementById("tablero").style.visibility = "visible";
+    //agregarle los hijos que cree al comienzo y darles valores
+    document.getElementById("tableroPuntos").appendChild(h2);
+    h2.innerHTML = "PuntuaciÃ³n";
+    document.getElementById("tableroPuntos").appendChild(input);
+    input.setAttribute("class", "puntuacion")
+    input.setAttribute("type", "text");
+    input.setAttribute("value", "0");
+    //propiedad para que no pueda escribirse sobre el
+    input.readOnly = true;
+    //el div donde debe colocarse la carta no tiene id, pero accedemos a travÃ©s de la clase
+    //eso nos devuelve un array pero como solo hay un elemento cogemos la posicion 0 
+    //y aÃ±adimos la carta que hemos declarado arriba, le ponemos el src que apunte a la cartaVuelta
+    document.getElementsByClassName("baraja")[0].appendChild(imagenCarta);
+    imagenCarta.setAttribute("src", "imagenes/cartaVuelta.jpg");
+    //se aÃ±ade el boton carta  como elemento hijo del div que lleva su nombre en el html
+    //le damos estilos de bootstrap y texto
+    document.getElementById("botonCarta").appendChild(botonCarta);
+    botonCarta.setAttribute("class", "btn btn-primary");
+    botonCarta.innerHTML = "Carta";
+    //se aÃ±ade el boton me planto  como elemento hijo del div que lleva su nombre en el html
+    //le damos estilos de bootstrap y texto
+    document.getElementById("botonMePlanto").appendChild(botonPlanto);
+    botonPlanto.setAttribute("class", "btn btn-danger");
+    botonPlanto.innerHTML = "Me Planto";
+}
+//para cargar el array de cartas yo lo he hecho un for por cada palo de la baraja dejando fuera el nÃºmero 8 y 9
+function cargarCartas() {
+    for (var i = 1; i <= 12; i++) {
+        if (i < 8 || i > 9) {
+            arrayCartas.push("./imagenes/baraja/bastos_" + [i] + ".jpg");
+        }
+    }
+    for (var i = 1; i <= 12; i++) {
+        if (i < 8 || i > 9) {
+            arrayCartas.push("./imagenes/baraja/copas_" + [i] + ".jpg")
+        }
+    }
+    for (var i = 1; i <= 12; i++) {
+        if (i < 8 || i > 9) {
+            arrayCartas.push("./imagenes/baraja/espadas_" + [i] + ".jpg")
+        }
+    }
+    for (var i = 1; i <= 12; i++) {
+        if (i < 8 || i > 9) {
+            arrayCartas.push("./imagenes/baraja/oros_" + [i] + ".jpg")
+        }
+    }
+    //una vez que el array estÃ¡ cargado se desordena. 
+    arrayCartas.sort(function () {
+        return Math.random() - 0.5
+    });
+
+}
+//con todo terminado pasamos a el boton dar carta (recordemos que le dimos el evento click una vez que se cargo el tablero)
+function darCarta() {
+    //tal y como os dije vosotros reiniciabais el array de cartas a cada juego
+    //eso implica que simplemente llamais aquÃ­ a la funciÃ³n cargar cartas cada vez que se dan cartas 
+
+    //si no habrÃ­a que comprobar si el array ha llegado al final
+    if (!arrayCartas.length == 0) {// si no reinicimos el array de cartas llega un momento en que el mazo se acaba y esto controla que no genere fallo. 
+        var resultado;
+        var numero;
+        var aux = arrayCartas[0]; //metemos en aux el nombre de la primera carta
+        var primero = aux.split("_"); //creamos un primer array de la cadena de la primera carta separa por _
+        aux = primero[1]; //como ya no necesitamos la variable anterior machamaos aux con el valor de la segunda parte de la cadena anterior
+        var segundo = aux.split("."); //extraemos el numero
+        numero = segundo[0];
+        if (numero > 7) {
+            numero = 0.5;
+        }
+        imagenCarta.setAttribute("src", arrayCartas[0]);
+        arrayCartas.shift(); //elimina la primera carta para que no vuelva a salir
+        arrayCartas.sort(function () { //ordenamos de nuevo lo que queda
+            return Math.random() - 0.5
+        });
+
+        resultado = parseFloat(input.value) + parseFloat(numero);
+        input.setAttribute("value", resultado);
+        comprobarResultado();//llamamos a la funciÃ³n comprobar resultado por si ha ganado
+    } else {
+
+        //si no reiniciamos el array llegarÃ¡ un momento que termine el juego porque no haya mas cartas 
+        Swal.fire('No hay mas cartas. El juego se ha terminado.');
+        finalJuego();
+    }
+}
+//si se pulsa el boton de plantarse 
+function plantarse() {
+    //sumamos una al contador de plantadas y sale alerta
+    plantadas++;
+    Swal.fire({
+        title: '¡Se Ha plantado!',
+        showCancelButton: true,
+        confirmButtonText: `Seguir Jugando`,
+        cancelButtonText: `Fin del Juego`,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            //si no queremos reiniciar las cartas cargaremos cartas sino seguiremos jugando con las que quedan
+            //cargarCartas();  
+            cargarTablero();
+        } else {
+            finalJuego();
+        }
+    })
+}
+
+function comprobarResultado() {
+
+    if (input.value == 7.5) {
+        ganadas++;
+        Swal.fire({
+            title: 'Â¡Has Ganado!',
+            showCancelButton: true,
+            confirmButtonText: `Seguir Jugando`,
+            cancelButtonText: `Fin del Juego`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //si no queremos reiniciar las cartas cargaremos cartas sino seguiremos jugando con las que quedan
+                //cargarCartas();  
+                cargarTablero();
             } else {
-                usuarioCorrecto = false;
-                errorUsuario.innerHTML = "Está mal, cámbialo!!!!\n. Debe tener al menos 6 caracteres";
-                usuario.focus();
+                finalJuego();
             }
-        }
-    
-        /* Esta funcion es para validar la edad si esta bien o no */
-        function validarEdad() {
-        var edad = document.getElementById("edad");
-        var errorEdad = document.getElementById("errorEdad");
-    
-        if (parseInt(edad.value) > 18) {
-            edadCorrecta = true;
-            errorEdad.innerHTML = "";
-        } else {
-            edadCorrecta = false;
-            errorEdad.innerHTML = "Esta mal, cambialo!!!!.\n Tienes que ser mayor de edad";
-        }
-        }
-    
-        /* Esta funcion sirve para que, cuando pulsas el boton de comenzar tras hacer hecho el login,
-        empieza el juego con las cartas  */
-        function comenzarJuego() {
-            tablero.style.visibility = "visible";
-        if (usuarioCorrecto && edadCorrecta) {
-            document.getElementById("tableroPuntos").innerHTML = "<p>Puntuación: </br><h2 id='puntuacionSpan' >0</h2></p>";
-            document.getElementById("tablero").style.display = "block";
-            var baraja = document.querySelector(".baraja").innerHTML = "<img src='imagenes/cartaVuelta.jpg' alt='carta'>";s
-            document.getElementById("botonCarta").innerHTML = "<button type='button'>Pedir Carta</button>";
-            document.getElementById("botonMePlanto").innerHTML = "<button type='button'>Me Planto</button>";
-        } else {
-            alert( "Por favor, completa los campos correctamente.");
-        }
-        }
+        })
+    }
 
-        /* Esta funcion sirve cuando pulsas el boton para que te de una nueva carta aleatorias*/
-        function darCarta() {
-            reiniciarContadores();
-            var cartaNombre = ["bastos", "oros", "copas", "espadas"];
-            var valorCarta;
-        
-            var baraja = document.querySelector(".baraja");
-            var cartaRandom = cartaNombre[Math.floor(Math.random() * cartaNombre.length)];
-        
-            while (true) {
-                if (Math.random() < 0.5) {
-                    valorCarta = Math.floor(Math.random() * 7) + 1;
-                } else {
-                    valorCarta = [10, 11, 12][Math.floor(Math.random() * 3)];
-                }
-        
-                if (valorCarta !== 10 && valorCarta !== 11 && valorCarta !== 12) {
-                    break;
-                }
+    if (input.value > 7.5) {
+        perdidas++;
+        Swal.fire({
+            title: 'Â¡Has Perdido!',
+            showCancelButton: true,
+            confirmButtonText: `Seguir Jugando`,
+            cancelButtonText: `Fin del Juego`,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                //si no queremos reiniciar las cartas cargaremos cartas sino seguiremos jugando con las que quedan
+                //cargarCartas();  
+                cargarTablero();
+            } else {
+                finalJuego();
             }
-        
-            /* Aqui se definen las cartas para que salgan las imagenes aleatorias segun el nombre de la carpeta*/
-            var cartaAleatoria = cartaRandom + "_" + valorCarta + ".jpg";
-            var cartaImagen = document.createElement("img");
-            cartaImagen.src = "imagenes/baraja/" + cartaAleatoria;
-            cartaImagen.alt = "carta";
-        
-            baraja.innerHTML = "";
-            baraja.appendChild(cartaImagen);
-        
-            puntuacionSpan += valorCarta;
-        
-            document.getElementById("puntuacionSpan").innerText = puntuacionSpan.toFixed(1);      
+        })
 
-            /* Este if es para ver si te pasastes de puntuacion o no con sweetalert*/
-            if (puntuacionSpan > 7.5) {
-                partidasPerdidas++;
-                Swal.fire({
-                    
-                    title: "PERDISTEEEEE.",
-                    text: "Nombre: " + usuario.value + "\n" +
-                        "Edad: " + edad.value +
-                        "Puntuacion: " + puntuacionSpan.toFixed(1) +
-                        "¿Quieres seguir?",
-                    buttons: {
-                        confirmButtonText: "<p class='la la-headphones'>SEGUIMOS</p>",
-                          customClass: {
-                        actions: function (){
-                            reiniciarJuego();
-                        }
-                    }
-                      },  
-                    showCancelButton: true,
-                    cancelButtonText: "<i class='la la-thumbs-down'>Me VOY</i>",
-                
-                    imageUrl: "https://img.freepik.com/vector-premium/cara-triste-ceno-fruncido-tamano-grande-emoji-amarillo-sonrisa_599062-5954.jpg?size=338&ext=jpg&ga=GA1.1.1826414947.1699315200&semt=ais",
-                    imageWidth: 200,
-                    imageHeight: 200,
-                    imageAlt: "imagen triste"
+    }
+}
 
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                      reiniciarJuego();
-                    } else if (result.isDenied) {
-                      botonMePlanto();
-                    }
-                  })
-            }
-            }
-         
-        /* Esta funcion sirve cuando pulsas el boton reiniciar juego y te vuelve a salir de 0*/
-        function reiniciarJuego() {
-            valorCarta.innerHTML = "";
-            puntuacionSpan = 0;
-            document.getElementById("puntuacionSpan").innerText = puntuacionSpan.toFixed(1);
-            comenzarJuego();
-            partidasGanadas++;
-        }
+function finalJuego() {
+    var fecha = new Date();
+    jugadas = ganadas + perdidas + plantadas;
+    var objeto = {
+        edad: edad.value,
+        fecha: fecha,
+        ganadas: ganadas,
+        jugadas: jugadas,
+        perdidas: perdidas,
+        plantadas: plantadas,
+    }
+    objeto = JSON.stringify(objeto);
 
-        /* Esta funcion sirve cuando pulsas el boton reiniciar juego y se reinician los contadores*/
-        function reiniciarContadores() {
-            partidasGanadas = 0;
-            partidasPerdidas = 0;
-            partidasEmpatadas = 0;
-        }
+    botonCarta.disabled = true;
+    botonPlanto.disabled = true;
+    localStorage.setItem(usuario.value, objeto);
+    Swal.fire(usuario.value + ' se ha terminado el Juego y estos son los resultados: \n Has jugado ' + jugadas + ` partidas \n Has ganado ` + ganadas + ` partidas \n Has perdido ` + perdidas + ` partidas \n Te has plantado ` + plantadas + ` veces`);
 
-        var usuarioCorrecto = false; 
-        var usuario = document.getElementById("usuario");
-
-        /* Esta funcion sirve cuando pulsas el boton plantarse, te aparece toda la informacion de las partidas*/
-        botonMePlanto.addEventListener("click", function () {
-            
-            Swal.fire({
-                title: "Adioooosssssss.",
-                text: "Nombre: " + usuario.value +
-                      "Partidas Ganadas: "+partidasGanadas.value+
-                      "Partidas empatadas: "+partidasEmpatadas.value+
-                      "Partidas perdidas: "+partidasPerdidas.value+
-                       "Puntuacion: " + puntuacionSpan.value,
-
-                imageUrl: "https://i.pinimg.com/originals/9f/3c/49/9f3c496d6c72f910a64fab28311f3d89.gif",
-                imageWidth: 200,
-                imageHeight: 200,
-                imageAlt: "imagen cat adios"
-            });
-            cartaBoton.disabled = false;
-            mePlantoBoton.disabled = false;
-        }); 
-  });
+}
