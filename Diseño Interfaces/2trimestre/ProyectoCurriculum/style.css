@@ -15,7 +15,7 @@ body {
   width: 80px;
 }
 
-.estrella {
+#estrella {
   display: none;
 }
 
@@ -27,4 +27,51 @@ body {
 #menu > img {
   height: 80px;
   width: 120px;
+}
+
+.info {
+  display: flex;
+  margin: 30%;
+  position: fixed;
+}
+
+.info > img {
+  height: 150px;
+  width: 150px;
+}
+
+.habilidades {
+  display: flex;
+  margin-top: 15%;
+  margin-left: 70%;
+  position: fixed;
+}
+
+.habilidades > img {
+  height: 160px;
+  width: 160px;
+}
+
+.formacion {
+  display: flex;
+  margin-top: 5%;
+  margin-left: 30%;
+  position: fixed;
+}
+
+.formacion > img {
+  height: 120px;
+  width: 120px;
+}
+
+.experiencia {
+  display: flex;
+  /*  margin-top: 5%;
+   margin-left: 30%; */
+  position: fixed;
+}
+
+.experiencia > img {
+  height: 100px;
+  width: 100px;
 }/*# sourceMappingURL=style.css.map */
