@@ -18,15 +18,16 @@ export class AppComponent {
     this.asignaturas.push(miAsignatura);
   }
 
-  profesor1 = new Profesor("Rodolfo" , "Gutierrez");
-  profesor2 = new Profesor("Carlitoh" , "Gutierrez");
-  profesor3 = new Profesor("Miguelitoh" , "Gutierrez");
-
+  profesores : Profesor []=[
+  new Profesor ("Rodolfo" , "Gutierrez"),
+  new Profesor ("Carlitoh" , "Gutierrez"),
+  new Profesor ("Miguelitoh" , "Gutierrez")
+  ]
 
   asignaturas : Asignatura[] = [
-    new Asignatura ("Base de Datos", 3, this.profesor1),
-    new Asignatura ("Lenguaje de Marcas", 80, this.profesor2 ),
-    new Asignatura ("Programación", 80, this.profesor3),
+    new Asignatura ("Base de Datos", 3, this.profesores[0]),
+    new Asignatura ("Lenguaje de Marcas", 80, this.profesores[1]),
+    new Asignatura ("Programación", 80, this.profesores[2])
   ]
 
 

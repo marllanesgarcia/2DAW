@@ -334,26 +334,25 @@
 
 <h1>{{title}}</h1>
 
-<!-- <div class="container">
+ <div class="container">
   <div class="row">
-    <div class="col"> -->
-     <!--  <form class="form-group row">
+    <div class="col"> 
+     <form class="form-group row">
         <label form="nombre"> Nombre: </label>
         <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="datoNombre">
-        <label form="nombre"> Número de Horas: </label>
+        <label form="horas"> Número de Horas: </label>
         <input type="text" name="horas" id="horas" placeholder="Número de Horas" [(ngModel)]="datoHoras">
-        <label form="nombre"> Profesor: </label>
+        <label form="profesor"> Profesor: </label>
         <input type="text" name="profesor" id="profesor" placeholder="Profesor" [(ngModel)]="datoProfesor">
-      </form> -->
-      <!-- <button type="submit" class="btn btn-dark" (click)="anadirAsignatura()" style="margin:25px;">Añadir anadirAsignatura</button>
-      <br> -->
+      </form> 
+       <button type="submit" class="btn btn-dark" (click)="anadirAsignatura()" style="margin:25px;">Añadir Asignatura</button>
+      <br> 
       <hr>
        <div *ngFor="let asignatura of asignaturas; let i=index">
         {{i+1}} {{asignatura.nombre}} {{asignatura.horas}} {{asignatura.profesor.imprimirDatos()}}
       </div> 
-<!-- 
+ 
     </div>
   </div>
 </div>
- -->
 <router-outlet />
