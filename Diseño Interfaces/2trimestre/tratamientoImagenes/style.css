@@ -1,17 +1,69 @@
 body {
-  background-image: src("/img/fondo.jpg");
+  background-image: url("/img/fondo.jpg");
 }
 
+@font-face {
+  font-family: "WedgieRegular";
+  src: url("wedgie Regular.ttf") format("truetype");
+}
 h1 {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-family: "WedgieRegular", sans-serif;
+  margin-right: 30%;
+  color: purple;
 }
 
 header {
   display: flex;
+  justify-content: space-between;
 }
 
 #avatar {
   border-radius: 100%;
-  width: 200px;
-  height: 180px;
+  width: 180px;
+  height: 160px;
+  border-color: rgb(90, 7, 158);
+  border-style: dashed;
+}
+
+footer {
+  background-color: rgba(51, 51, 51, 0.4431372549);
+  color: white;
+  padding: 20px;
+  margin-top: auto;
+}
+
+.container1 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.container2 {
+  display: column;
+  justify-content: center;
+}
+
+.container3 {
+  display: flex;
+  justify-content: center;
+}
+
+#img1 {
+  width: 330px;
+  height: 220px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.589);
+}
+
+#img2 {
+  width: 250px;
+  height: 220px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.589);
+}
+
+#img3 {
+  width: 550px;
+  height: 280px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.589);
 }/*# sourceMappingURL=style.css.map */
