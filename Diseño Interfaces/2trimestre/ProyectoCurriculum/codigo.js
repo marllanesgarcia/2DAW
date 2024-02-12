@@ -1,4 +1,4 @@
-/* "use script";
+"use script";
 
 var menu = document.getElementById("menu");
 var contenido = document.querySelectorAll("class")[0];
@@ -6,7 +6,7 @@ var menu = document.getElementById("menu");
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    /* Esta funcion sirve para mover el muñeco por la pantalla
+    // Esta funcion sirve para mover el muñeco por la pantalla
     document.addEventListener('keydown', function (event) {
 
         var element = document.getElementById('cuadrado');
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-$(document).ready(function() {
+/* $(document).ready(function() {
     $(window).scroll(function() {
       var cuadrado = $('#cuadrado');
       var bloque = $('#bloque1');
@@ -71,9 +71,9 @@ $(document).ready(function() {
         });
       }
     });
-  }); */
-
-  $(document).ready(function() {
+  }); 
+ */
+/*  $(document).ready(function() {
     document.addEventListener('keydown', function (event) {
         var cuadrado = $('#cuadrado');
         var left = parseInt(cuadrado.css('left'));
@@ -99,25 +99,18 @@ $(document).ready(function() {
         cuadrado.css('top', top + 'px');
 
         // Verificar si el cuadrado pasa por debajo de otro cuadrado
-        $('img').each(function() {
+        /* $('img').each(function() {
           if (this !== cuadrado[0]) {
             var cuadradoRect = cuadrado[0].getBoundingClientRect();
             var cuadradoRect = this.getBoundingClientRect();
 
-            /* if (
-              cuadradoRect.bottom >= cuadradoRect.top &&
-              cuadradoRect.top <= cuadradoRect.bottom &&
-              cuadradoRect.right >= cuadradoRect.left &&
-              cuadradoRect.left <= cuadradoRect.right
-            ) { */
               Swal.fire({
                 title: '¡Ganaste!',
                 text: 'Pasaste por debajo de un cuadrado',
                 icon: 'success',
                 confirmButtonText: 'Aceptar'
               });
-           // }
           }
         });
-    });
-  });
+    }); 
+  });*/
