@@ -68,8 +68,8 @@ $(document).ready(function () {
             }
         });
     });
-    //Modal pulso y sale el modal con algo
 
+    //Modal pulso y sale el modal con algo
     $("#modal").dialog({
         autoOpen: false,
         modal: true,
