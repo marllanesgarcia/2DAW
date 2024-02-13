@@ -1,0 +1,19 @@
+#titulo{
+    font-family: 'Pleej', sans-serif;
+}
+
+#containerTitulo{
+    display: flex;
+    justify-content: center;
+}
+
+.form-group{
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5%;
+}
+
+.urgente{
+    color: red;
+    font-weight: bolder;
+}

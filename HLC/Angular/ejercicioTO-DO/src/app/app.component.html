@@ -6,8 +6,8 @@
 <!-- * * * * * * * * * Delete the template below * * * * * * * * * -->
 <!-- * * * * * * * to get started with your project! * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-<!-- <style>
+<!-- 
+<style>
   :host {
     --bright-blue: oklch(51.01% 0.274 263.83);
     --electric-violet: oklch(53.18% 0.28 296.97);
@@ -322,8 +322,8 @@
       </div>
     </div>
   </div>
-</main> -->
-
+</main>
+ -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
@@ -332,28 +332,6 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
-<h1>{{title}}</h1>
-
- <div class="container">
-  <div class="row">
-    <div class="col"> 
-     <form class="form-group row">
-        <label form="nombre"> Nombre: </label>
-        <input type="text" name="nombre" id="nombre" placeholder="Nombre" [(ngModel)]="datoNombre">
-        <label form="horas"> Número de Horas: </label>
-        <input type="text" name="horas" id="horas" placeholder="Número de Horas" [(ngModel)]="datoHoras">
-        <label form="profesor"> Profesor: </label>
-        <input type="text" name="profesor" id="profesor" placeholder="Profesor" [(ngModel)]="datoProfesor">
-      </form> 
-       <button type="submit" class="btn btn-dark" (click)="anadirAsignatura()" style="margin:25px;">Añadir Asignatura</button>
-      <br> 
-      <hr>
-      <div *ngFor='let profesor of profesores; let i=index'>
-        {{i+1}} {{profesor.nombre}} {{profesor.datoHoras}} {{profesor.datoProfesor}}
-        <!-- <span [ngStyle]="{color : profesor.edad>=18?'red':'blue'}">{{profesor.datoProfesor}}</span> -->
-      </div> 
-    </div>
-  </div>
-</div>
+<app-lista></app-lista>
 
 <router-outlet />

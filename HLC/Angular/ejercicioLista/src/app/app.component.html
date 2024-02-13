@@ -349,9 +349,8 @@
       <button type="submit" class="btn btn-dark" (click)="anadirUsuario()" style="margin:25px;">Añadir Usuario</button>
       <br>
       <hr>
-       <div *ngFor="let usuario of usuarios; let i=index">
-        {{i+1}} {{usuario.nombre}} {{usuario.apellido}} {{usuario.edad}}
-      </div> 
+       
+          <app-biblioteca *ngFor="let usuario of usuarios; let i=index" [usuarioFor]=usuario [indice]="i"></app-biblioteca>
 
     </div>
   </div>
