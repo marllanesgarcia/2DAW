@@ -1,0 +1,16 @@
+.cuadrado1{
+    width: 15px;
+    height: 15px;
+    background-color: blueviolet;
+}
+
+.cuadrado2{
+    width: 100px;
+    height:100px;
+    background-color: aqua;
+}
+
+.grande{
+    display: flex;
+    justify-content:space-around;
+}
