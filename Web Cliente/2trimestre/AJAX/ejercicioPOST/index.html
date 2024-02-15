@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de AJAX POST</title>
+</head>
+<body>
+    
+    <h2>Enviar mensaje de agradecimiento</h2>
+    <form id="mensajeForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+
+        <label for="mensaje">Cuerpo del Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" required></textarea>
+
+        <input type="button" value="Enviar Mensaje" id="enviar">
+    </form>
+    <br>
+    <div id="respuesta"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
