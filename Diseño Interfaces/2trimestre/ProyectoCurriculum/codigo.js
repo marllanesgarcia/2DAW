@@ -9,6 +9,18 @@ var planeta2 = document.getElementById("planetaInfo2");
 
 document.addEventListener('DOMContentLoaded', function () {
     /*Esta funcion sirve para mover el muñeco por la pantalla */
+    Swal.fire({
+        title: "Intrucciones de movimiento.",
+        html: `¡Bienvenidx! </br></br>` +
+            `\nPincha y arrastra al astronauta para </br>` +
+            `\npoder ver la información que ocultan </br>` +
+            `\ncada uno de los planetas. </br></br>` +
+            `\n¡En la estrella encontrarás las instrucciones!`,
+        imageUrl: "https://www.icegif.com/wp-content/uploads/2023/12/icegif-939.gif",
+        imageWidth: 110,
+        imageHeight: 110,
+        imageAlt: "imagen intrucciones"
+    });
 
     menu.addEventListener("click", function () {
         Swal.fire({
