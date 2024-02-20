@@ -31,8 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             drop: function() {
                 Swal.fire({
                     html: 
-                    `
-                    <h1>Informacion General</h1>
+                    `<h1>Informacion General</h1>
                     <h2> Mar Llanes García.</h2>
                     <ul style='list-style-type: none;'> 
                         <li style='text-align: left;'>Fecha de nacimiento: 26/01/1999</li>		
@@ -97,19 +96,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 <ul style='list-style-type: none;'> 
                     <li style='text-align: left;'>FPIGS DESARROLLO DE APLICACIONES WEB C.D.P. CENEC-MALAGA (01/10/22 - 21/06/2024)</li>		
                     </br>
-                    <li style='text-align: left;>GRADO EN ESTUDIOS DE ASIA ORIENTAL MENCION COREA UMA Málaga, España (15/09/2018 - 20/06/2022)/li>	
+                    <li style='text-align: left;>GRADO EN ESTUDIOS DE ASIA ORIENTAL MENCION COREA UMA Málaga, España (15/09/2018 - 20/06/2022)</li>	
                     </br>
                     <li style='text-align: left;>BACHILLERATO DE ARTES PLÁSTICAS IES Cerro del Viento (15/09/2015 - 20/06/2017)</li>	
                     </br>
                     <li style='text-align: left;>CPM COSTA DEL SOL Conservatorio profesional de música (15/09/2009 - 20/06/2015)</li>
                     </ul>
-                </br>
-                <h3>  </h3>
-                <p>  </p>
                 `,
                 confirmButtonText: '¡Seguimos!',
-                confirmButtonColor: '#935116',
-                background: '#FAE5D3'
+                confirmButtonColor: '#0E6655',
+                background: '#D0ECE7'
               });
         }
     });
@@ -122,14 +118,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h1>Proyecto y Repositorios</h1>
                 </br>
                 <ul style='list-style-type: none;'> 
-                    <li style='text-align: left;'>FPIGS DESARROLLO DE APLICACIONES WEB C.D.P. CENEC-MALAGA (01/10/22 - 21/06/2024)</li>		
+                    <li style='text-align: left;'>A continuación se muestra el link de GitHub con todos los proyectos realizados y algunos a destacar.</li>		
                     </br>
-                    <li style='text-align: left;>GRADO EN ESTUDIOS DE ASIA ORIENTAL MENCION COREA UMA Málaga, España (15/09/2018 - 20/06/2022)/li>	
+                    <li style='text-align: left;> Usuario de GitHub: marllanesgarcia ( <a>https://github.com/marllanesgarcia</a> ) </li>
                     </br>
+                    <li style='text-align: left;> Proyecto Final Primer año de DAW : <a>https://marllanesgarcia.github.io/ProyectoGatuno/index.html</a></li>		
+                    </br>
+                    <li style='text-align: left;> Página sobre League of Legends: <a>https://marllanesgarcia.github.io/ejercicios/index.html</a> </li>	
+                    </br>
+                    
                     </ul>
                 </br>
-                <h3>  </h3>
-                <p>  </p>
                 `,
                 confirmButtonText: '¡Seguimos!',
                 confirmButtonColor: '#935116',
