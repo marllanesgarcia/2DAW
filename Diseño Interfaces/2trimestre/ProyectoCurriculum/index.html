@@ -1,55 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-
-<!-- Div donde el usuario puede pinchar cada vez que se olvide de las instrucciones iniciales para moverse
+    <div id="titulo">
+    <h1>¡Bienvenidx a mi Curriculum!</h1>
+    <div id="menu">
+        <div id="estrella">
+        </div>
+        <img src="./imagenes/estrella.png">
+    </div>
+</div>
+    <!-- Div donde el usuario puede pinchar cada vez que se olvide de las instrucciones iniciales para moverse
 por la pantalla -->
-<div id="menu">
-    <div id="estrella">
+    
+    
+    <!-- div donde aparece el elemento con el que se interactua para poder acceder a la informacion -->
+    <div id="cuadrado" class="draggable-item">
+        <img id="imagen"
+            src="https://cdna.artstation.com/p/assets/images/images/050/392/824/original/nelson-tiapa-gif-baile2.gif?1654734113">
     </div>
-<img src="./imagenes/estrella.png">
-</div>
 
-<!-- div donde aparece el elemento con el que se interactua para poder acceder a la informacion -->
-<div id="cuadrado">
-    <img id="imagen" src="https://cdna.artstation.com/p/assets/images/images/050/392/824/original/nelson-tiapa-gif-baile2.gif?1654734113">
-</div>
-
-<!-- Bloques donde se visualiza la información -->
-<div id="bloque1">
-    <div class="info">
-        <img id="planetaInfo" src="./imagenes/—Pngtree—universe planet planet planetary universe_3928937.png">
+    <!-- Bloques donde se visualiza la información -->
+    <div id="bloque1">
+        <div class="info">
+            <img id="planetaInfo1" src="./imagenes/—Pngtree—universe planet planet planetary universe_3928937.png">
+        </div>
     </div>
-</div>
 
-<div id="bloque1">
-    <div class="experiencia">
-        <img id="planetaInfo" src="./imagenes/luba.png">
+    <div id="dialogPlanetaInfo1" style="display: none;">
+        <div id="contenidoModal">
+    </br>
+        </div>
     </div>
-</div>
 
-<div id="bloque1">
-    <div class="formacion">
-        <img id="planetaInfo" src="./imagenes/tierra.png">
+    <div id="bloque1">
+        <div class="experiencia">
+            <img id="planetaInfo2" src="./imagenes/luba.png">
+        </div>
     </div>
-</div>
 
-<div id="bloque1">
-    <div class="habilidades">
-        <img id="planetaInfo" src="./imagenes/147b3006dc4d2975d97838e0b6026469-removebg-preview.png">
+    <div id="bloque1">
+        <div class="formacion">
+            <img id="planetaInfo3" src="./imagenes/tierra.png">
+        </div>
     </div>
-</div>
+
+    <div id="bloque1">
+        <div class="habilidades">
+            <img id="planetaInfo4" src="./imagenes/147b3006dc4d2975d97838e0b6026469-removebg-preview.png">
+        </div>
+    </div>
 
     <script src="sweetAlert/sweetalert2.all.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="jquery-3.7.1.min.js"></script>
+    <script src="./ui/jquery-ui.js"></script>
     <script src="codigo.js"></script>
 </body>
+
 </html>

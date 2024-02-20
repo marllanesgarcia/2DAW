@@ -17,6 +17,7 @@ function mover(event) {
 
 //cuando soltamos, prevenimos el evento
 function soltar(event) {
+    
     event.preventDefault();
     //recuperamos la id que hemos pasado desde el método arrastrar
     //y buscamos el elemento por su id

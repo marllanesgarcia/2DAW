@@ -4,10 +4,25 @@
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 3;
+}
+
+#titulo {
+  display: flex;
+  color: white;
+}
+
+#planetaInfo4 {
+  z-index: 11111111;
 }
 
 body {
   background-image: url("https://cdn.wallpapersafari.com/55/88/wlCyTI.jpg");
+}
+
+#titulo {
+  display: flex;
+  justify-content: center;
 }
 
 #imagen {
@@ -38,6 +53,7 @@ body {
 .info > img {
   height: 150px;
   width: 150px;
+  cursor: pointer;
 }
 
 .habilidades {
@@ -66,12 +82,48 @@ body {
 
 .experiencia {
   display: flex;
-  /*  margin-top: 5%;
-   margin-left: 30%; */
   position: fixed;
 }
 
 .experiencia > img {
   height: 100px;
   width: 100px;
+  z-index: 1;
+}
+
+#dialogPlanetaInfo1 {
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+#contenidoModal {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  font-size: large;
+}
+
+@font-face {
+  font-family: "WedgieRegular";
+  src: url("wedgie Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Asul";
+  src: url("Asul-Regular.ttf") format("truetype");
+}
+h1 {
+  font-family: "WedgieRegular", sans-serif;
+}
+
+h2, p, ul, li {
+  font-family: "Asul", sans-serif;
 }/*# sourceMappingURL=style.css.map */
