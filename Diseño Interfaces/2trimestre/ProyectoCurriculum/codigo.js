@@ -34,36 +34,107 @@ document.addEventListener('DOMContentLoaded', function () {
                     `
                     <h1>Informacion General</h1>
                     <h2> Mar Llanes García.</h2>
-                    <ul> 
-                        <li>Fecha de nacimiento: 26/01/1999</li>		
-                        <li>Nacionalidad: Española</li>	
-                        <li>Número de teléfono: (+34) 682539169 (Móvil)</li>	
-                        <li>Dirección de correo electrónico: sakiro1999@gmail.com</li>
-                        <li>Dirección: Calle Magnolia 4, Casa 2, 29639, España (Domicilio)</li>
+                    <ul style='list-style-type: none;'> 
+                        <li style='text-align: left;'>Fecha de nacimiento: 26/01/1999</li>		
+                        <li style='text-align: left;>Nacionalidad: Española</li>	
+                        <li style='text-align: left;>Número de teléfono: (+34) 682539169 (Móvil)</li>	
+                        <li style='text-align: left;>Dirección de correo electrónico: sakiro1999@gmail.com</li>
+                        <li style='text-align: left;>Dirección: Calle Magnolia 4, Casa 2, 29639, España (Domicilio)</li>
+                        <li style='text-align: left;>Idiomas: Español, Inglés, Coreano</li>
                     </ul>
                     </br>
+                    <h3> Aspectos a Destacar </h3>
+                    <p> Trabajo en equipo | Responsabilidad en el trabajo | 
+                    Capacidad de aprendizaje rápido | Resolución de problemas organización y puntualidad
+                    | Adaptabilidad, tolerancia y precisión en el trabajo | Buena comunicación | 
+                    Carnet de conducir tipo B | Vehículo propio </p>
                     `,
-                    confirmButtonText: 'Entendido'
+                    confirmButtonText: '¡Seguimos!',
+                    confirmButtonColor: '#8E44AD',
+                    background: '#F4ECF7'
                   });
             }
         });
 
     $("#planetaInfo2").droppable({
         drop: function( event, ui ) {
-            
+            Swal.fire({
+                html: 
+                `
+                <h1>Experiencia Laboral</h1>
+                </br>
+                <ul style='list-style-type: none;'> 
+                    <li style='text-align: left;'>Ayudante de camarera en barra y coctelera “VULCANO GRILL” (01/07/2021 - 17/09/2023)</li>
+                    </br>		
+                    <li style='text-align: left;>Prácticas en escuela de idiomas “CULTURA ASIÁTICA” (1/04/2022 - 30/05/20232)</li>	
+                    </br>
+                    <li style='text-align: left;>Ayudante de camarera en barra “LA FÁBRICA” (12/2018)</li>	
+                    </br>
+                    <li style='text-align: left;>Ayudante de camarera en barra y Camarera en Coctelería “EL TALLER”  (01/06/2021 - 30/09/2021)</li>
+                    </br>
+                    <li style='text-align: left;>Puesto de venta asiático SALONES MANGA EN CONGRESOS (01/08/2017 - 30/09/2018)</li>
+                    </br>
+                    <li style='text-align: left;>Camarera sala y terraza “TUKTUK NOODLES” (01/07/2019 - 30/08/2019)</li>
+                    </br>
+                    <li style='text-align: left;'>Diseño de camisetas hechas a mano TIENDA ONLINE PROPIA (1/06/2017 - 30/06/2022)</li>
+                </ul>
+                `,
+                confirmButtonText: '¡Seguimos!',
+                confirmButtonColor: '#935116',
+                background: '#FAE5D3'
+              });
            
         }
     });
 
     $("#planetaInfo3").droppable({
         drop: function( event, ui ) {
-            alert("BIEN");
+            Swal.fire({
+                html: 
+                `
+                <h1>Formacion Academica</h1>
+                </br>
+                <ul style='list-style-type: none;'> 
+                    <li style='text-align: left;'>FPIGS DESARROLLO DE APLICACIONES WEB C.D.P. CENEC-MALAGA (01/10/22 - 21/06/2024)</li>		
+                    </br>
+                    <li style='text-align: left;>GRADO EN ESTUDIOS DE ASIA ORIENTAL MENCION COREA UMA Málaga, España (15/09/2018 - 20/06/2022)/li>	
+                    </br>
+                    <li style='text-align: left;>BACHILLERATO DE ARTES PLÁSTICAS IES Cerro del Viento (15/09/2015 - 20/06/2017)</li>	
+                    </br>
+                    <li style='text-align: left;>CPM COSTA DEL SOL Conservatorio profesional de música (15/09/2009 - 20/06/2015)</li>
+                    </ul>
+                </br>
+                <h3>  </h3>
+                <p>  </p>
+                `,
+                confirmButtonText: '¡Seguimos!',
+                confirmButtonColor: '#935116',
+                background: '#FAE5D3'
+              });
         }
     });
 
     $("#planetaInfo4").droppable({
         drop: function( event, ui ) {
-            alert("BIEN");
+            Swal.fire({
+                html: 
+                `
+                <h1>Proyecto y Repositorios</h1>
+                </br>
+                <ul style='list-style-type: none;'> 
+                    <li style='text-align: left;'>FPIGS DESARROLLO DE APLICACIONES WEB C.D.P. CENEC-MALAGA (01/10/22 - 21/06/2024)</li>		
+                    </br>
+                    <li style='text-align: left;>GRADO EN ESTUDIOS DE ASIA ORIENTAL MENCION COREA UMA Málaga, España (15/09/2018 - 20/06/2022)/li>	
+                    </br>
+                    </ul>
+                </br>
+                <h3>  </h3>
+                <p>  </p>
+                `,
+                confirmButtonText: '¡Seguimos!',
+                confirmButtonColor: '#935116',
+                background: '#FAE5D3'
+              });
         }
     });
    
