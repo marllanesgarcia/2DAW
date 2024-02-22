@@ -160,7 +160,7 @@ li {
   font-family: "Asul", sans-serif;
 }
 
-/*  Media Query para móviles     */
+/*  Media Query para móviles  */
 @media only screen and (max-width: 768px) {
   h1 {
     font-size: 16px;
