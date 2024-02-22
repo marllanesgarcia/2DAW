@@ -143,3 +143,26 @@ h1{
 h2,p,ul,li{
     font-family: 'Asul', sans-serif;
 }
+
+/*  Media Query para móviles     */
+@media only screen and (max-width: 768px){
+  #titulo{
+    display: block;
+}
+  #menu{
+    display: block;
+    justify-content: center;
+  }
+  .info, .habilidades, .formacion, .experiencia{
+    margin: 10%;
+  }
+  .habilidades{
+    margin-left: 50%;
+  }
+  .formacion{
+    margin-top: 25%;
+  }
+  .experiencia{
+    margin-left: 20%;
+  }
+}
