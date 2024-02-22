@@ -8,6 +8,10 @@
   z-index: 3;
 }
 
+#rastro {
+  display: none;
+}
+
 #titulo {
   display: flex;
   color: white;
@@ -49,12 +53,21 @@ body {
   animation: zoomInOut 4s ease-in-out infinite;
 }
 
+#menu > p {
+  display: none;
+}
+
+#menu > img:hover + p {
+  display: block;
+}
+
 @keyframes zoomInOut {
   0% {
     transform: scale(0.5);
   }
   50% {
     transform: scale(1.2);
+    opacity: 1;
   }
   100% {
     transform: scale(0.5);
@@ -140,7 +153,10 @@ h1 {
   font-family: "WedgieRegular", sans-serif;
 }
 
-h2, p, ul, li {
+h2,
+p,
+ul,
+li {
   font-family: "Asul", sans-serif;
 }
 
@@ -158,11 +174,29 @@ h2, p, ul, li {
     width: 50px;
   }
   .formacion {
-    top: 30vh;
-    left: 10vw;
+    top: 20vh;
   }
   .info {
     top: 60vh;
     left: 45vw;
+  }
+  .experiencia {
+    top: 60vh;
+  }
+  .habilidades {
+    top: 30vh;
+  }
+  #rastro {
+    position: absolute;
+    width: 30px;
+    height: 120px;
+    background-color: rgba(195, 195, 236, 0.5);
+    border-radius: 50%;
+    filter: blur(5px);
+    pointer-events: none;
+    transition: opacity 1s ease-out;
+    top: 55%;
+    left: 56%;
+    display: flex;
   }
 }/*# sourceMappingURL=style.css.map */

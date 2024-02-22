@@ -6,103 +6,119 @@ $posicion: flex;
     position: absolute;
     top: 50%;
     left: 50%;
-    z-index:3;
+    z-index: 3;
 }
 
-#titulo{
+#rastro {
+    display: none;
+}
+
+#titulo {
     display: flex;
     color: white;
 }
 
-#planetaInfo4{
+#planetaInfo4 {
     z-index: 11111111;
 }
-body{
+
+body {
     background-image: url('https://cdn.wallpapersafari.com/55/88/wlCyTI.jpg');
     height: 100vh;
-    width:100vw;
+    width: 100vw;
     overflow: hidden;
 }
 
-#titulo{
+#titulo {
     display: $posicion;
     justify-content: center;
 }
 
-#imagen{
+#imagen {
     height: 80px;
     width: 80px;
 }
 
-#estrella{
-  display: none;
-} 
-
-#menu{
-    display:$posicion;
-    justify-content:flex-end;
+#estrella {
+    display: none;
 }
 
-#menu > img {
+#menu {
+    display: $posicion;
+    justify-content: flex-end;
+}
+
+#menu>img {
     height: 80px;
     width: 120px;
     animation: zoomInOut 4s ease-in-out infinite;
-  }
+}
 
-  @keyframes zoomInOut {
+#menu>p {
+    display: none;
+}
+
+#menu>img:hover+p {
+    display: block;
+}
+
+@keyframes zoomInOut {
     0% {
-      transform: scale(0.5);
+        transform: scale(0.5);
     }
-    50% {
-      transform: scale(1.2); 
-    }
-    100% {
-      transform: scale(0.5); 
-    }
-  }
 
-.info{
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.5);
+    }
+}
+
+.info {
     display: $posicion;
     margin: 30%;
     position: fixed;
 }
 
-.info > img {
+.info>img {
     height: 150px;
     width: 150px;
     cursor: pointer;
 }
 
-.habilidades{
+.habilidades {
     display: $posicion;
     margin-top: 15%;
     margin-left: 70%;
     position: fixed;
 }
 
-.habilidades > img {
+.habilidades>img {
     height: 160px;
     width: 160px;
 }
 
-.formacion{
+.formacion {
     display: $posicion;
     margin-top: 5%;
     margin-left: 30%;
     position: fixed;
 }
 
-.formacion > img {
+.formacion>img {
     height: 120px;
     width: 120px;
 }
 
-.experiencia{
+.experiencia {
     display: $posicion;
     position: fixed;
 }
 
-.experiencia > img {
+.experiencia>img {
     height: 100px;
     width: 100px;
     z-index: 1;
@@ -110,7 +126,7 @@ body{
 
 
 #dialogPlanetaInfo1 {
-    display:flex;
+    display: flex;
     justify-content: center;
     z-index: 1;
     left: 0;
@@ -118,12 +134,12 @@ body{
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
-#contenidoModal{
+#contenidoModal {
     background-color: #fefefe;
-    margin: 15% auto; 
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
@@ -134,43 +150,68 @@ body{
     font-family: 'WedgieRegular';
     src: url('wedgie Regular.ttf') format('truetype');
 }
+
 @font-face {
     font-family: 'Asul';
     src: url('Asul-Regular.ttf') format('truetype');
 }
 
-h1{
+h1 {
     font-family: 'WedgieRegular', sans-serif;
 }
 
-h2,p,ul,li{
+h2,
+p,
+ul,
+li {
     font-family: 'Asul', sans-serif;
 }
 
 /*  Media Query para móviles     */
-@media only screen and (max-width: 768px){
-   h1 {
-        font-size: 16px; 
-      }
-    
-      #menu > img,
-      .info > img,
-      .habilidades > img,
-      .formacion > img,
-      .experiencia > img {
-        height: 50px; 
-        width: 50px; 
-      }
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 16px;
+    }
 
-      .formacion{
-        top: 30vh;
-        left: 10vw;
-      }
+    #menu>img,
+    .info>img,
+    .habilidades>img,
+    .formacion>img,
+    .experiencia>img {
+        height: 50px;
+        width: 50px;
+    }
 
-      .info{
+    .formacion {
+        top: 20vh;
+    }
+
+    .info {
         top: 60vh;
         left: 45vw;
-      }
-
-
     }
+
+    .experiencia {
+        top: 60vh;
+    }
+
+    .habilidades {
+        top: 30vh;
+    }
+
+
+    #rastro {
+        position: absolute;
+        width: 30px;
+        height: 120px;
+        background-color: rgba(195, 195, 236, 0.5);
+        border-radius: 50%;
+        filter: blur(5px);
+        pointer-events: none;
+        transition: opacity 1s ease-out;
+        top: 55%;
+        left: 56%;
+        display: flex;
+    }
+
+}

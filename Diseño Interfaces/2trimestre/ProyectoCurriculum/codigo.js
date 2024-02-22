@@ -9,19 +9,6 @@ var planeta2 = document.getElementById("planetaInfo2");
 
 document.addEventListener('DOMContentLoaded', function () {
     /*Esta funcion sirve para mover el muñeco por la pantalla */
-    Swal.fire({
-        title: "Intrucciones de movimiento.",
-        html: `¡Bienvenidx! </br></br>` +
-            `\nPincha y arrastra al astronauta para </br>` +
-            `\npoder ver la información que ocultan </br>` +
-            `\ncada uno de los planetas. </br></br>` +
-            `\n¡En la estrella encontrarás las instrucciones!`,
-        imageUrl: "https://www.icegif.com/wp-content/uploads/2023/12/icegif-939.gif",
-        imageWidth: 110,
-        imageHeight: 110,
-        imageAlt: "imagen intrucciones"
-    });
-
     menu.addEventListener("click", function () {
         Swal.fire({
             title: "Intrucciones de movimiento.",
@@ -36,13 +23,13 @@ document.addEventListener('DOMContentLoaded', function () {
             imageAlt: "imagen intrucciones"
         });
     });
-        
-        $("#cuadrado").draggable();
-    
-        $("#planetaInfo1").droppable({
-            drop: function() {
-                Swal.fire({
-                    html: 
+
+    $("#cuadrado").draggable();
+
+    $("#planetaInfo1").droppable({
+        drop: function () {
+            Swal.fire({
+                html:
                     `<h1>Informacion General</h1>
                     <h2> Mar Llanes García.</h2>
                     <ul style='list-style-type: none'> 
@@ -59,20 +46,20 @@ document.addEventListener('DOMContentLoaded', function () {
                     | Adaptabilidad, tolerancia y precisión en el trabajo | Buena comunicación | 
                     Carnet de conducir tipo B | Vehículo propio </p>
                     `,
-                    confirmButtonText: '¡Seguimos!',
-                    confirmButtonColor: '#8E44AD',
-                    background: '#F4ECF7',
-                    grow: 'row'
+                confirmButtonText: '¡Seguimos!',
+                confirmButtonColor: '#8E44AD',
+                background: '#F4ECF7',
+                grow: 'row'
 
-                  });
-            }
-        });
+            });
+        }
+    });
 
     $("#planetaInfo2").droppable({
-        drop: function( event, ui ) {
+        drop: function (event, ui) {
             Swal.fire({
-                html: 
-                `
+                html:
+                    `
                 <h1>Experiencia Laboral</h1>
                 </br>
                 <ul style='list-style-type: none'> 
@@ -95,16 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmButtonColor: '#935116',
                 background: '#FAE5D3',
                 grow: 'row'
-              });
-           
+            });
+
         }
     });
 
     $("#planetaInfo3").droppable({
-        drop: function( event, ui ) {
+        drop: function (event, ui) {
             Swal.fire({
-                html: 
-                `
+                html:
+                    `
                 <h1>Formacion Academica</h1>
                 </br>
                 <ul style='list-style-type: none'> 
@@ -121,15 +108,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmButtonColor: '#0E6655',
                 background: '#D0ECE7',
                 grow: 'row'
-              });
+            });
         }
     });
 
     $("#planetaInfo4").droppable({
-        drop: function( event, ui ) {
+        drop: function (event, ui) {
             Swal.fire({
-                html: 
-                `
+                html:
+                    `
                 <h1>Proyecto y Repositorios</h1>
                 </br>
                 <ul style='list-style-type: none'> 
@@ -149,23 +136,50 @@ document.addEventListener('DOMContentLoaded', function () {
                 confirmButtonColor: '#935116',
                 background: '#FAE5D3',
                 grow: 'row'
-              });
+            });
         }
     });
 
     var isMobile = window.matchMedia("only screen and (max-width: 768px)").matches;
 
     if (isMobile) {
+
+        Swal.fire({
+            title: "Intrucciones de movimiento.",
+            html: `¡Bienvenidx! </br></br>` +
+                `\nPincha en los planetas </br>` +
+                `\npoder ver la información que ocultan. </br>` +
+                `\nAdemás, el astronauta puedes arrastrarlo con el dedo` +
+                `\n¡En la estrella encontrarás las instrucciones!`,
+            imageUrl: "https://www.icegif.com/wp-content/uploads/2023/12/icegif-939.gif",
+            imageWidth: 110,
+            imageHeight: 110,
+            imageAlt: "imagen intrucciones"
+        });
+
         $("#cuadrado").on("touchmove", function (event) {
-            var touch = event.originalEvent.touches[0] || event.originalEvent.changedTouches[0];
-            var elm = $(this);
-            var newPosX = touch.pageX - elm.width() / 2;
-            var newPosY = touch.pageY - elm.height() / 2;
-            elm.css({
-                'left': newPosX + 'px',
-                'top': newPosY + 'px'
+            var touch = event.touches[0];
+            var x = touch.clientX;
+            var y = touch.clientY;
+
+            $("#rastro").css({
+                left: x + "px",
+                top: y + "px",
+                opacity: 1
+            });
+
+            setTimeout(function () {
+                $("#rastro").css("opacity", 0);
+            }, 1000);
+
+            var newPosX = x - $(this).width() / 2;
+            var newPosY = y - $(this).height() / 2;
+            $(this).css({
+                left: newPosX + 'px',
+                top: newPosY + 'px'
             });
         });
+
 
         $("#planetaInfo1, #planetaInfo2, #planetaInfo3, #planetaInfo4").on("touchstart", function () {
             var planetId = $(this).attr("id");
@@ -239,12 +253,40 @@ document.addEventListener('DOMContentLoaded', function () {
                 grow: 'row'
             });
         });
+
+        menu.addEventListener("click", function () {
+            Swal.fire({
+                title: "Intrucciones de movimiento.",
+                html:
+                    `\nPincha en los planetas </br>` +
+                    `\npoder ver la información que ocultan. </br>` +
+                    `\nAdemás, el astronauta puedes arrastrarlo con el dedo,` +
+                    `\npero no hace nada porque ¡¡es dificil para él aterrizar en los planetas!!. </br>`,
+                imageUrl: "https://www.icegif.com/wp-content/uploads/2023/12/icegif-939.gif",
+                imageWidth: 110,
+                imageHeight: 110,
+                imageAlt: "imagen intrucciones"
+            });
+        });
     } else {
+        Swal.fire({
+            title: "Intrucciones de movimiento.",
+            html: `¡Bienvenidx! </br></br>` +
+                `\nPincha y arrastra al astronauta para </br>` +
+                `\npoder ver la información que ocultan </br>` +
+                `\ncada uno de los planetas. </br></br>` +
+                `\n¡En la estrella encontrarás las instrucciones!`,
+            imageUrl: "https://www.icegif.com/wp-content/uploads/2023/12/icegif-939.gif",
+            imageWidth: 110,
+            imageHeight: 110,
+            imageAlt: "imagen intrucciones"
+        });
+
         $("#cuadrado").draggable();
     }
 
 
-   
+
 });
 
 
