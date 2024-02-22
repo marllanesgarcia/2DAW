@@ -15,6 +15,7 @@
 #titulo {
   display: flex;
   color: white;
+  justify-content: center;
 }
 
 #planetaInfo4 {
@@ -31,6 +32,13 @@ body {
 #titulo {
   display: flex;
   justify-content: center;
+  margin-top: 0;
+}
+
+#nombreTitulo {
+  font-family: "Bungee Shade", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 #imagen {
@@ -141,16 +149,17 @@ body {
   font-size: large;
 }
 
-@font-face {
-  font-family: "WedgieRegular";
-  src: url("wedgie Regular.ttf") format("truetype");
+/* @font-face {
+    font-family: 'WedgieRegular';
+    src: url('wedgie Regular.ttf') format('truetype');
 }
+
 @font-face {
-  font-family: "Asul";
-  src: url("Asul-Regular.ttf") format("truetype");
-}
+    font-family: 'Asul';
+    src: url('Asul-Regular.ttf') format('truetype');
+} */
 h1 {
-  font-family: "WedgieRegular", sans-serif;
+  font-family: "Bungee Shade", sans-serif;
 }
 
 h2,
@@ -197,6 +206,6 @@ li {
     transition: opacity 1s ease-out;
     top: 55%;
     left: 56%;
-    display: flex;
+    display: block;
   }
 }/*# sourceMappingURL=style.css.map */
