@@ -19,7 +19,10 @@ $posicion: flex;
 }
 body{
     background-image: url('https://cdn.wallpapersafari.com/55/88/wlCyTI.jpg');
-    }
+    height: 100vh;
+    width:100vw;
+    overflow: hidden;
+}
 
 #titulo{
     display: $posicion;
