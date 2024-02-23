@@ -1,85 +1,73 @@
+"use strict";
+
 $(document).ready(function(){
-    $('#provincia').change(infoMuni);
-    $('#clima').click(infoClima);
+    infoProv();
+    $("#provincia").change(function(){
+        $('#municipio').empty();
+        infoMuni();
+    });
+    $('#clima').click(function(){infoClima()});
 });
 
+function infoProv(){
+
+    fetch('https://www.el-tiempo.net/api/json/v2/provincias')
+        .then(response=>response.json())
+        .then((data)=> data.provincias.forEach(element => {
+            var selectProv = document.getElementById("provincia");
+            var opciones= document.createElement("option");
+            opciones.setAttribute("value", element.CODPROV);
+            opciones.innerHTML=element.NOMBRE_PROVINCIA;
+            selectProv.appendChild(opciones);
+            })
+        );
+}
+
 function infoMuni(){
-
-    var selectProv = $('#provincia').val();
-
-    if(selectProv){
-
-            fetch('https://www.tiempo.com/geo/provinciasAPI/'+selectProv+'/municipios/')
+    var seleccionado = $("#provincia").val();
+ //   console.log(seleccionado)
+    fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${seleccionado}/municipios`)
                 .then(response=>response.json())
-                .then((data)=>
-                data.results.array.foreach(element => {
-                    var municipios = data.municipios;
-                var opciones = '<option value="" selected disabled>. . .</option>';
-
-                municipios.forEach(function(municipio){
-                    opciones += '<option value="'+ municipio.id +'">' +municipio.nombre+'</option>';
-                });
-
-                $('#municipio').html(opciones);
-                })
+                .then((data)=> data.municipios.forEach(element => {
+                    var selectMuni = document.getElementById("municipio");
+                    var opciones2= document.createElement("option");
+                    opciones2.setAttribute("value", element.CODIGOINE);
+                    opciones2.innerHTML= element.NOMBRE;
+                    selectMuni.appendChild(opciones2);
+                    })
                 );
-    }
+}
+
+function infoClima(){
+    var seleccionado = $("#provincia").val();
+    var seleccionado2 = $("#municipio").val();
+    console.log(seleccionado)
+    var seleccionado3 = seleccionado2.slice(0,5);
+    console.log(seleccionado3)
+         fetch(`https://www.el-tiempo.net/api/json/v2/provincias/${seleccionado}/municipios/${seleccionado3}`)
+        .then(response=>response.json())
+        .then((data) =>{   
+                color(data.temperatura_actual);
+                
+            })
 }
 
 var fondo;
 function color(temperaturaM){
-    if(temperaturaM < 0){
-        fondo = 'white';
-        $('body').addClass(color);
-    } else if(temperaturaM >= 0 && temperaturaM < 15){
-        fondo = 'blue';
-        $('body').addClass(color);
-    } else if(temperaturaM >= 15 && temperaturaM < 30){
-        fondo = 'orange';
-        $('body').addClass(color);
-    } else {
-        fondo = 'red';
-        $('body').addClass(color);
+    var aqui=document.getElementById("mensajeclima")
+    switch(true){
+        case temperaturaM<0:
+        document.body.style="background-color:White";
+        break;
+        case temperaturaM<15:
+        document.body.style="background-color:aqua";
+        break;
+        case temperaturaM<30:
+        document.body.style="background-color:orange";
+        break;
+        default:
+         document.body.style="background-color:red";
+        break;
     }
-    
+    aqui.innerHTML=`La temperatura es de: ${temperaturaM} Grados`;
 }
-
-var texto = '';
-function temperatura(temperaturaM){
-
-    if(temperaturaM < 0){
-        texto = 'El clima es menor de 0 grados.';
-    } else if(temperaturaM >= 0 && temperaturaM < 15){
-        texto = 'El clima es de 0 a 15 grados.';
-    } else if(temperaturaM >= 15 && temperaturaM < 30){
-        texto = 'El clima es de 15 a 30 grados.';
-    } else {
-        texto = 'El clima es mayor de 30 grados.';
-    }
-    $('#clima').after('<h1 id="mensajeclima">' + texto + '</h1>');
-}
-
-function infoClima(){
-
-    var selectMuni = $('#municipio').val();
-
-    if(selectMuni){
-        
-        fetch('https://www.tiempo.com/api/json/')
-        .then(response=>response.json())
-        .then((data)=>
-        data.results.array.foreach(element => {
-            var clima = data.weather;
-                var temperaturaM = clima.temp_c;
-                temperatura(temperaturaM);
-                color(temperaturaM);
-        })
-        );
-
-    } else {
-        alert('Tienes que elegir un municipio porque o sino no va');
-    } 
-}
-
-
-
