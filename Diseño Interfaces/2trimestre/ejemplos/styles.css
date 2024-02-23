@@ -1,0 +1,74 @@
+a {
+    text-decoration: none;
+}
+
+/* Pseudoclase :hover - Cambia el color al pasar el ratón  por el parrafo*/
+p:hover {
+    color: red;
+    /* Cambia el color del texto a rojo al pasar el ratón */
+}
+
+
+a:hover {
+    color: green;
+    /* Cambia el color del texto a rojo al pasar el ratón */
+    font-weight: bold;
+}
+
+input:focus {
+    background-color: yellow;
+    border-color: blue;
+    box-shadow: 0 0 5px blue;
+}
+
+li:first-child {
+    font-weight: bold;
+    color: blue;
+}
+
+li:last-child {
+    font-weight: bold;
+    color: brown;
+}
+
+li:nth-child(7) {
+    font-weight: bold;
+    color: aqua;
+}
+
+li:nth-of-type(even) {
+    text-decoration: underline;
+}
+
+div:not(.prueba) {
+    background-color: rgb(133, 109, 109);
+}
+
+input:disabled {
+    background-color: blueviolet;
+}
+
+input:enabled {
+    border: 2px solid green;
+}
+
+
+P::before {
+    Content: "Antes del párrafo";
+    Font-weight: bold;
+    color:red;
+}
+
+p::first-line {
+    font-weight: bold;
+}
+
+
+input:disabled::placeholder {
+   color:green;
+   Font-weight: bold;
+}
+
+::selection{
+    color:yellow;
+}
