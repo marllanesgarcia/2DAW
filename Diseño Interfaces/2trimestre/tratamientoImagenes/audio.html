@@ -12,7 +12,7 @@
 
     <!-- header con avatar y una frase -->
     <header id="header">
-        <img src="/img/avatar.PNG" id="avatar">
+        <img src="./img/avatar.PNG" id="avatar">
         <h1> TusImagUstaCulo</h1>
     </header>
     <menu class="texto">
@@ -39,26 +39,70 @@
         <h2 id="miniTitulo">Música de Podcast</h2>
     </div>
     <div class="container3">
-    <audio loop preload="auto" > autoplay 
-        <source src="audio/godsLevelUp.mp3" type="audio/mpeg">
-        <source src="audio/godsLevelUp.mp3" type="audio/mpeg">
-    </audio>
-    </div>
+        <audio controls="controls" autoplay loop preload="auto">
+            <source src="audio/godsLevelUp.mp3" type="audio/mpeg">
+            <source src="audio/godsLevelUp.mp3" type="audio/mpeg">
+        </audio>
+        </div>
     &nbsp;
-
 
     <!-- Música de Calidad-->
     <div class="texto">
         <h2 id="miniTitulo">Música de Alta Calidad</h2>
     </div>
     <div class="container3">
-    <audio controls="controls" loop preload="auto" > autoplay 
-        <source src="audio/ateezLevelUp.mp3" type="audio/mpeg">
-        <source src="audio/ateezLevelUp.mp3" type="audio/mpeg">
-    </audio>
+        <audio id="musica" controls="false" loop preload="auto" >
+            <source src="audio/ateezLevelUp.mp3" type="audio/mpeg">
+            <source src="audio/ateezLevelUp.mp3" type="audio/mpeg">
+        </audio>
     </div>
+      <div id="botoncitos">
+            <button id="botonPlay">Reproducir</button>
+            <button id="BotonStop">Detener</button>
+            <select id="velocidad">
+            <option value="1">Normal</option>
+            <option value="2">Doble Velocidad</option>
+            </select>
+       </div>
     &nbsp;
 
+    <!-- Apartado de los vídeos -->
+
+    <div class="texto">
+        <h2 id="miniTitulo">Video Chulo nº1</h2>
+    </div>
+    <div class="container3">
+        <video controls autoplay poster="./img/heart.jpg">
+          <source src="./video/heartsteel.mp4" type="video/mp4">
+        </video>
+    </div> 
+
+    <div class="texto">
+        <h2 id="miniTitulo">Video Chulo nº2</h2>
+    </div>
+    <div class="container3">
+        <video controls autoplay muted>
+          <source src="./video/ateez.mp4" type="video/mp4">
+        </video>
+    </div> 
+
+    <div class="texto">
+        <h2 id="miniTitulo">Video Chulo nº3</h2>
+    </div>
+    <div class="container3">
+        <video controls autoplay id="video">
+          <source src="./video/oldGods.mp4" type="video/mp4">
+        </video>
+    </div> 
+
+    <div class="texto">
+        <h2 id="miniTitulo">Iframe Chulo</h2>
+    </div>
+    <div class="container3">
+        <iframe src="./video/dragon.mp4" frameborder="4"></iframe>
+    </div> 
+    &nbsp;
+      
 
     <!-- footer con el nombre e informacion -->
     <footer>
