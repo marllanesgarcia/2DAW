@@ -1,43 +1,104 @@
 <?php
-$conexion = new mysqli('localhost', 'root', '', 'phasmofobia');
+$conexion = new mysqli('localhost', 'root', '', 'proyectofinal');
 
 if ($conexion->connect_error) {
     die("Error de conexión: " . $conexion->connect_error);
 }
 
 $usuario = $_POST['usuario'];
-$contrasena = $_POST['contrasena'];
-$rol = $_POST['rol'];
+$password = $_POST['password'];
+$correo = $_POST['correo'];
 
-$query = "INSERT INTO usuarios (usuario, contrasena, rol) VALUES ('$usuario', '$contrasena','$rol')";
+
+if (!preg_match('/^[a-zA-Z0-9]{4,}$/', $usuario)) {
+
+    echo "<body style= 'width: 100%; height: 100%; margin: 0; padding: 0;background: linear-gradient(to bottom right, #5C0000, #9E1717);'>
+    <div style= 'position: relative; top:10%; left: 50%; transform: translate(-50%, 50%);
+    width: 80%; max-width: 400px; padding: 20px; background-color: #f0f0f0b9;
+    border-radius: 10px; text-align: center; box-shadow: 0 0 10px white;'>
+        <h2 style='color:white'>
+        Error al registrar el usuario: <br> 
+        <strong>El nombre de usuario debe contener al menos 4 caracteres alfanuméricos.</strong>
+        </h2>
+        <br>
+        <a href='registrarse.php'>
+        <button style='background-color:black; color: white; font-style: italic; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer;'>Volver</button></a>
+        </br>
+    </div>
+    </body>";
+
+    exit;
+}else if (!filter_var($correo, FILTER_VALIDATE_EMAIL)) {
+    
+    echo "<body style= 'width: 100%; height: 100%; margin: 0; padding: 0;background: linear-gradient(to bottom right, #5C0000, #9E1717);'>
+    <div style= 'position: relative; top:10%; left: 50%; transform: translate(-50%, 50%);
+    width: 80%; max-width: 400px; padding: 20px; background-color: #f0f0f0b9;
+    border-radius: 10px; text-align: center; box-shadow: 0 0 10px white;'>
+        <h2 style='color:white'>
+        Error al registrar el usuario: <br> 
+        <strong>El formato del correo electrónico es inválido.</strong>
+        </h2>
+        <br>
+        <a href='registrarse.php'>
+        <button style='background-color:black; color: white; font-style: italic; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer;'>Volver</button></a>
+        </br>
+    </div>
+    </body>";
+
+    exit;
+} else if (!preg_match('/^[a-zA-Z0-9!@#$%^&*()_.,;:{}\-+=~<>|\/?]{6,}$/', $password)) {
+    
+    echo "<body style= 'width: 100%; height: 100%; margin: 0; padding: 0;background: linear-gradient(to bottom right, #5C0000, #9E1717);'>
+    <div style= 'position: relative; top:10%; left: 50%; transform: translate(-50%, 50%);
+    width: 80%; max-width: 400px; padding: 20px; background-color: #f0f0f0b9;
+    border-radius: 10px; text-align: center; box-shadow: 0 0 10px white;'>
+        <h2 style='color:white'>
+        Error al registrar el usuario: <br> 
+        <strong>La contraseña debe contener al menos 6 caracteres alfanuméricos y puede incluir los siguientes caracteres especiales: !@#$%^&*()_.</strong>
+        </h2>
+        <br>
+        <a href='registrarse.php'>
+        <button style='background-color:black; color: white; font-style: italic; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer;'>Volver</button></a>
+        </br>
+    </div>
+    </body>";
+
+    exit;
+}else{
+    $query = "INSERT INTO usuarios (usuario, password, correo) VALUES ('$usuario', '$password','$correo')";
 
     if ($conexion->query($query) === TRUE) {
-                echo "<body style= 'background-color: black; color:white;'>
-                    <div style= 'display:block; justify-content:center; padding: 20%; padding-top:5%; padding-bottom:5%; '>
-                        <h2>
-                        Usuario registrado con éxito.
-                        ¡Bienvenido, " . $usuario . "! El registro fue exitoso. <br>
-                        ¡¡Por favor, inicia sesion!!
-                        </h2>
-                        <br><br>
-                        <a href='index.php'>
-                        <button style=' background-color: purple; color: white; font-style: italic;'>Volver</button></a>
-                        <img src='https://i.pinimg.com/originals/cc/4e/13/cc4e13c7aa8896b068576783e9c379dd.gif'>
-                    </div>
-                    </body>";
-            } else {
-                echo "<body style= 'background-color: black; color:white;'>
-                    <div style= 'display:block; justify-content:center; padding: 10%; '>
-                        <h2>
-                        Error al registrar el usuario: " . $conexion->error."
-                        </h2>
-                        <br><br>
-                        <a href='index.php'>
-                        <button style=' background-color: purple; color: white; font-style: italic;'>Volver</button></a>
-                        <img src='https://i.pinimg.com/originals/57/f1/fe/57f1fe09982e0a9216a01862a29fa474.gif' style='width:200px; heigth:200px;'>
-                    </div>
-                    </body>";
-            }
+        echo "<body style= 'width: 100%; height: 100%; margin: 0; padding: 0;background: linear-gradient(to bottom right, #5C0000, #9E1717);'>
+        <div style= 'position: relative; top:10%; left: 50%; transform: translate(-50%, 50%);
+        width: 80%; max-width: 400px; padding: 20px; background-color: #f0f0f0b9;
+        border-radius: 10px; text-align: center; box-shadow: 0 0 10px white;'>
+            <h2 style='color:white'>
+                Usuario registrado con éxito.
+                ¡Bienvenido, " . $usuario . "! <br> El registro fue exitoso. <br>
+                ¡¡Por favor, inicia sesion!!
+                </h2>
+                <br>
+                <a href='index.php'>
+                <button style='background-color:black; color: white; font-style: italic; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer;'>Home</button></a>
+                </br>
+            </div>
+            </body>";
+    } else {
+        echo "<body style= 'width: 100%; height: 100%; margin: 0; padding: 0;background: linear-gradient(to bottom right, #5C0000, #9E1717);'>
+        <div style= 'position: relative; top:10%; left: 50%; transform: translate(-50%, 50%);
+        width: 80%; max-width: 400px; padding: 20px; background-color: #f0f0f0b9;
+        border-radius: 10px; text-align: center; box-shadow: 0 0 10px white;'>
+            <h2 style='color:white'>
+                Error al registrar el usuario: " . $conexion->error."
+                </h2>
+                <br>
+                <a href='registrarse.php'>
+                <button style='background-color:black; color: white; font-style: italic; padding: 8px 16px; border-radius: 4px; border: none; cursor: pointer;'>Volver</button></a>
+                </br>
+            </div>
+            </body>";
+    }
+}
     $conexion->close();
 
 ?>

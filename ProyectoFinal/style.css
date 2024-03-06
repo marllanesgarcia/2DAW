@@ -1,6 +1,11 @@
-.body {
+@charset "UTF-8";
+body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to bottom right, #5C0000, #9E1717);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 .titulo {
@@ -99,20 +104,35 @@
   transform: translateX(-10px);
 }
 
-/* .login{
-    @include estructura(flex,center);
-} */
+/*
+    Estilos de la página Login
+*/
+.login {
+  display: column;
+  justify-content: center;
+  text-align: center;
+}
+
 .divloggeo {
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 50%);
   width: 80%;
   max-width: 400px;
   padding: 20px;
-  background-color: #f0f0f0;
+  background-color: rgba(240, 240, 240, 0.7254901961);
   border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  box-shadow: 0 0 10px white;
+}
+
+h2, .loginTexto, .btn, #login, #registro {
+  font-family: "Viga", sans-serif;
+}
+
+.loginTexto {
+  font-style: italic;
 }
 
 /* .pinchar {

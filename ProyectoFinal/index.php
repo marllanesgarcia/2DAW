@@ -13,7 +13,7 @@
     <title>MalagApp</title>
 </head>
 
-<body class="body">
+<body>
 
     <div class="usuario">
 
@@ -52,6 +52,7 @@
         </div>
     </div>
 
+        <!-- Footer -->
     <footer class="footer">
         <p>informacion footer</p>
     </footer>

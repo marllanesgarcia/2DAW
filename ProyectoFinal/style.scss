@@ -1,14 +1,19 @@
 $alineacion:center;
 $posicion: flex;
+$fuenteTexto: nth('Arial, sans-serif','"Aladin", system-ui','"Viga", sans-serif');
 
 @mixin estructura($posicion,$alineacion){
     display: $posicion;
     justify-content: $alineacion;
 }
 
-.body{
-    font-family: Arial, sans-serif;
+body{
+    font-family: $fuenteTexto(0);
     background: linear-gradient(to bottom right, #5C0000, #9E1717);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .titulo{
@@ -18,7 +23,7 @@ $posicion: flex;
 }
 
 .titulo > h1{
-    font-family: "Aladin", system-ui;
+    font-family: $fuenteTexto(1);
     font-size: 400%;
     margin-left: 38%;
     color: aliceblue;
@@ -106,25 +111,36 @@ $posicion: flex;
     transform: translateX(-10px);
 }
 
-/* .login{
-    @include estructura(flex,center);
-} */
+/*
+    Estilos de la página Login
+*/
+
+.login{
+    @include estructura(column,center);
+    text-align: center;
+} 
 
 .divloggeo {
-    position: absolute;
+    position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 50%);
     width: 80%;
     max-width: 400px;
     padding: 20px;
-    background-color: #f0f0f0;
+    background-color: #f0f0f0b9;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    box-shadow: 0 0 10px white;
 }
 
+h2, .loginTexto, .btn, #login, #registro{
+    font-family: $fuenteTexto(2);
+}
 
-
+.loginTexto{
+    font-style: italic;
+}
 
 
 

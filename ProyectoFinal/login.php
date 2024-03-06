@@ -9,29 +9,41 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Aladin&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Viga&display=swap" rel="stylesheet">
+    
     <title>MalagApp</title>
 </head>
 
-<body class="body">
+<body>
 
+    </br></br>
     <div class="divloggeo">
-        <div class="login">
+        <div>
+        </br>
             <h2>Inicia Sesion</h2>
-            <div id="contenidoBlog">
+                </br>
                 <form method="post" action="funcionesInicioSesion.php">
-                    <label for="usuario">Usuario:</label>
-                    <input type="text" name="usuario" id="usuario"><br><br>
+                    <label for="usuario" class="loginTexto">Usuario </label>
+                    <input type="text" name="usuario" id="usuario" class="form-control"><br>
 
-                    <label for="contrasena">Contraseña:</label>
-                    <input type="password" name="contrasena" id="contrasena"><br><br>
+                    <label for="password" class="loginTexto">Contraseña </label>
+                    <input type="password" name="password" id="password" class="form-control"><br><br>
 
-                    <input type="submit" value="iniciarSesion" class="btn btn-dark">
+                    <input type="submit" value="Iniciar Sesion" class="btn btn-dark">
                 </form>
-            </div>
+                </br>
+                    <a href='index.php'><input type="submit" class="btn btn-outline-secondary" value="Volver"></a>
+                
         </div>
     </div>
 
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <p>informacion footer</p>
+    </footer>
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

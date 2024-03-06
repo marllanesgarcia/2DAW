@@ -3,16 +3,20 @@
 var divLogo = document.getElementById('logo');
 var loginBtn = document.getElementById('login');
 var registroBtn = document.getElementById('registro');
+var volverBtn = document.getElementById('volver');
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    divLogo.addEventListener('click', function(){mostrarMenu()});
+   divLogo.addEventListener('click', function(){mostrarMenu()});
     loginBtn.addEventListener('click', function(){
         window.location.href = 'login.php';
     });
     registroBtn.addEventListener('click', function(){
         window.location.href = 'registrarse.php';
-    })
+    });
+    volverBtn.addEventListener('click', function(){
+        window.location.href = 'index.php';
+    });
 
 });
 
