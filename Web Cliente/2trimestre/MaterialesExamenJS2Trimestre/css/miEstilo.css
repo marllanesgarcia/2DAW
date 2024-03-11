@@ -1,0 +1,53 @@
+@font-face {
+    font-family: 'HARRYP';
+    src: url('./Fuentes/HARRYP.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'HARRYP', sans-serif;
+    background: linear-gradient(to right, #7f0000 0%, #b88600 25%, #3a7221 75%, #003366 100%);
+    color: #000;
+    text-align: center;
+    font-size: 30px;
+}
+
+#exam-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    width: 80%; 
+    margin: 20px auto; /
+}
+
+#tabla-container {
+    width: 80%;
+    margin: 0 auto; 
+}
+
+.table td {
+    text-align: center; 
+}
+input,
+select {
+    width: calc(100% - 22px); 
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #555;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#btnasignaturas {
+    display: none;
+}

@@ -1,0 +1,16 @@
+INSERT INTO asignaturas (nombre_asignatura, profesor, nivel, casa) VALUES
+('Pociones', 'Profesor Snape', 1, 'Slytherin'),
+('Encantamientos', 'Profesora Flitwick', 1, 'Ravenclaw'),
+('Defensa Contra las Artes Oscuras', 'Profesora McGonagall', 1, 'Gryffindor'),
+('Astronomía', 'Profesor Sinistra', 1, NULL),
+('Herbología', 'Profesor Sprout', 1, 'Hufflepuff'),
+('Transformaciones', 'Profesor McGonagall', 2, NULL),
+('Historia de la Magia', 'Profesor Binns', 2, NULL),
+('Vuelo', 'Madame Hooch', 1, NULL),
+('Cuidado de Criaturas Mágicas', 'Profesor Hagrid', 3, NULL),
+('Runas Antiguas', 'Profesora Babbling', 3, NULL),
+('Adivinación', 'Profesora Trelawney', 3, NULL),
+('Estudios Muggles', 'Profesor Burbage', 3, NULL),
+('Artes Oscuras', 'Profesor Carrow', 4, 'Slytherin'),
+('Runas Antiguas Avanzadas', 'Profesor Vector', 4, NULL),
+('Estudio de las Runas', 'Profesora Babbling', 4, NULL);

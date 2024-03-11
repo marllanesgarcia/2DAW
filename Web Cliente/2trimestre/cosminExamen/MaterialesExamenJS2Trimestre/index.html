@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen de JavaScript - Harry Potter</title>
+    <link rel="stylesheet" href="./css/jquery-ui.min.css">
+    <link rel="stylesheet" href="./css/sweetalert2.min.css">
+    <link rel="stylesheet" href="./css/miEstilo.css">
+    
+</head>
+<body>
+    <h1>Examen de JavaScript</h1>
+    <div class="container mt-5" id="exam-container">
+        <h1 class="mb-4"> A que casa perteneces</h1>
+        <form id="exam-form">
+            <div class="form-group">
+                <label for="nombre">Nombre del Candidato:</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" ><span id="errorNombre"></span>
+            </div>
+            <div class="form-group">
+                <label for="cualidad1">Cualidad 1:</label>
+                <select class="form-control"  name="cualidad" >
+                    <option value="">----</option>
+                    <option value="valiente">Valiente</option>
+                    <option value="astuto">Astuto</option>  
+                    <option value="inteligente">Inteligente</option>    
+                </select><span id="errorCualidad1"></span>
+            </div>
+            <div class="form-group">
+                <label for="cualidad2">Cualidad 2:</label>
+                <select class="form-control" name="cualidad" >
+                    <option value="">----</option>
+                    <option value="malvado">Malvado</option>
+                    <option value="estudioso">Estudioso</option>
+                    
+                </select><span id="errorCualidad2"></span>
+            </div>
+            <button type="submit" id="sombrero" class="btn btn-primary">Sombrero Seleccionador</button>
+        </form>
+    </div> 
+    <div>
+    <table id="tabla-container"class="table"></table> </div>
+    <button type="button" id="btnasignaturas" class="btn btn-primary">asignaturas</button>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery-3.7.1.min.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script src="./js/sweetalert2.all.min.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
+
+
